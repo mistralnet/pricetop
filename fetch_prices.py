@@ -22,6 +22,9 @@ from typing import Optional
 import xml.etree.ElementTree as ET
 
 import requests
+import urllib3
+
+urllib3.disable_warnings()
 
 # Force UTF-8 stdout/stderr on Windows
 if sys.stdout.encoding != "utf-8":
@@ -71,13 +74,9 @@ class PublishedPricesFetcher:
         self.password     = password
         self.price_prefix = price_prefix
         self.promo_prefix = promo_prefix
-        # SKIP_SSL_VERIFY=1 for local dev on Windows; never set in production
-        self._verify      = not bool(os.getenv("SKIP_SSL_VERIFY"))
+        self._verify      = False   # publishedprices.co.il — skip SSL verify
         self.s            = requests.Session()
         self.s.headers.update({"User-Agent": "pricetop/1.0"})
-        if not self._verify:
-            import urllib3
-            urllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning)
 
     # --- auth ---
     def _get_csrf(self, url: str) -> str:
