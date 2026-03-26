@@ -35,7 +35,8 @@ if sys.stdout.encoding != "utf-8":
 # Config
 # ---------------------------------------------------------------------------
 STORES_CSV  = Path("stores.csv")
-OUTPUT_FILE = Path("data/prices.json")
+DATA_DIR    = Path("data")
+OUTPUT_FILE = DATA_DIR / "prices.json"
 FRESH_RE    = re.compile(r"(?<!\S)טרי(?!\S)")   # word-boundary for Hebrew
 
 # ---------------------------------------------------------------------------
@@ -72,11 +73,12 @@ class PublishedPricesFetcher:
         self.base         = portal_url.rstrip("/")
         self.username     = username
         self.password     = password
-        self.price_prefix = price_prefix
-        self.promo_prefix = promo_prefix
         self._verify      = False   # publishedprices.co.il — skip SSL verify
         self.s            = requests.Session()
         self.s.headers.update({"User-Agent": "pricetop/1.0"})
+        # derive store tag from prefix: "PriceFull7290103152017-001-014" → "-014"
+        m = re.search(r'(-\d{3})$', price_prefix)
+        self.store_tag = m.group(1) if m else price_prefix
 
     # --- auth ---
     def _get_csrf(self, url: str) -> str:
@@ -95,22 +97,35 @@ class PublishedPricesFetcher:
         )
 
     # --- file listing ---
-    def _find_latest(self, prefix: str, csrf: str) -> Optional[dict]:
+    def _find_latest(self, kind: str, csrf: str) -> Optional[dict]:
+        """Find latest file of kind 'Price' or 'Promo' for this store tag (e.g. -014)."""
         r = self.s.post(
             f"{self.base}/file/json/dir",
-            data={"path": "/", "iDisplayLength": 50, "iDisplayStart": 0,
-                  "sSearch": prefix, "sEcho": 1, "csrftoken": csrf},
+            data={"path": "/", "iDisplayLength": 200, "iDisplayStart": 0,
+                  "sSearch": self.store_tag, "sEcho": 1, "csrftoken": csrf},
             timeout=30, verify=self._verify,
         )
         r.raise_for_status()
         files = r.json().get("aaData", [])
-        return sorted(files, key=lambda x: x["time"])[-1] if files else None
+        matching = [f for f in files if f.get("fname", "").startswith(kind)]
+        return sorted(matching, key=lambda x: x["time"])[-1] if matching else None
 
-    # --- download ---
+    # --- download (raw) ---
     def _download(self, fname: str) -> bytes:
         r = self.s.get(f"{self.base}/file/d/{fname}", timeout=120, verify=self._verify)
         r.raise_for_status()
         return r.content
+
+    # --- get from local cache or download and cache ---
+    def _get_or_download(self, fname: str) -> bytes:
+        local = DATA_DIR / fname
+        if local.exists():
+            print(f"    [cache]    {fname}")
+            return local.read_bytes()
+        print(f"    [download] {fname}")
+        data = self._download(fname)
+        local.write_bytes(data)
+        return data
 
     # --- promo map: ItemCode -> promo dict (active only) ---
     def _build_promo_map(self, promo_xml: ET.Element) -> dict:
@@ -163,7 +178,7 @@ class PublishedPricesFetcher:
         r.raise_for_status()
         return r.json().get("aaData", [])
 
-    def fetch(self) -> dict:
+    def fetch(self) -> Optional[dict]:
         self.login()
         csrf = self._get_csrf(f"{self.base}/file")
 
@@ -174,16 +189,18 @@ class PublishedPricesFetcher:
             size_kb = f.get("size", 0) // 1024
             print(f"    {f.get('fname', '?')}  ({size_kb} KB)")
 
-        latest_price = self._find_latest(self.price_prefix, csrf)
-        latest_promo = self._find_latest(self.promo_prefix, csrf) if self.promo_prefix else None
+        # --- find latest Price and Promo files for this store ---
+        latest_price = self._find_latest("Price", csrf)
+        latest_promo = self._find_latest("Promo", csrf)
 
         if not latest_price:
-            raise RuntimeError(f"No price file found for prefix: {self.price_prefix}")
+            print(f"  WARNING: no Price file found for store tag {self.store_tag}")
+            return None
 
         print(f"  Price file : {latest_price['fname']}  ({latest_price['size']//1024} KB)")
 
         # --- prices ---
-        price_xml  = ET.fromstring(decode_xml_bytes(self._download(latest_price["fname"])))
+        price_xml  = ET.fromstring(decode_xml_bytes(self._get_or_download(latest_price["fname"])))
         all_items  = price_xml.findall(".//Item")
         fresh_items = [i for i in all_items
                        if FRESH_RE.search(i.findtext("ItemName") or "")]
@@ -192,9 +209,11 @@ class PublishedPricesFetcher:
 
         # --- promos ---
         promo_map: dict = {}
-        if latest_promo:
+        if not latest_promo:
+            print(f"  WARNING: no Promo file found for store tag {self.store_tag}")
+        else:
             print(f"  Promo file : {latest_promo['fname']}  ({latest_promo['size']//1024} KB)")
-            promo_xml = ET.fromstring(decode_xml_bytes(self._download(latest_promo["fname"])))
+            promo_xml = ET.fromstring(decode_xml_bytes(self._get_or_download(latest_promo["fname"])))
             promo_map = self._build_promo_map(promo_xml)
 
         # --- build product list ---
@@ -285,6 +304,11 @@ def main():
 
             try:
                 data = builder(row).fetch()
+                if data is None:
+                    msg = "no price file found (warning only)"
+                    print(f"  WARNING: {msg}")
+                    errors.append({"chain": chain, "store": store, "error": msg})
+                    continue
                 results.append({
                     "chain":     chain,
                     "store":     store,
@@ -310,8 +334,7 @@ def main():
     )
     print(f"\nSaved {len(results)} store(s) → {OUTPUT_FILE}")
     if errors:
-        print(f"Errors: {len(errors)}", file=sys.stderr)
-        sys.exit(1)
+        print(f"WARNING: {len(errors)} store(s) had issues — check errors[] in JSON", file=sys.stderr)
 
 
 if __name__ == "__main__":
