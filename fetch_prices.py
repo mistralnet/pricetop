@@ -152,9 +152,27 @@ class PublishedPricesFetcher:
         return promo_map
 
     # --- main fetch ---
+    def _list_all_files(self, csrf: str) -> list:
+        """Fetch full file listing from the portal (no prefix filter)."""
+        r = self.s.post(
+            f"{self.base}/file/json/dir",
+            data={"path": "/", "iDisplayLength": 200, "iDisplayStart": 0,
+                  "sSearch": "", "sEcho": 1, "csrftoken": csrf},
+            timeout=30, verify=self._verify,
+        )
+        r.raise_for_status()
+        return r.json().get("aaData", [])
+
     def fetch(self) -> dict:
         self.login()
         csrf = self._get_csrf(f"{self.base}/file")
+
+        # --- DEBUG: print all files visible in the portal ---
+        all_files = self._list_all_files(csrf)
+        print(f"  [DEBUG] {len(all_files)} files visible in portal:")
+        for f in sorted(all_files, key=lambda x: x.get("fname", "")):
+            size_kb = f.get("size", 0) // 1024
+            print(f"    {f.get('fname', '?')}  ({size_kb} KB)")
 
         latest_price = self._find_latest(self.price_prefix, csrf)
         latest_promo = self._find_latest(self.promo_prefix, csrf) if self.promo_prefix else None
