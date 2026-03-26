@@ -328,13 +328,24 @@ def main():
         **({"errors": errors} if errors else {}),
     }
 
-    OUTPUT_FILE.write_text(
-        json.dumps(output, ensure_ascii=False, indent=2),
-        encoding="utf-8",
-    )
+    output_json = json.dumps(output, ensure_ascii=False, indent=2)
+    OUTPUT_FILE.write_text(output_json, encoding="utf-8")
     print(f"\nSaved {len(results)} store(s) → {OUTPUT_FILE}")
     if errors:
         print(f"WARNING: {len(errors)} store(s) had issues — check errors[] in JSON", file=sys.stderr)
+
+    # --- POST to Make.com webhook ---
+    WEBHOOK_URL = "https://hook.eu1.make.com/oi6u7w14igpl7otyxvisryajg1x4dqt4"
+    try:
+        resp = requests.post(
+            WEBHOOK_URL,
+            data=output_json.encode("utf-8"),
+            headers={"Content-Type": "application/json"},
+            timeout=30,
+        )
+        print(f"Webhook → {resp.status_code} {resp.text[:120]}")
+    except Exception as exc:
+        print(f"WARNING: webhook failed — {exc}", file=sys.stderr)
 
 
 if __name__ == "__main__":
