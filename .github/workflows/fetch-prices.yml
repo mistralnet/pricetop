@@ -1,0 +1,49 @@
+name: Fetch Supermarket Prices
+
+on:
+  workflow_dispatch:        # הפעלה ידנית בלבד — לוחצים Run workflow ב-GitHub UI
+
+permissions:
+  contents: write           # נדרש כדי לבצע commit לתוצאות
+
+jobs:
+  fetch:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+          cache: pip
+
+      - name: Install dependencies
+        run: pip install -r requirements.txt
+
+      - name: Fetch prices
+        run: python fetch_prices.py
+        env:
+          # סיסמאות לרשתות שדורשות — מאוחסנות כ-GitHub Secrets
+          # דוגמה לשימוש עתידי:
+          # CHAIN_PASSWORD_RAMI_LEVY: ${{ secrets.RAMI_LEVY_PASSWORD }}
+          PYTHONIOENCODING: utf-8
+
+      - name: Upload prices as artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: prices-${{ github.run_id }}
+          path: data/prices.json
+          if-no-files-found: error
+
+      - name: Commit updated prices to repo
+        run: |
+          git config user.name  "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add data/prices.json
+          git diff --staged --quiet \
+            && echo "No changes — prices already up to date." \
+            || git commit -m "prices: update $(date -u +'%Y-%m-%d %H:%M UTC')" \
+            && git push

@@ -1,0 +1,21 @@
+# סיסמאות / סביבה
+.env
+*.local
+
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+
+# קבצים זמניים
+*.gz
+*.xml.tmp
+
+# PowerShell output (לא נכנסים ל-git)
+osherad_fresh.json
+fetch-prices.ps1
+osherad-fresh.ps1
+index.html
+
+# data נכנס ל-git (נוצר על-ידי GitHub Actions)
+!data/prices.json
