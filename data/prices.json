@@ -1,12 +1,12 @@
 {
-  "generatedAt": "2026-03-26T06:08:03",
+  "generatedAt": "2026-03-26T06:48:09",
   "storeCount": 1,
   "stores": [
     {
       "chain": "אושר עד",
       "store": "חדרה - המסגר 22",
       "feedType": "publishedprices",
-      "fetchTime": "26/03/2026 06:08",
+      "fetchTime": "26/03/2026 06:48",
       "sourceFile": "PriceFull7290103152017-001-014-20260326-080006.gz",
       "promoFile": "PromoFull7290103152017-001-014-20260326-080046.gz",
       "totalItems": 6921,
