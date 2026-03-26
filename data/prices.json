@@ -1,16 +1,16 @@
 {
-  "generatedAt": "2026-03-25T18:49:13",
+  "generatedAt": "2026-03-26T06:08:03",
   "storeCount": 1,
   "stores": [
     {
       "chain": "אושר עד",
       "store": "חדרה - המסגר 22",
       "feedType": "publishedprices",
-      "fetchTime": "25/03/2026 18:49",
-      "sourceFile": "PriceFull7290103152017-001-014-20260325-140501.gz",
-      "promoFile": "PromoFull7290103152017-001-014-20260325-140523.gz",
-      "totalItems": 6928,
-      "freshCount": 116,
+      "fetchTime": "26/03/2026 06:08",
+      "sourceFile": "PriceFull7290103152017-001-014-20260326-080006.gz",
+      "promoFile": "PromoFull7290103152017-001-014-20260326-080046.gz",
+      "totalItems": 6921,
+      "freshCount": 113,
       "promoCount": 14,
       "products": [
         {
@@ -642,17 +642,6 @@
           "promo": null
         },
         {
-          "name": "סינטה בקר טרי עטרה",
-          "price": 89.9,
-          "unitPrice": 89.9,
-          "unit": "יחידה   ",
-          "quantity": "1.00",
-          "updateDate": "",
-          "itemCode": "7290002157427",
-          "manufacturer": "",
-          "promo": null
-        },
-        {
           "name": "סינטה דק דק טרי עטרה",
           "price": 149.9,
           "unitPrice": 149.9,
@@ -895,17 +884,6 @@
             "discountedPrice": 34.9,
             "discountRate": null
           }
-        },
-        {
-          "name": "פילה עוף טרי עטרה",
-          "price": 41.9,
-          "unitPrice": 41.9,
-          "unit": "יחידה   ",
-          "quantity": "1.00",
-          "updateDate": "",
-          "itemCode": "7290002285830",
-          "manufacturer": "",
-          "promo": null
         },
         {
           "name": "פילה עוף טרי פרימה",
@@ -1250,17 +1228,6 @@
           "quantity": "1.00",
           "updateDate": "",
           "itemCode": "7290002505112",
-          "manufacturer": "",
-          "promo": null
-        },
-        {
-          "name": "שייטל פרימיום טרי מי",
-          "price": 149.9,
-          "unitPrice": 149.9,
-          "unit": "יחידה   ",
-          "quantity": "1.00",
-          "updateDate": "",
-          "itemCode": "7290002296775",
           "manufacturer": "",
           "promo": null
         },
