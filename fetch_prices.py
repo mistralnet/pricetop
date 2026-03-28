@@ -131,8 +131,16 @@ class PublishedPricesFetcher:
         self._logged_in = True
 
     # --- file listing ---
+    # Matches store_tag immediately before a timestamp (8+ digits).
+    # Example: store_tag="-001" matches "-001-20260328" but NOT "-001-002-20260328"
+    # This handles the edge case where SubChainID == StoreID (e.g. politzer store 001,
+    # SubChain 001) — the old "-001-" substring check would match all stores in SubChain 001.
+    _STORE_TAG_RE = re.compile(r'%s-\d{8}')
+
     def _find_latest(self, kind: str, csrf: str) -> Optional[dict]:
-        """Find latest file whose name starts with <kind> and contains -<storenum>- (e.g. -014-)."""
+        """Find latest file whose name starts with <kind> and whose store segment
+        appears immediately before a timestamp (YYYYMMDD), avoiding false matches
+        when SubChainID == StoreID."""
         r = self.s.post(
             f"{self.base}/file/json/dir",
             data={"path": "/", "iDisplayLength": 200, "iDisplayStart": 0,
@@ -141,11 +149,10 @@ class PublishedPricesFetcher:
         )
         r.raise_for_status()
         files = r.json().get("aaData", [])
-        # startswith(kind) covers both "PriceFull" and "Price", "PromoFull" and "Promo"
-        # store_tag+"-" ensures -044- appears as a segment (not a substring of another number)
+        tag_re = re.compile(re.escape(self.store_tag) + r'-\d{8}')
         matching = [f for f in files
                     if f.get("fname", "").startswith(kind)
-                    and (self.store_tag + "-") in f.get("fname", "")]
+                    and tag_re.search(f.get("fname", ""))]
         return sorted(matching, key=lambda x: x["time"])[-1] if matching else None
 
     # --- download (raw) ---
