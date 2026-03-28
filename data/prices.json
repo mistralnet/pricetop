@@ -1,12 +1,12 @@
 {
-  "generatedAt": "2026-03-28T16:00:21",
+  "generatedAt": "2026-03-28T16:17:03",
   "storeCount": 7,
   "stores": [
     {
       "chain": "אושר עד",
       "store": "חדרה - המסגר 22",
       "feedType": "publishedprices",
-      "fetchTime": "28/03/2026 16:00",
+      "fetchTime": "28/03/2026 16:16",
       "sourceFile": "PriceFull7290103152017-001-014-20260328-140502.gz",
       "promoFile": "PromoFull7290103152017-001-014-20260328-140525.gz",
       "totalItems": 6952,
@@ -1374,7 +1374,7 @@
       "chain": "רמי לוי",
       "store": "חדרה - השלום 1",
       "feedType": "publishedprices",
-      "fetchTime": "28/03/2026 16:00",
+      "fetchTime": "28/03/2026 16:16",
       "sourceFile": "PriceFull7290058140886-044-202603280010.gz",
       "promoFile": "PromoFull7290058140886-044-202603280010.gz",
       "totalItems": 9109,
@@ -2256,12 +2256,12 @@
       "chain": "רמי לוי",
       "store": "חדרה ויוה - תרנ\"א 20",
       "feedType": "publishedprices",
-      "fetchTime": "28/03/2026 16:00",
+      "fetchTime": "28/03/2026 16:16",
       "sourceFile": "PriceFull7290058140886-058-202603281200.gz",
-      "promoFile": "PromoFull7290058140886-058-202603280010.gz",
+      "promoFile": "Promo7290058140886-058-202603281900.gz",
       "totalItems": 4607,
       "freshCount": 41,
-      "promoCount": 25,
+      "promoCount": 0,
       "products": [
         {
           "name": "אמנון נקי טרי",
@@ -2272,15 +2272,7 @@
           "updateDate": "2025-06-24 07:23:08",
           "itemCode": "7290003361731",
           "manufacturer": "לא ידוע",
-          "promo": {
-            "id": "1362204",
-            "description": "אמנון טרי נקי ארוז ב34.90 מעל 75 מו3",
-            "endDate": "2026-04-12",
-            "clubOnly": false,
-            "minQty": "3000.00",
-            "discountedPrice": null,
-            "discountRate": null
-          }
+          "promo": null
         },
         {
           "name": "בורי נקי טרי",
@@ -2313,15 +2305,7 @@
           "updateDate": "2025-08-24 07:17:23",
           "itemCode": "7290003361724",
           "manufacturer": "לא ידוע",
-          "promo": {
-            "id": "1362208",
-            "description": "דניס טרי נקי ארוז ב79.90 מעל 75 מו3",
-            "endDate": "2026-04-12",
-            "clubOnly": false,
-            "minQty": "3000.00",
-            "discountedPrice": null,
-            "discountRate": null
-          }
+          "promo": null
         },
         {
           "name": "חזה בקר טרי",
@@ -2332,15 +2316,7 @@
           "updateDate": "2025-05-21 11:38:34",
           "itemCode": "7290008202039",
           "manufacturer": "לא ידוע",
-          "promo": {
-            "id": "1397078",
-            "description": "קנה ב-499 ש\"ח בשר טרי - קבל יין מתנה",
-            "endDate": "2026-04-08",
-            "clubOnly": false,
-            "minQty": "0.00",
-            "discountedPrice": null,
-            "discountRate": null
-          }
+          "promo": null
         },
         {
           "name": "חזה עוף טרי ארוז חת\"",
@@ -2406,15 +2382,7 @@
           "updateDate": "2025-06-03 09:48:03",
           "itemCode": "7290002684190",
           "manufacturer": "לא ידוע",
-          "promo": {
-            "id": "1379851",
-            "description": "ירכיים עוף טרי ב21.90 מעל 75 מו3",
-            "endDate": "2026-04-12",
-            "clubOnly": false,
-            "minQty": "3000.00",
-            "discountedPrice": null,
-            "discountRate": null
-          }
+          "promo": null
         },
         {
           "name": "כבד עוף טרי",
@@ -2425,15 +2393,7 @@
           "updateDate": "2025-06-03 09:49:22",
           "itemCode": "7290002680451",
           "manufacturer": "הוד חפר",
-          "promo": {
-            "id": "1379860",
-            "description": "כבד עוף טרי ב12.90 מעל 75 מו3",
-            "endDate": "2026-04-12",
-            "clubOnly": false,
-            "minQty": "3000.00",
-            "discountedPrice": null,
-            "discountRate": null
-          }
+          "promo": null
         },
         {
           "name": "כבד עוף טרי",
@@ -2444,15 +2404,7 @@
           "updateDate": "2025-06-24 07:23:37",
           "itemCode": "7290002680451",
           "manufacturer": "הוד חפר",
-          "promo": {
-            "id": "1379860",
-            "description": "כבד עוף טרי ב12.90 מעל 75 מו3",
-            "endDate": "2026-04-12",
-            "clubOnly": false,
-            "minQty": "3000.00",
-            "discountedPrice": null,
-            "discountRate": null
-          }
+          "promo": null
         },
         {
           "name": "כבד עוף טרי - כשר",
@@ -2463,15 +2415,7 @@
           "updateDate": "2025-06-03 09:49:22",
           "itemCode": "7290002684268",
           "manufacturer": "לא ידוע",
-          "promo": {
-            "id": "1379860",
-            "description": "כבד עוף טרי ב12.90 מעל 75 מו3",
-            "endDate": "2026-04-12",
-            "clubOnly": false,
-            "minQty": "3000.00",
-            "discountedPrice": null,
-            "discountRate": null
-          }
+          "promo": null
         },
         {
           "name": "כדורי מוצרלה טרי בשק",
@@ -2493,15 +2437,7 @@
           "updateDate": "2025-06-03 09:50:38",
           "itemCode": "7290002684251",
           "manufacturer": "לא ידוע",
-          "promo": {
-            "id": "1379856",
-            "description": "כנפיים עוף טרי ב9.90 מעל 75 מו3",
-            "endDate": "2026-04-12",
-            "clubOnly": false,
-            "minQty": "3000.00",
-            "discountedPrice": null,
-            "discountRate": null
-          }
+          "promo": null
         },
         {
           "name": "כרע עוף מפורק טרי -",
@@ -2523,15 +2459,7 @@
           "updateDate": "2025-05-26 10:44:37",
           "itemCode": "7290002684176",
           "manufacturer": "לא ידוע",
-          "promo": {
-            "id": "1379849",
-            "description": "כרעיים עוף טרי ב21.90 מעל 75 מו3",
-            "endDate": "2026-04-12",
-            "clubOnly": false,
-            "minQty": "3000.00",
-            "discountedPrice": null,
-            "discountRate": null
-          }
+          "promo": null
         },
         {
           "name": "כרעיים עוף טרי ארוז",
@@ -2542,15 +2470,7 @@
           "updateDate": "2025-05-26 10:44:37",
           "itemCode": "7290002680147",
           "manufacturer": "לא ידוע",
-          "promo": {
-            "id": "1379849",
-            "description": "כרעיים עוף טרי ב21.90 מעל 75 מו3",
-            "endDate": "2026-04-12",
-            "clubOnly": false,
-            "minQty": "3000.00",
-            "discountedPrice": null,
-            "discountRate": null
-          }
+          "promo": null
         },
         {
           "name": "כרעיים עוף טרי ארוז",
@@ -2561,15 +2481,7 @@
           "updateDate": "2025-05-26 10:44:38",
           "itemCode": "7290002610717",
           "manufacturer": "עוף ירושלים מהדרין",
-          "promo": {
-            "id": "1379849",
-            "description": "כרעיים עוף טרי ב21.90 מעל 75 מו3",
-            "endDate": "2026-04-12",
-            "clubOnly": false,
-            "minQty": "3000.00",
-            "discountedPrice": null,
-            "discountRate": null
-          }
+          "promo": null
         },
         {
           "name": "כרעיים עוף טרי ארוז",
@@ -2580,15 +2492,7 @@
           "updateDate": "2023-05-31 06:53:03",
           "itemCode": "7290002680147",
           "manufacturer": "לא ידוע",
-          "promo": {
-            "id": "1379849",
-            "description": "כרעיים עוף טרי ב21.90 מעל 75 מו3",
-            "endDate": "2026-04-12",
-            "clubOnly": false,
-            "minQty": "3000.00",
-            "discountedPrice": null,
-            "discountRate": null
-          }
+          "promo": null
         },
         {
           "name": "כתף בקר טרי",
@@ -2599,15 +2503,7 @@
           "updateDate": "2025-12-02 09:35:51",
           "itemCode": "7290008202046",
           "manufacturer": "לא ידוע",
-          "promo": {
-            "id": "1397078",
-            "description": "קנה ב-499 ש\"ח בשר טרי - קבל יין מתנה",
-            "endDate": "2026-04-08",
-            "clubOnly": false,
-            "minQty": "0.00",
-            "discountedPrice": null,
-            "discountRate": null
-          }
+          "promo": null
         },
         {
           "name": "לב עוף טרי מהד",
@@ -2629,15 +2525,7 @@
           "updateDate": "2025-02-04 07:26:27",
           "itemCode": "7290002684237",
           "manufacturer": "לא ידוע",
-          "promo": {
-            "id": "1379858",
-            "description": "לבבות עוף טרי ב24.90 מעל 75 מו3",
-            "endDate": "2026-04-12",
-            "clubOnly": false,
-            "minQty": "3000.00",
-            "discountedPrice": null,
-            "discountRate": null
-          }
+          "promo": null
         },
         {
           "name": "משקה שקדים טרי 1 ליט",
@@ -2648,15 +2536,7 @@
           "updateDate": "2025-12-01 07:09:13",
           "itemCode": "7290014760141",
           "manufacturer": "תנובה",
-          "promo": {
-            "id": "1396935",
-            "description": "משקאות 1 ליטר אלטרנטיב 2ב18",
-            "endDate": "2026-05-02",
-            "clubOnly": false,
-            "minQty": "2.00",
-            "discountedPrice": 18.0,
-            "discountRate": null
-          }
+          "promo": null
         },
         {
           "name": "נתחי פילה סלמון טרי",
@@ -2667,15 +2547,7 @@
           "updateDate": "2024-12-01 08:09:31",
           "itemCode": "7290003361632",
           "manufacturer": "לא ידוע",
-          "promo": {
-            "id": "1379866",
-            "description": "מנות סלמון טרי ארוז ב109.90 מעל 75 מו3",
-            "endDate": "2026-04-12",
-            "clubOnly": false,
-            "minQty": "3000.00",
-            "discountedPrice": null,
-            "discountRate": null
-          }
+          "promo": null
         },
         {
           "name": "סטייק פרגיות עוף טרי",
@@ -2697,15 +2569,7 @@
           "updateDate": "2025-07-22 06:32:06",
           "itemCode": "7290003361656",
           "manufacturer": "לא ידוע",
-          "promo": {
-            "id": "1379869",
-            "description": "פילה אמנון טרי ארוז ב59.90 מעל 75 מו3",
-            "endDate": "2026-04-12",
-            "clubOnly": false,
-            "minQty": "3000.00",
-            "discountedPrice": null,
-            "discountRate": null
-          }
+          "promo": null
         },
         {
           "name": "פילה בורי טרי",
@@ -2716,15 +2580,7 @@
           "updateDate": "2025-07-22 06:32:06",
           "itemCode": "7290003361649",
           "manufacturer": "לא ידוע",
-          "promo": {
-            "id": "1379872",
-            "description": "פילה בורי טרי ארוז ב99.90 מעל 75 מו3",
-            "endDate": "2026-04-12",
-            "clubOnly": false,
-            "minQty": "3000.00",
-            "discountedPrice": null,
-            "discountRate": null
-          }
+          "promo": null
         },
         {
           "name": "פילה סלמון שלם טרי",
@@ -2735,15 +2591,7 @@
           "updateDate": "2025-09-17 07:32:53",
           "itemCode": "7290003361618",
           "manufacturer": "לא ידוע",
-          "promo": {
-            "id": "1379864",
-            "description": "פילה סלמון טרי ארוז ב89.90 מעל 75 מו3",
-            "endDate": "2026-04-12",
-            "clubOnly": false,
-            "minQty": "3000.00",
-            "discountedPrice": null,
-            "discountRate": null
-          }
+          "promo": null
         },
         {
           "name": "צלי כתף בקר טרי",
@@ -2754,15 +2602,7 @@
           "updateDate": "2025-12-02 09:35:51",
           "itemCode": "7290008202053",
           "manufacturer": "לא ידוע",
-          "promo": {
-            "id": "1397078",
-            "description": "קנה ב-499 ש\"ח בשר טרי - קבל יין מתנה",
-            "endDate": "2026-04-08",
-            "clubOnly": false,
-            "minQty": "0.00",
-            "discountedPrice": null,
-            "discountRate": null
-          }
+          "promo": null
         },
         {
           "name": "צלעות בקר טרי",
@@ -2773,15 +2613,7 @@
           "updateDate": "2025-12-02 09:35:50",
           "itemCode": "7290008202022",
           "manufacturer": "לא ידוע",
-          "promo": {
-            "id": "1397078",
-            "description": "קנה ב-499 ש\"ח בשר טרי - קבל יין מתנה",
-            "endDate": "2026-04-08",
-            "clubOnly": false,
-            "minQty": "0.00",
-            "discountedPrice": null,
-            "discountRate": null
-          }
+          "promo": null
         },
         {
           "name": "קרפיון פרוס נקי טרי",
@@ -2792,15 +2624,7 @@
           "updateDate": "2025-06-24 07:23:08",
           "itemCode": "7290003361748",
           "manufacturer": "לא ידוע",
-          "promo": {
-            "id": "1362205",
-            "description": "קרפיון טרי נקי ארוז ב29.90 מעל 75 מו3",
-            "endDate": "2026-04-12",
-            "clubOnly": false,
-            "minQty": "6000.00",
-            "discountedPrice": null,
-            "discountRate": null
-          }
+          "promo": null
         },
         {
           "name": "שום טרי",
@@ -2855,15 +2679,7 @@
           "updateDate": "2025-06-03 09:56:03",
           "itemCode": "7290002684183",
           "manufacturer": "לא ידוע",
-          "promo": {
-            "id": "1379853",
-            "description": "שוקיים עוף טרי ב24.90 מעל 75 מו3",
-            "endDate": "2026-04-12",
-            "clubOnly": false,
-            "minQty": "3000.00",
-            "discountedPrice": null,
-            "discountRate": null
-          }
+          "promo": null
         },
         {
           "name": "שוקיים עוף טרי ארוז",
@@ -2874,15 +2690,7 @@
           "updateDate": "2025-06-03 09:56:04",
           "itemCode": "7290002610748",
           "manufacturer": "עוף ירושלים מהדרין",
-          "promo": {
-            "id": "1379853",
-            "description": "שוקיים עוף טרי ב24.90 מעל 75 מו3",
-            "endDate": "2026-04-12",
-            "clubOnly": false,
-            "minQty": "3000.00",
-            "discountedPrice": null,
-            "discountRate": null
-          }
+          "promo": null
         },
         {
           "name": "שורש כורכום טרי חוות",
@@ -2904,15 +2712,7 @@
           "updateDate": "2025-08-04 14:16:30",
           "itemCode": "7290002610786",
           "manufacturer": "עוף ירושלים מהדרין",
-          "promo": {
-            "id": "1394985",
-            "description": "שניצל/חזה עוף פרוס טרי ב34.90 מעל 75 מו3",
-            "endDate": "2026-04-12",
-            "clubOnly": false,
-            "minQty": "3000.00",
-            "discountedPrice": null,
-            "discountRate": null
-          }
+          "promo": null
         }
       ]
     },
@@ -2920,7 +2720,7 @@
       "chain": "רמי לוי",
       "store": "הרצל חדרה - סופר קופיקס",
       "feedType": "publishedprices",
-      "fetchTime": "28/03/2026 16:00",
+      "fetchTime": "28/03/2026 16:16",
       "sourceFile": "PriceFull7290058140886-716-202603281800.gz",
       "promoFile": "PromoFull7290058140886-716-202603281800.gz",
       "totalItems": 1987,
@@ -2966,7 +2766,7 @@
       "chain": "רמי לוי",
       "store": "הנשיא חדרה - סופר קופיקס",
       "feedType": "publishedprices",
-      "fetchTime": "28/03/2026 16:00",
+      "fetchTime": "28/03/2026 16:16",
       "sourceFile": "PriceFull7290058140886-717-202603281800.gz",
       "promoFile": "PromoFull7290058140886-717-202603281800.gz",
       "totalItems": 1679,
@@ -3012,9 +2812,9 @@
       "chain": "יוחננוף",
       "store": "חדרה",
       "feedType": "publishedprices",
-      "fetchTime": "28/03/2026 16:00",
+      "fetchTime": "28/03/2026 16:16",
       "sourceFile": "PriceFull7290803800003-022-202603280930.gz",
-      "promoFile": "Promo7290803800003-022-202603281800.gz",
+      "promoFile": "Promo7290803800003-022-202603281900.gz",
       "totalItems": 7876,
       "freshCount": 88,
       "promoCount": 0,
@@ -3993,7 +3793,7 @@
       "chain": "יוחננוף",
       "store": "חדרה צפוני",
       "feedType": "publishedprices",
-      "fetchTime": "28/03/2026 16:00",
+      "fetchTime": "28/03/2026 16:17",
       "sourceFile": "PriceFull7290803800003-036-202603280011.gz",
       "promoFile": "PromoFull7290803800003-036-202603280011.gz",
       "totalItems": 7241,
