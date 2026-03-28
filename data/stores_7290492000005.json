@@ -1,0 +1,1263 @@
+{
+  "chainId": "7290492000005",
+  "chainName": "דור אלון",
+  "fetchedAt": "2026-03-28T20:35:57",
+  "stores": [
+    {
+      "storeId": "501",
+      "name": "Am-pm בן יהודה 30",
+      "address": "בן יהודה 30",
+      "city": "5000",
+      "zip": "6380407",
+      "subchainId": ""
+    },
+    {
+      "storeId": "503",
+      "name": "Am-pm ארלוזרוב",
+      "address": "דיזנגוף 193",
+      "city": "5000",
+      "zip": "6346232",
+      "subchainId": ""
+    },
+    {
+      "storeId": "504",
+      "name": "Am-pm נורדאו",
+      "address": "בן יהודה 195",
+      "city": "5000",
+      "zip": "6347312",
+      "subchainId": ""
+    },
+    {
+      "storeId": "505",
+      "name": "Am-pmאלנבי",
+      "address": "אלנבי 115",
+      "city": "5000",
+      "zip": "6581708",
+      "subchainId": ""
+    },
+    {
+      "storeId": "506",
+      "name": "Am-pm קינג גורג",
+      "address": "קינג גורג 24",
+      "city": "5000",
+      "zip": "6326709",
+      "subchainId": ""
+    },
+    {
+      "storeId": "507",
+      "name": "Am-pm 24 שנקין",
+      "address": "שנקין 24",
+      "city": "5000",
+      "zip": "6523132",
+      "subchainId": ""
+    },
+    {
+      "storeId": "508",
+      "name": "Am-pm  אבן גבירול",
+      "address": "אבן גבירול 14",
+      "city": "5000",
+      "zip": "6407716",
+      "subchainId": ""
+    },
+    {
+      "storeId": "509",
+      "name": "Am-pm זמנהוף",
+      "address": "קינג גורג 99",
+      "city": "5000",
+      "zip": "6433831",
+      "subchainId": ""
+    },
+    {
+      "storeId": "510",
+      "name": "Am-pm לינקולן",
+      "address": "לינקולן 9",
+      "city": "5000",
+      "zip": "0000000",
+      "subchainId": ""
+    },
+    {
+      "storeId": "511",
+      "name": "Am-pm  הרצל",
+      "address": "הרצל 91,עובר להרצל 114)",
+      "city": "5000",
+      "zip": "6655414",
+      "subchainId": ""
+    },
+    {
+      "storeId": "512",
+      "name": "Am-pm  כל-בו שלום",
+      "address": "אחד העם 9",
+      "city": "5000",
+      "zip": "6525101",
+      "subchainId": ""
+    },
+    {
+      "storeId": "513",
+      "name": "Am-pm פרנקל",
+      "address": "פרנקל 15",
+      "city": "5000",
+      "zip": "6608419",
+      "subchainId": ""
+    },
+    {
+      "storeId": "514",
+      "name": "Am-pm גורדון",
+      "address": "דיזנגוף 136",
+      "city": "5000",
+      "zip": "6346109",
+      "subchainId": ""
+    },
+    {
+      "storeId": "517",
+      "name": "Am-pm זבוטינסקי ר\"ג",
+      "address": "זבוטינסקי 86",
+      "city": "8600",
+      "zip": "5244215",
+      "subchainId": ""
+    },
+    {
+      "storeId": "518",
+      "name": "Am-pm זבוטינסקי ת\"א",
+      "address": "אבן גבירול 136",
+      "city": "5000",
+      "zip": "6296601",
+      "subchainId": ""
+    },
+    {
+      "storeId": "519",
+      "name": "Am-pm נחלת יצחק",
+      "address": "נחלת יצחק",
+      "city": "5000",
+      "zip": "6744809",
+      "subchainId": ""
+    },
+    {
+      "storeId": "524",
+      "name": "Am-pm בן יהודה 61",
+      "address": "בן יהודה 61",
+      "city": "5000",
+      "zip": "3275",
+      "subchainId": ""
+    },
+    {
+      "storeId": "529",
+      "name": "Am-pm בן גוריון",
+      "address": "בן גוריון 119",
+      "city": "6200",
+      "zip": "5956005",
+      "subchainId": ""
+    },
+    {
+      "storeId": "531",
+      "name": "Am-pmכצנלסון גבעתיים",
+      "address": "כצנלסון 129",
+      "city": "6300",
+      "zip": "5327314",
+      "subchainId": ""
+    },
+    {
+      "storeId": "533",
+      "name": "Am-pm י.ל פרץ",
+      "address": "י.ל פרץ 29",
+      "city": "5000",
+      "zip": "6685402",
+      "subchainId": ""
+    },
+    {
+      "storeId": "534",
+      "name": "Am-pm בוגרשוב",
+      "address": "בוגרשוב 49",
+      "city": "5000",
+      "zip": "6314513",
+      "subchainId": ""
+    },
+    {
+      "storeId": "535",
+      "name": "Am-pm שנקין59",
+      "address": "שנקין 59",
+      "city": "5000",
+      "zip": "6523313",
+      "subchainId": ""
+    },
+    {
+      "storeId": "536",
+      "name": "Am-pmזבוטינסקי 44",
+      "address": "זבוטינסקי 44",
+      "city": "8600",
+      "zip": "5248504",
+      "subchainId": ""
+    },
+    {
+      "storeId": "537",
+      "name": "Am-pm סוקולוב הרצליה",
+      "address": "סוקולוב 10",
+      "city": "6400",
+      "zip": "4649713",
+      "subchainId": ""
+    },
+    {
+      "storeId": "540",
+      "name": "Am-pm טברסקי",
+      "address": "יצחק שדה 35",
+      "city": "5000",
+      "zip": "6721309",
+      "subchainId": ""
+    },
+    {
+      "storeId": "542",
+      "name": "Am-pm שד יהודית",
+      "address": "שד יהודית 16",
+      "city": "5000",
+      "zip": "6701618",
+      "subchainId": ""
+    },
+    {
+      "storeId": "544",
+      "name": "Am-pm ברודצקי",
+      "address": "ברודצקי 15",
+      "city": "5000",
+      "zip": "6905126",
+      "subchainId": ""
+    },
+    {
+      "storeId": "545",
+      "name": "Am-pm הנשיא הרצליה",
+      "address": "הנשיא יצחק בן צבי 75",
+      "city": "6400",
+      "zip": "4639975",
+      "subchainId": ""
+    },
+    {
+      "storeId": "548",
+      "name": "Am-pm נווה מונסון",
+      "address": "רחוב השקד 30",
+      "city": "9400",
+      "zip": "6019000",
+      "subchainId": ""
+    },
+    {
+      "storeId": "549",
+      "name": "Am-pm הוד השרון",
+      "address": "סוקולוב 11",
+      "city": "2650",
+      "zip": "0000000",
+      "subchainId": ""
+    },
+    {
+      "storeId": "551",
+      "name": "Am-pm הדר נס ציונה",
+      "address": "השייטת 4",
+      "city": "7200",
+      "zip": "7420812",
+      "subchainId": ""
+    },
+    {
+      "storeId": "554",
+      "name": "Am-pm ווינשל",
+      "address": "וינשל 6",
+      "city": "5000",
+      "zip": "6941331",
+      "subchainId": ""
+    },
+    {
+      "storeId": "556",
+      "name": "Am- pm עליית הנוער",
+      "address": "עליית הנוער 27",
+      "city": "6300",
+      "zip": "5340101",
+      "subchainId": ""
+    },
+    {
+      "storeId": "557",
+      "name": "Am-pm אבן גבירול 91",
+      "address": "אבן גבירול 91",
+      "city": "5000",
+      "zip": "6404619",
+      "subchainId": ""
+    },
+    {
+      "storeId": "558",
+      "name": "Am-pm המלכות",
+      "address": "הרוגי המלכות 9 שיכון דן",
+      "city": "5000",
+      "zip": "6971409",
+      "subchainId": ""
+    },
+    {
+      "storeId": "560",
+      "name": "AMPMיהודה הלוי",
+      "address": "יהודה הלוי 114",
+      "city": "5000",
+      "zip": "6527614",
+      "subchainId": ""
+    },
+    {
+      "storeId": "563",
+      "name": "Am-pm החשמונאים",
+      "address": "החשמונאים 105",
+      "city": "5000",
+      "zip": "6713320",
+      "subchainId": ""
+    },
+    {
+      "storeId": "564",
+      "name": "Am-pm אבא הלל",
+      "address": "אבא הלל 25",
+      "city": "8600",
+      "zip": "5252215",
+      "subchainId": ""
+    },
+    {
+      "storeId": "566",
+      "name": "Am-pm קהילת סלוניקי",
+      "address": "קהילת סלוניקי 11",
+      "city": "5000",
+      "zip": "6951311",
+      "subchainId": ""
+    },
+    {
+      "storeId": "568",
+      "name": "Am-pmאלנבי 69",
+      "address": "אלנבי 69",
+      "city": "5000",
+      "zip": "6513408",
+      "subchainId": ""
+    },
+    {
+      "storeId": "570",
+      "name": "AMPMהרצל 61",
+      "address": "הרצל 61",
+      "city": "5000",
+      "zip": "6655101",
+      "subchainId": ""
+    },
+    {
+      "storeId": "571",
+      "name": "Am-pmבן גוריון בת ים",
+      "address": "בן גוריון 47",
+      "city": "6200",
+      "zip": "5932204",
+      "subchainId": ""
+    },
+    {
+      "storeId": "576",
+      "name": "AMPM ארלוזורוב 52",
+      "address": "ארלוזורוב 52",
+      "city": "8600",
+      "zip": "5248183",
+      "subchainId": ""
+    },
+    {
+      "storeId": "577",
+      "name": "AMPM אלנבי 56",
+      "address": "אלנבי 56 תל אביב",
+      "city": "5000",
+      "zip": "6382206",
+      "subchainId": ""
+    },
+    {
+      "storeId": "578",
+      "name": "AMPM הקסטל",
+      "address": "אבן גבירול 161",
+      "city": "5000",
+      "zip": "6203303",
+      "subchainId": ""
+    },
+    {
+      "storeId": "579",
+      "name": "AM-PM הקוממיות 16",
+      "address": "הקוממיות 16",
+      "city": "6200",
+      "zip": "967558",
+      "subchainId": ""
+    },
+    {
+      "storeId": "580",
+      "name": "AM-PM דניה",
+      "address": "אנטוורפן 56",
+      "city": "4000",
+      "zip": "3490101",
+      "subchainId": ""
+    },
+    {
+      "storeId": "581",
+      "name": "Am-pm-העצמאות",
+      "address": "עצמאות 61",
+      "city": "4000",
+      "zip": "3303331",
+      "subchainId": ""
+    },
+    {
+      "storeId": "582",
+      "name": "טשרניחובסקי כ\"ס",
+      "address": "טשרניחובסקי 24",
+      "city": "6900",
+      "zip": "4427112",
+      "subchainId": ""
+    },
+    {
+      "storeId": "583",
+      "name": "AM-PM קריית אונו",
+      "address": "שלמה המלך 40",
+      "city": "2620",
+      "zip": "5542136",
+      "subchainId": ""
+    },
+    {
+      "storeId": "591",
+      "name": "מוריה חיפה AM-PM",
+      "address": "שדרות מוריה 128 - חיפה",
+      "city": "4000",
+      "zip": "3461818",
+      "subchainId": ""
+    },
+    {
+      "storeId": "594",
+      "name": "AMPM חדרה",
+      "address": "הרברט סמואל 1 חדרה",
+      "city": "6500",
+      "zip": "3836261",
+      "subchainId": ""
+    },
+    {
+      "storeId": "595",
+      "name": "AM-PMזבוטינסקי בת ים",
+      "address": "זבוטינסקי 2 בת ים",
+      "city": "6200",
+      "zip": "0000000",
+      "subchainId": ""
+    },
+    {
+      "storeId": "596",
+      "name": "AM-PM אילנות חיפה",
+      "address": "אילנות 2 חיפה",
+      "city": "4000",
+      "zip": "3432404",
+      "subchainId": ""
+    },
+    {
+      "storeId": "597",
+      "name": "AM-PM נרקיסים",
+      "address": "שדרות ירושלים 155",
+      "city": "8300",
+      "zip": "7500234",
+      "subchainId": ""
+    },
+    {
+      "storeId": "599",
+      "name": "AM-PM טירת הכרמל",
+      "address": "מנחם בגין 53",
+      "city": "2100",
+      "zip": "0000000",
+      "subchainId": ""
+    },
+    {
+      "storeId": "401",
+      "name": "AM-PMדרך השלום",
+      "address": "דרך השלום 53",
+      "city": "6300",
+      "zip": "5345433",
+      "subchainId": ""
+    },
+    {
+      "storeId": "402",
+      "name": "AM-PMקרית ביאליק",
+      "address": "נעמי שמר 10",
+      "city": "9500",
+      "zip": "2751419",
+      "subchainId": ""
+    },
+    {
+      "storeId": "403",
+      "name": "AM-PM המושבה הגרמנית",
+      "address": "בן גוריון 6",
+      "city": "4000",
+      "zip": "3541416",
+      "subchainId": ""
+    },
+    {
+      "storeId": "404",
+      "name": "AM-PMאח\"י אילת חיפה",
+      "address": "אח\"י אילת 22",
+      "city": "4000",
+      "zip": "2626909",
+      "subchainId": ""
+    },
+    {
+      "storeId": "832",
+      "name": "ציפורית",
+      "address": "על כביש 77 בין צומת המוביל לצומת גולני",
+      "city": "0",
+      "zip": "0000000",
+      "subchainId": ""
+    },
+    {
+      "storeId": "834",
+      "name": "בנימינה מערב",
+      "address": "שכונת הרכבת , כניסה מערבית בנימינה",
+      "city": "9800",
+      "zip": "3055307",
+      "subchainId": ""
+    },
+    {
+      "storeId": "839",
+      "name": "ניר בנים",
+      "address": "מושב ניר בנים",
+      "city": "553",
+      "zip": "7952500",
+      "subchainId": ""
+    },
+    {
+      "storeId": "843",
+      "name": "עמיעד",
+      "address": "כניסה לקיבוץ עמיעד",
+      "city": "385",
+      "zip": "0000000",
+      "subchainId": ""
+    },
+    {
+      "storeId": "850",
+      "name": "אביב דרך נמיר",
+      "address": "דרך נמיר 301 תל אביב",
+      "city": "5000",
+      "zip": "6250786",
+      "subchainId": ""
+    },
+    {
+      "storeId": "852",
+      "name": "יזרעאל",
+      "address": "כביש מספר 675 בכניסה לקיבוץ יזרעאל",
+      "city": "452",
+      "zip": "1935000",
+      "subchainId": ""
+    },
+    {
+      "storeId": "853",
+      "name": "חריש",
+      "address": "דרך ארץ 2 קניון חנן מור",
+      "city": "1247",
+      "zip": "3761139",
+      "subchainId": ""
+    },
+    {
+      "storeId": "860",
+      "name": "מזרע",
+      "address": "בכניסה לקיבוץ מזרע",
+      "city": "104",
+      "zip": "1931200",
+      "subchainId": ""
+    },
+    {
+      "storeId": "861",
+      "name": "נהורה",
+      "address": "כביש 352 בכניסה למושב נהורה",
+      "city": "309",
+      "zip": "7934000",
+      "subchainId": ""
+    },
+    {
+      "storeId": "870",
+      "name": "יקנעם",
+      "address": "התנופה 2",
+      "city": "241",
+      "zip": "2066717",
+      "subchainId": ""
+    },
+    {
+      "storeId": "871",
+      "name": "רמת רחל",
+      "address": "קיבוץ רמת רחל",
+      "city": "127",
+      "zip": "0000000",
+      "subchainId": ""
+    },
+    {
+      "storeId": "901",
+      "name": "יד נתן",
+      "address": "כביש 35 כניסה לקיבוץ יד נתן",
+      "city": "775",
+      "zip": "7935200",
+      "subchainId": ""
+    },
+    {
+      "storeId": "902",
+      "name": "נגבה",
+      "address": "כביש 3    מול בסיס ג'וליס",
+      "city": "315",
+      "zip": "7985600",
+      "subchainId": ""
+    },
+    {
+      "storeId": "903",
+      "name": "גן יבנה",
+      "address": "כביש אשקלון ת\"א- מספר4",
+      "city": "166",
+      "zip": "0000000",
+      "subchainId": ""
+    },
+    {
+      "storeId": "904",
+      "name": "משען",
+      "address": "כביש אשקלון קרית גת 35",
+      "city": "791",
+      "zip": "7930200",
+      "subchainId": ""
+    },
+    {
+      "storeId": "905",
+      "name": "גבים",
+      "address": "צומת גבים כביש 34 ליד קיבוץ גבים",
+      "city": "424",
+      "zip": "7916500",
+      "subchainId": ""
+    },
+    {
+      "storeId": "906",
+      "name": "נתב\"ג",
+      "address": "בכיכר ליד טרמינל 2 מזרחית לשדה",
+      "city": "7000",
+      "zip": "7010000",
+      "subchainId": ""
+    },
+    {
+      "storeId": "908",
+      "name": "נס ציונה",
+      "address": "רח וייצמן 37 דרומית לקניותר",
+      "city": "7200",
+      "zip": "7408005",
+      "subchainId": ""
+    },
+    {
+      "storeId": "910",
+      "name": "עין איילה צ.עופר",
+      "address": "צומת עופר, כניסה למושב כרם מהרל (עין איי",
+      "city": "580",
+      "zip": "3082500",
+      "subchainId": ""
+    },
+    {
+      "storeId": "911",
+      "name": "עין כרמל",
+      "address": "כניסה לקיבוץ עין כרמל-מול נחל מערות",
+      "city": "426",
+      "zip": "3086000",
+      "subchainId": ""
+    },
+    {
+      "storeId": "912",
+      "name": "גן הצפון",
+      "address": "בין צומת מצודות לצומת הבניאס כ.99",
+      "city": "356",
+      "zip": "1222100",
+      "subchainId": ""
+    },
+    {
+      "storeId": "913",
+      "name": "צפת",
+      "address": "רחוב נוף הגליל , צפת",
+      "city": "8000",
+      "zip": "1304644",
+      "subchainId": ""
+    },
+    {
+      "storeId": "914",
+      "name": "חוקוק",
+      "address": "כביש 90, בין צומת מגדל לצומת כפר נחום, ח",
+      "city": "374",
+      "zip": "1292300",
+      "subchainId": ""
+    },
+    {
+      "storeId": "918",
+      "name": "בית דגן",
+      "address": "צומת בית דגון, כביש 44- ת.ד.34 נתב\"ג 701",
+      "city": "466",
+      "zip": "0000000",
+      "subchainId": ""
+    },
+    {
+      "storeId": "921",
+      "name": "הזורע",
+      "address": "כניסה לקיבוץ הזורע ,כביש 66",
+      "city": "250",
+      "zip": "0000000",
+      "subchainId": ""
+    },
+    {
+      "storeId": "922",
+      "name": "מענית",
+      "address": "כביש 574  בכניסה לקיבוץ מענית",
+      "city": "344",
+      "zip": "3785500",
+      "subchainId": ""
+    },
+    {
+      "storeId": "925",
+      "name": "תל יצחק",
+      "address": "בכניסה לקיבוץ תל יצחק בין צומת בני דרור",
+      "city": "287",
+      "zip": "4580500",
+      "subchainId": ""
+    },
+    {
+      "storeId": "927",
+      "name": "דבירה",
+      "address": "צומת דבירה",
+      "city": "849",
+      "zip": "0000000",
+      "subchainId": ""
+    },
+    {
+      "storeId": "928",
+      "name": "גאליה",
+      "address": "מושב גאליה,כביש רחובות יבנה",
+      "city": "853",
+      "zip": "7688500",
+      "subchainId": ""
+    },
+    {
+      "storeId": "930",
+      "name": "תדהר",
+      "address": "בכניסה למושב תדהר כביש 25",
+      "city": "2061",
+      "zip": "8539400",
+      "subchainId": ""
+    },
+    {
+      "storeId": "933",
+      "name": "גני חוגה",
+      "address": "צומת חמדיה (הגשר הרומי)",
+      "city": "343",
+      "zip": "0000000",
+      "subchainId": ""
+    },
+    {
+      "storeId": "935",
+      "name": "לטרון",
+      "address": "מחלף לטרון, מוזיאן השיריון, כביש 3",
+      "city": "0",
+      "zip": "0000000",
+      "subchainId": ""
+    },
+    {
+      "storeId": "940",
+      "name": "נען מזרח",
+      "address": "כביש 6 בין מחלף נשרים למחלף מסמיה",
+      "city": "158",
+      "zip": "0000000",
+      "subchainId": ""
+    },
+    {
+      "storeId": "941",
+      "name": "נען מערב",
+      "address": "כביש 6 בין מסמיה למחלף נשרים",
+      "city": "158",
+      "zip": "0000000",
+      "subchainId": ""
+    },
+    {
+      "storeId": "944",
+      "name": "פתחיה",
+      "address": "כביש 44, מחלף רמלה לכיוון צומת נחשון, סמ",
+      "city": "839",
+      "zip": "9979500",
+      "subchainId": ""
+    },
+    {
+      "storeId": "947",
+      "name": "מגל מערב",
+      "address": "כביש 6 לכיוון דרום",
+      "city": "375",
+      "zip": "0000000",
+      "subchainId": ""
+    },
+    {
+      "storeId": "948",
+      "name": "מגל מזרח",
+      "address": "כביש 6 לכיוון צפון",
+      "city": "375",
+      "zip": "3884500",
+      "subchainId": ""
+    },
+    {
+      "storeId": "949",
+      "name": "ערד",
+      "address": "דרך חברון 140 כניסה צפונית לערד",
+      "city": "2560",
+      "zip": "0000000",
+      "subchainId": ""
+    },
+    {
+      "storeId": "951",
+      "name": "מתנ\"ח יבנה",
+      "address": "מחלף יבנה, כביש מס' 4 שידלובסקי",
+      "city": "2660",
+      "zip": "7923300",
+      "subchainId": ""
+    },
+    {
+      "storeId": "952",
+      "name": "כפר טרומן",
+      "address": "צומת כביש 453",
+      "city": "673",
+      "zip": "7315000",
+      "subchainId": ""
+    },
+    {
+      "storeId": "955",
+      "name": "יקום",
+      "address": "תחנת דלק דור  יקום",
+      "city": "417",
+      "zip": "6097200",
+      "subchainId": ""
+    },
+    {
+      "storeId": "958",
+      "name": "כפר סבא",
+      "address": "תעש 1, כפר סבא",
+      "city": "6900",
+      "zip": "0000000",
+      "subchainId": ""
+    },
+    {
+      "storeId": "960",
+      "name": "עכו",
+      "address": "כביש עכו-חיפה, כביש מס' 4 א.ת. עכו ליד צ",
+      "city": "7600",
+      "zip": "0000000",
+      "subchainId": ""
+    },
+    {
+      "storeId": "961",
+      "name": "טל שחר",
+      "address": "כביש 3, צומת טל שחר",
+      "city": "462",
+      "zip": "7680500",
+      "subchainId": ""
+    },
+    {
+      "storeId": "968",
+      "name": "חדרה מזרח",
+      "address": "רח' צהל 77 חדרה, ליד מכבי אש",
+      "city": "6500",
+      "zip": "0000000",
+      "subchainId": ""
+    },
+    {
+      "storeId": "969",
+      "name": "אילות",
+      "address": "קיבוץ אילות אחרי המחסום ביציאה מאילת 08-",
+      "city": "2600",
+      "zip": "8880500",
+      "subchainId": ""
+    },
+    {
+      "storeId": "976",
+      "name": "אלון הרכבת ב\"ש",
+      "address": "יהושע הצורף 4 באר שבע",
+      "city": "9000",
+      "zip": "8489946",
+      "subchainId": ""
+    },
+    {
+      "storeId": "978",
+      "name": "נוה ירק",
+      "address": "כניסה למושב נווה ירק, כביש מספר 40",
+      "city": "858",
+      "zip": "0000000",
+      "subchainId": ""
+    },
+    {
+      "storeId": "981",
+      "name": "תל מונד",
+      "address": "רח' הדקל 8 תל מונד",
+      "city": "154",
+      "zip": "4060008",
+      "subchainId": ""
+    },
+    {
+      "storeId": "992",
+      "name": "עוקף חדרה",
+      "address": "כביש עוקף חדרה (לכיוון צפון וכביש 6)",
+      "city": "6500",
+      "zip": "0000000",
+      "subchainId": ""
+    },
+    {
+      "storeId": "644",
+      "name": "יסעור",
+      "address": "קיבוץ יסעור כביש 70 ד.נ משגב",
+      "city": "575",
+      "zip": "2015000",
+      "subchainId": ""
+    },
+    {
+      "storeId": "645",
+      "name": "בית קשת",
+      "address": "צומת גולני דרומה-בית ספר כדורי",
+      "city": "365",
+      "zip": "1524200",
+      "subchainId": ""
+    },
+    {
+      "storeId": "647",
+      "name": "להבות חביבה",
+      "address": "כביש 581 בין צומת הרוא\"ה וצומת ברקאי",
+      "city": "715",
+      "zip": "3883500",
+      "subchainId": ""
+    },
+    {
+      "storeId": "648",
+      "name": "גשר הזיו",
+      "address": "כביש נהריה ראש הנקרה, כביש מס' 4",
+      "city": "574",
+      "zip": "2281500",
+      "subchainId": ""
+    },
+    {
+      "storeId": "658",
+      "name": "צומת הגומא",
+      "address": "כביש 90, צומת הגומא - ת.ד. 518 קרית שמונ",
+      "city": "2800",
+      "zip": "1101302",
+      "subchainId": ""
+    },
+    {
+      "storeId": "661",
+      "name": "גבעת עוז",
+      "address": "כביש מס 65",
+      "city": "703",
+      "zip": "1922500",
+      "subchainId": ""
+    },
+    {
+      "storeId": "666",
+      "name": "עינת מ.ס",
+      "address": "קיבוץ עינת",
+      "city": "871",
+      "zip": "4880500",
+      "subchainId": ""
+    },
+    {
+      "storeId": "650",
+      "name": "אלומות",
+      "address": "כביש 92, צומת אלומות",
+      "city": "330",
+      "zip": "1522300",
+      "subchainId": ""
+    },
+    {
+      "storeId": "651",
+      "name": "אורים",
+      "address": "כביש 241, 9 ק\"מ דרומית לאופקים",
+      "city": "403",
+      "zip": "8553000",
+      "subchainId": ""
+    },
+    {
+      "storeId": "652",
+      "name": "בית השיטה מיני סופר",
+      "address": "כביש 71, צומת קיבוץ בית השיטה",
+      "city": "9200",
+      "zip": "1080100",
+      "subchainId": ""
+    },
+    {
+      "storeId": "653",
+      "name": "כפר-עזה",
+      "address": "קיבוץ כפר עזה כביש 232",
+      "city": "845",
+      "zip": "8514200",
+      "subchainId": ""
+    },
+    {
+      "storeId": "654",
+      "name": "להב",
+      "address": "להבים-שוקת-כביש 31",
+      "city": "2023",
+      "zip": "8533800",
+      "subchainId": ""
+    },
+    {
+      "storeId": "801",
+      "name": "הרכבים ירושלים",
+      "address": "רח' הרכבים 5 א.ת. תלפיות ירושלים",
+      "city": "3000",
+      "zip": "9346205",
+      "subchainId": ""
+    },
+    {
+      "storeId": "804",
+      "name": "האון -תפעול",
+      "address": "קיבוץ האון",
+      "city": "702",
+      "zip": "1517000",
+      "subchainId": ""
+    },
+    {
+      "storeId": "807",
+      "name": "עיר ימים נתניה",
+      "address": "דרך בן גוריון 172 נתניה",
+      "city": "7400",
+      "zip": "4227245",
+      "subchainId": ""
+    },
+    {
+      "storeId": "808",
+      "name": "בני דרור",
+      "address": "צומת בני דרור, ליד קניון דרורים",
+      "city": "386",
+      "zip": "4581500",
+      "subchainId": ""
+    },
+    {
+      "storeId": "811",
+      "name": "מצפה רמון",
+      "address": "הר קטום 1 בכניסה למצפה רמון - 98",
+      "city": "99",
+      "zip": "8065001",
+      "subchainId": ""
+    },
+    {
+      "storeId": "814",
+      "name": "ד\"ש פ\"ת",
+      "address": "רח' דנמרק 1 פתח תקוה (בי\"ח בלינסון)",
+      "city": "7900",
+      "zip": "4959278",
+      "subchainId": ""
+    },
+    {
+      "storeId": "815",
+      "name": "צוקים",
+      "address": "כביש מס' 90 (כביש הערבה) בין עין יהב לכו",
+      "city": "1262",
+      "zip": "8683300",
+      "subchainId": ""
+    },
+    {
+      "storeId": "820",
+      "name": "עוקף קריות",
+      "address": "רח המלאכה 2",
+      "city": "4000",
+      "zip": "3223597",
+      "subchainId": ""
+    },
+    {
+      "storeId": "823",
+      "name": "שערי הצפון",
+      "address": "דרך חיפה 52",
+      "city": "4000",
+      "zip": "2822653",
+      "subchainId": ""
+    },
+    {
+      "storeId": "824",
+      "name": "דוכן צמח",
+      "address": "צומת צמח מרכז מסחרי",
+      "city": "63",
+      "zip": "0000000",
+      "subchainId": ""
+    },
+    {
+      "storeId": "655",
+      "name": "משמר השרון",
+      "address": "צ.העוגן כביש 4 קיבוץ משמר השרון",
+      "city": "194",
+      "zip": "0000000",
+      "subchainId": ""
+    },
+    {
+      "storeId": "656",
+      "name": "עין שמר",
+      "address": "צומת כרכור ליד פרדס חנה כביש 65",
+      "city": "139",
+      "zip": "0000000",
+      "subchainId": ""
+    },
+    {
+      "storeId": "657",
+      "name": "עינת",
+      "address": "כביש 444, קיבוץ עינת",
+      "city": "871",
+      "zip": "0000000",
+      "subchainId": ""
+    },
+    {
+      "storeId": "668",
+      "name": "עין שמר משלוחים",
+      "address": "",
+      "city": "139",
+      "zip": "",
+      "subchainId": ""
+    },
+    {
+      "storeId": "649",
+      "name": "עינת -ב מרכולית",
+      "address": "כביש 444, קיבוץ עינת",
+      "city": "871",
+      "zip": "0000000",
+      "subchainId": ""
+    },
+    {
+      "storeId": "733",
+      "name": "דוכן גן שמואל",
+      "address": "קיבוץ גן שמואל",
+      "city": "72",
+      "zip": "3881000",
+      "subchainId": ""
+    },
+    {
+      "storeId": "734",
+      "name": "דוכן גן שמואל משלוחי",
+      "address": "",
+      "city": "72",
+      "zip": "",
+      "subchainId": ""
+    },
+    {
+      "storeId": "702",
+      "name": "כפר הנשיא",
+      "address": "קיבוץ כפר הנשיא",
+      "city": "443",
+      "zip": "1230500",
+      "subchainId": ""
+    },
+    {
+      "storeId": "706",
+      "name": "בית יהושוע",
+      "address": "מושב בית יהושוע",
+      "city": "288",
+      "zip": "4059100",
+      "subchainId": ""
+    },
+    {
+      "storeId": "707",
+      "name": "דגניה א",
+      "address": "קיבות דגניה",
+      "city": "62",
+      "zip": "1512000",
+      "subchainId": ""
+    },
+    {
+      "storeId": "709",
+      "name": "נווה ירק  מושב",
+      "address": "מושב נווה ירק",
+      "city": "858",
+      "zip": "0000000",
+      "subchainId": ""
+    },
+    {
+      "storeId": "710",
+      "name": "העוגן",
+      "address": "קיבוץ העוגן",
+      "city": "423",
+      "zip": "4288000",
+      "subchainId": ""
+    },
+    {
+      "storeId": "711",
+      "name": "מעוז חיים",
+      "address": "קיבוץ מעוז חיים",
+      "city": "272",
+      "zip": "0000000",
+      "subchainId": ""
+    },
+    {
+      "storeId": "715",
+      "name": "שדי חמד-מושב",
+      "address": "מושב שדי חמד",
+      "city": "2015",
+      "zip": "0000000",
+      "subchainId": ""
+    },
+    {
+      "storeId": "717",
+      "name": "לכיש",
+      "address": "מושב לכיש",
+      "city": "24",
+      "zip": "7936000",
+      "subchainId": ""
+    },
+    {
+      "storeId": "719",
+      "name": "אחיטוב",
+      "address": "מושב אחיטוב",
+      "city": "850",
+      "zip": "0000000",
+      "subchainId": ""
+    },
+    {
+      "storeId": "721",
+      "name": "מכמורת",
+      "address": "מושב מכמורת",
+      "city": "382",
+      "zip": "4029700",
+      "subchainId": ""
+    },
+    {
+      "storeId": "722",
+      "name": "ישרש",
+      "address": "מושב ישרש",
+      "city": "828",
+      "zip": "7683800",
+      "subchainId": ""
+    },
+    {
+      "storeId": "723",
+      "name": "ברור חיל",
+      "address": "קיבוץ ברור חיל",
+      "city": "428",
+      "zip": "0000000",
+      "subchainId": ""
+    },
+    {
+      "storeId": "724",
+      "name": "נהלל",
+      "address": "מושב נהלל",
+      "city": "80",
+      "zip": "1060000",
+      "subchainId": ""
+    },
+    {
+      "storeId": "725",
+      "name": "גונן",
+      "address": "קיבוץ גונן",
+      "city": "852",
+      "zip": "1213000",
+      "subchainId": ""
+    },
+    {
+      "storeId": "726",
+      "name": "נורדיה",
+      "address": "מושב נורדיה",
+      "city": "447",
+      "zip": "4295400",
+      "subchainId": ""
+    },
+    {
+      "storeId": "727",
+      "name": "גבע כרמל",
+      "address": "קיבוץ גבע כרמל",
+      "city": "683",
+      "zip": "0000000",
+      "subchainId": ""
+    },
+    {
+      "storeId": "730",
+      "name": "מגדים",
+      "address": "מושב מגדים",
+      "city": "689",
+      "zip": "0000000",
+      "subchainId": ""
+    },
+    {
+      "storeId": "415",
+      "name": "מוצקין מרקט",
+      "address": "שושנה דמרי 4",
+      "city": "8200",
+      "zip": "2603795",
+      "subchainId": ""
+    }
+  ]
+}

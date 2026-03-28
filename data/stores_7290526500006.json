@@ -1,0 +1,79 @@
+{
+  "chainId": "7290526500006",
+  "chainName": "סאלח דבאח ובניו",
+  "fetchedAt": "2026-03-28T20:35:57",
+  "stores": [
+    {
+      "storeId": "004",
+      "name": "מגדל",
+      "address": "צומת מגדל",
+      "city": "0",
+      "zip": "0000000",
+      "subchainId": ""
+    },
+    {
+      "storeId": "007",
+      "name": "עין המפרץ",
+      "address": "עין המפרץ",
+      "city": "0",
+      "zip": "0000000",
+      "subchainId": ""
+    },
+    {
+      "storeId": "011",
+      "name": "סופר דבאח מול",
+      "address": "unknown",
+      "city": "0",
+      "zip": "0000000",
+      "subchainId": ""
+    },
+    {
+      "storeId": "013",
+      "name": "באר שבע",
+      "address": "הירדן 1",
+      "city": "0",
+      "zip": "0000000",
+      "subchainId": ""
+    },
+    {
+      "storeId": "015",
+      "name": "נצרת",
+      "address": "unknown",
+      "city": "0",
+      "zip": "0000000",
+      "subchainId": ""
+    },
+    {
+      "storeId": "017",
+      "name": "עפולה",
+      "address": "unknown",
+      "city": "0",
+      "zip": "0000000",
+      "subchainId": ""
+    },
+    {
+      "storeId": "019",
+      "name": "צק פוסט",
+      "address": "unknown",
+      "city": "0",
+      "zip": "0000000",
+      "subchainId": ""
+    },
+    {
+      "storeId": "021",
+      "name": "מסעדה נצרת",
+      "address": "unknown",
+      "city": "0",
+      "zip": "0000000",
+      "subchainId": ""
+    },
+    {
+      "storeId": "025",
+      "name": "גלאט נצרת",
+      "address": "unknown",
+      "city": "0",
+      "zip": "0000000",
+      "subchainId": ""
+    }
+  ]
+}

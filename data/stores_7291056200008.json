@@ -1,0 +1,279 @@
+{
+  "chainId": "7291056200008",
+  "chainName": "סופר קופיקס",
+  "fetchedAt": "2026-03-28T20:35:58",
+  "stores": [
+    {
+      "storeId": "299",
+      "name": "רמילוי בשכונה פרדסיה",
+      "address": "הארז 33",
+      "city": "פרדסיה",
+      "zip": "unknown",
+      "subchainId": ""
+    },
+    {
+      "storeId": "302",
+      "name": "ר.בשכונה שטמפפר פ\"ת",
+      "address": "שטמפפר 37",
+      "city": "פתח תקווה",
+      "zip": "unknown",
+      "subchainId": ""
+    },
+    {
+      "storeId": "306",
+      "name": "ר.בשכונה חדרה הרצל",
+      "address": "הרצל 27",
+      "city": "חדרה",
+      "zip": "unknown",
+      "subchainId": ""
+    },
+    {
+      "storeId": "307",
+      "name": "ר. בשכונה פ\"ת אבנת",
+      "address": "זבוטינסקי  72 קניון אבנת",
+      "city": "פתח תקווה",
+      "zip": "unknown",
+      "subchainId": ""
+    },
+    {
+      "storeId": "308",
+      "name": "ר.ל.בשכונה אלנבי",
+      "address": "אלנבי 119",
+      "city": "תל אביב",
+      "zip": "unknown",
+      "subchainId": ""
+    },
+    {
+      "storeId": "309",
+      "name": "ר.בשכונה רוטשילד כ\"ס",
+      "address": "רוטשילד 39",
+      "city": "כפר סבא",
+      "zip": "unknown",
+      "subchainId": ""
+    },
+    {
+      "storeId": "311",
+      "name": "ר.ל.בשכונה ק.קריון",
+      "address": "דרך עכו 192",
+      "city": "קרית ביאליק",
+      "zip": "unknown",
+      "subchainId": ""
+    },
+    {
+      "storeId": "312",
+      "name": "ר.ל.בשכונה עפולה",
+      "address": "חטיבת תשע 34",
+      "city": "עפולה",
+      "zip": "unknown",
+      "subchainId": ""
+    },
+    {
+      "storeId": "314",
+      "name": "ר.ל.בשכונה הנשיא",
+      "address": "הנשיא 2",
+      "city": "חדרה",
+      "zip": "unknown",
+      "subchainId": ""
+    },
+    {
+      "storeId": "316",
+      "name": "רמילוי בשכונה אשקלון",
+      "address": "אלי כהן  43",
+      "city": "אשקלון",
+      "zip": "unknown",
+      "subchainId": ""
+    },
+    {
+      "storeId": "317",
+      "name": "רמי לוי בשכונה אשדוד",
+      "address": "שבט לוי 14",
+      "city": "אשדוד",
+      "zip": "unknown",
+      "subchainId": ""
+    },
+    {
+      "storeId": "319",
+      "name": "ר.ל.בשכונה אור יהודה",
+      "address": "אליהו סעדון 120 קניון עזריאלי מינוס 1",
+      "city": "אור יהודה",
+      "zip": "unknown",
+      "subchainId": ""
+    },
+    {
+      "storeId": "320",
+      "name": "רמי בשכונה ראש העין",
+      "address": "משכנות המוזיקה שבזי 12",
+      "city": "ראש העין",
+      "zip": "unknown",
+      "subchainId": ""
+    },
+    {
+      "storeId": "321",
+      "name": "ס.קופיקס גבעת שמואל",
+      "address": "מרכז מסחרי מנחם בגין 23",
+      "city": "גבעת שמואל",
+      "zip": "unknown",
+      "subchainId": ""
+    },
+    {
+      "storeId": "323",
+      "name": "רמי לוי בשכונה נתניה",
+      "address": "הרטום 40 שכונת הראשונים",
+      "city": "נתניה",
+      "zip": "unknown",
+      "subchainId": ""
+    },
+    {
+      "storeId": "324",
+      "name": "ר.ל.ראשל\"צ הבאר",
+      "address": "קניון באר מורשת ישראל 15",
+      "city": "ראשל\"צ",
+      "zip": "unknown",
+      "subchainId": ""
+    },
+    {
+      "storeId": "325",
+      "name": "ר.בשכונה באר שבע רגר",
+      "address": "יעקב כהן 12",
+      "city": "באר שבע",
+      "zip": "unknown",
+      "subchainId": ""
+    },
+    {
+      "storeId": "327",
+      "name": "ר.ל.בשכונה הרצפלד",
+      "address": "הרצפלד 7",
+      "city": "כפר סבא",
+      "zip": "unknown",
+      "subchainId": ""
+    },
+    {
+      "storeId": "329",
+      "name": "ר.בשכונה בן יהודה 23",
+      "address": "בן יהודה 23",
+      "city": "תל אביב",
+      "zip": "unknown",
+      "subchainId": ""
+    },
+    {
+      "storeId": "330",
+      "name": "ר.בשכונה אסתר המלכה",
+      "address": "אסתר המלכה 4",
+      "city": "תל אביב",
+      "zip": "unknown",
+      "subchainId": ""
+    },
+    {
+      "storeId": "331",
+      "name": "ר.בשכונה רוטשילד פ\"ת",
+      "address": "רוטשילד 182",
+      "city": "פתח התקווה",
+      "zip": "unknown",
+      "subchainId": ""
+    },
+    {
+      "storeId": "332",
+      "name": "ר.ל.בשכונה רעננה",
+      "address": "אחוזה 83",
+      "city": "רעננה",
+      "zip": "unknown",
+      "subchainId": ""
+    },
+    {
+      "storeId": "334",
+      "name": "ר. בשכונה הוד השרון",
+      "address": "מגדיאל 57",
+      "city": "הוד השרון",
+      "zip": "unknown",
+      "subchainId": ""
+    },
+    {
+      "storeId": "335",
+      "name": "ס.קופיקס בן יהודה",
+      "address": "בן יהודה 174",
+      "city": "תל אביב",
+      "zip": "unknown",
+      "subchainId": ""
+    },
+    {
+      "storeId": "336",
+      "name": "ר.בשכונה הרצליה",
+      "address": "סוקולוב 56",
+      "city": "הרצליה",
+      "zip": "unknown",
+      "subchainId": ""
+    },
+    {
+      "storeId": "337",
+      "name": "ר.ל בשכונה גבעתיים",
+      "address": "דרך בן גוריון 182",
+      "city": "גבעתיים",
+      "zip": "unknown",
+      "subchainId": ""
+    },
+    {
+      "storeId": "338",
+      "name": "ר.ל.החשמונאים ת\"א",
+      "address": "החשמונאים 100 תל אביב",
+      "city": "תל אביב",
+      "zip": "unknown",
+      "subchainId": ""
+    },
+    {
+      "storeId": "339",
+      "name": "רמי לוי ב.ראשלצ רוט",
+      "address": "קניון רוטשילד קומה 1",
+      "city": "ראשון לציון",
+      "zip": "unknown",
+      "subchainId": ""
+    },
+    {
+      "storeId": "340",
+      "name": "רמי לוי בשכ שוקן ת\"א",
+      "address": "שוקן 1",
+      "city": "תל אביב",
+      "zip": "unknown",
+      "subchainId": ""
+    },
+    {
+      "storeId": "401",
+      "name": "שוויצריה הקטנה חולון",
+      "address": "סוקולוב 84",
+      "city": "חולון",
+      "zip": "unknown",
+      "subchainId": ""
+    },
+    {
+      "storeId": "403",
+      "name": "שוויצריה הקטנה נתניה",
+      "address": "ויצמן 14",
+      "city": "נתניה",
+      "zip": "unknown",
+      "subchainId": ""
+    },
+    {
+      "storeId": "404",
+      "name": "שוויצריה הקטנה ר\"ג",
+      "address": "ביאליק 79",
+      "city": "רמת גן",
+      "zip": "unknown",
+      "subchainId": ""
+    },
+    {
+      "storeId": "405",
+      "name": "שווצריה ממתקים ב\"ש",
+      "address": "עזריאלי באר שבע",
+      "city": "unknown",
+      "zip": "unknown",
+      "subchainId": ""
+    },
+    {
+      "storeId": "406",
+      "name": "שוויצריה קטנה הרצליה",
+      "address": "סוקולב 82",
+      "city": "הרצליה",
+      "zip": "unknown",
+      "subchainId": ""
+    }
+  ]
+}

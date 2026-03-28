@@ -1,0 +1,95 @@
+{
+  "chainId": "7290639000004",
+  "chainName": "סטופ מרקט",
+  "fetchedAt": "2026-03-28T20:35:57",
+  "stores": [
+    {
+      "storeId": "001",
+      "name": "בית חירות",
+      "address": "קניון אם הדרך",
+      "city": "877",
+      "zip": "4029100",
+      "subchainId": ""
+    },
+    {
+      "storeId": "002",
+      "name": "ארנה",
+      "address": "קניון ארנה",
+      "city": "6400",
+      "zip": "4655502",
+      "subchainId": ""
+    },
+    {
+      "storeId": "003",
+      "name": "קריות",
+      "address": "שד ההסתדרות 271",
+      "city": "4000",
+      "zip": "2620248",
+      "subchainId": ""
+    },
+    {
+      "storeId": "004",
+      "name": "יגור",
+      "address": "קיבוץ יגור",
+      "city": "96",
+      "zip": "3006500",
+      "subchainId": ""
+    },
+    {
+      "storeId": "005",
+      "name": "קסטרא",
+      "address": "דרך משה פלימן 8",
+      "city": "4000",
+      "zip": "3508418",
+      "subchainId": ""
+    },
+    {
+      "storeId": "006",
+      "name": "הוד השרון",
+      "address": "רחוב הנגר 24",
+      "city": "9700",
+      "zip": "4527713",
+      "subchainId": ""
+    },
+    {
+      "storeId": "007",
+      "name": "איינשטיין",
+      "address": "רחוב איינשטיין 139",
+      "city": "4000",
+      "zip": "3460177",
+      "subchainId": ""
+    },
+    {
+      "storeId": "008",
+      "name": "סוהו נתניה",
+      "address": "מפי 5",
+      "city": "7400",
+      "zip": "4250489",
+      "subchainId": ""
+    },
+    {
+      "storeId": "010",
+      "name": "ראשון לציון",
+      "address": "ילדי טהרן 7",
+      "city": "8300",
+      "zip": "7565843",
+      "subchainId": ""
+    },
+    {
+      "storeId": "011",
+      "name": "יוקנעם",
+      "address": "רחוב הפטל 1",
+      "city": "240",
+      "zip": "2064327",
+      "subchainId": ""
+    },
+    {
+      "storeId": "012",
+      "name": "יהלום",
+      "address": "שדרות לנטוס 10",
+      "city": "7400",
+      "zip": "4276023",
+      "subchainId": ""
+    }
+  ]
+}

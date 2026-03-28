@@ -1,0 +1,431 @@
+{
+  "chainId": "7290873255550",
+  "chainName": "טיב טעם",
+  "fetchedAt": "2026-03-28T20:35:57",
+  "stores": [
+    {
+      "storeId": "002",
+      "name": "נתניה",
+      "address": "בני גאון 2",
+      "city": "7400",
+      "zip": "0000000",
+      "subchainId": ""
+    },
+    {
+      "storeId": "003",
+      "name": "אשדוד",
+      "address": "ז'בוטינסקי 45 מתחם סטאר סנטר",
+      "city": "70",
+      "zip": "0000000",
+      "subchainId": ""
+    },
+    {
+      "storeId": "006",
+      "name": "בת ים",
+      "address": "אהוד קינמון 14",
+      "city": "6200",
+      "zip": "5959401",
+      "subchainId": ""
+    },
+    {
+      "storeId": "007",
+      "name": "אשקלון",
+      "address": "התחיה 1",
+      "city": "7100",
+      "zip": "7858201",
+      "subchainId": ""
+    },
+    {
+      "storeId": "010",
+      "name": "כרמיאל",
+      "address": "מעלה כמון 3 מתחם ביג",
+      "city": "1139",
+      "zip": "0000000",
+      "subchainId": ""
+    },
+    {
+      "storeId": "012",
+      "name": "חוצות המפרץ (קריות)",
+      "address": "החרושת 10 מתחם חוצות המפרץ",
+      "city": "4000",
+      "zip": "2629310",
+      "subchainId": ""
+    },
+    {
+      "storeId": "014",
+      "name": "ראשון מזרח",
+      "address": "המכבים 62 צומת בית דגן",
+      "city": "8300",
+      "zip": "7534503",
+      "subchainId": ""
+    },
+    {
+      "storeId": "015",
+      "name": "באר שבע חדש",
+      "address": "יצחק נפחא 25 מתחם מבנה",
+      "city": "9000",
+      "zip": "8489997",
+      "subchainId": ""
+    },
+    {
+      "storeId": "017",
+      "name": "מודיעין ישפרו",
+      "address": "שדרות המלאכות 12",
+      "city": "1200",
+      "zip": "7177870",
+      "subchainId": ""
+    },
+    {
+      "storeId": "018",
+      "name": "רחובות",
+      "address": "אופנהימר 2",
+      "city": "8400",
+      "zip": "7670102",
+      "subchainId": ""
+    },
+    {
+      "storeId": "019",
+      "name": "רמת החייל",
+      "address": "דבורה הנביאה 122",
+      "city": "5000",
+      "zip": "6944019",
+      "subchainId": ""
+    },
+    {
+      "storeId": "020",
+      "name": "חולון עזריאלי",
+      "address": "הרוקמים 26",
+      "city": "6600",
+      "zip": "5885849",
+      "subchainId": ""
+    },
+    {
+      "storeId": "021",
+      "name": "יהוד",
+      "address": "אלטלף 1",
+      "city": "9400",
+      "zip": "5621601",
+      "subchainId": ""
+    },
+    {
+      "storeId": "022",
+      "name": "קניון דרורים",
+      "address": "קניון דרורים",
+      "city": "386",
+      "zip": "4581500",
+      "subchainId": ""
+    },
+    {
+      "storeId": "023",
+      "name": "קיסריה",
+      "address": "דולב 14",
+      "city": "1167",
+      "zip": "3099514",
+      "subchainId": ""
+    },
+    {
+      "storeId": "024",
+      "name": "הוד השרון",
+      "address": "סוקולוב 46 כיכר המושבה",
+      "city": "9700",
+      "zip": "4528476",
+      "subchainId": ""
+    },
+    {
+      "storeId": "025",
+      "name": "צומת סביון",
+      "address": "השדרה האקדמית 4 בקעת אונו",
+      "city": "587",
+      "zip": "0000000",
+      "subchainId": ""
+    },
+    {
+      "storeId": "030",
+      "name": "מפגש מזרע",
+      "address": "קיבוץ מזרע",
+      "city": "104",
+      "zip": "1931200",
+      "subchainId": ""
+    },
+    {
+      "storeId": "051",
+      "name": "דלי רעננה",
+      "address": "אחוזה 269 פארק מול",
+      "city": "8700",
+      "zip": "4355741",
+      "subchainId": ""
+    },
+    {
+      "storeId": "052",
+      "name": "הרצליה",
+      "address": "בן גוריון 56 פינת בר כוכבא",
+      "city": "6400",
+      "zip": "4644612",
+      "subchainId": ""
+    },
+    {
+      "storeId": "056",
+      "name": "טופ דן",
+      "address": "פנחס רוזן 72",
+      "city": "5000",
+      "zip": "6951294",
+      "subchainId": ""
+    },
+    {
+      "storeId": "057",
+      "name": "מאז\"ה",
+      "address": "מאז\"ה 40",
+      "city": "5000",
+      "zip": "6521423",
+      "subchainId": ""
+    },
+    {
+      "storeId": "058",
+      "name": "בן-יהודה 130",
+      "address": "בן יהודה 130 פינת בן גוריון",
+      "city": "5000",
+      "zip": "6340144",
+      "subchainId": ""
+    },
+    {
+      "storeId": "059",
+      "name": "בן יהודה 181",
+      "address": "בן יהודה 181",
+      "city": "5000",
+      "zip": "6347210",
+      "subchainId": ""
+    },
+    {
+      "storeId": "061",
+      "name": "חשמונאים 91",
+      "address": "חשמונאים 91",
+      "city": "5000",
+      "zip": "6713308",
+      "subchainId": ""
+    },
+    {
+      "storeId": "063",
+      "name": "אבן גבירול 64",
+      "address": "אבן גבירול 64",
+      "city": "5000",
+      "zip": "6495201",
+      "subchainId": ""
+    },
+    {
+      "storeId": "068",
+      "name": "סירקין 13",
+      "address": "סירקין 13",
+      "city": "6300",
+      "zip": "5325007",
+      "subchainId": ""
+    },
+    {
+      "storeId": "070",
+      "name": "יפו",
+      "address": "שדרות ירושלים 4",
+      "city": "5000",
+      "zip": "6802102",
+      "subchainId": ""
+    },
+    {
+      "storeId": "071",
+      "name": "פרישמן",
+      "address": "פרישמן 13",
+      "city": "5000",
+      "zip": "6357813",
+      "subchainId": ""
+    },
+    {
+      "storeId": "073",
+      "name": "פנקס 2",
+      "address": "אבן גבירול 164",
+      "city": "5000",
+      "zip": "6296615",
+      "subchainId": ""
+    },
+    {
+      "storeId": "074",
+      "name": "ארלוזורוב",
+      "address": "ארלוזורוב 149",
+      "city": "5000",
+      "zip": "6299502",
+      "subchainId": ""
+    },
+    {
+      "storeId": "075",
+      "name": "יהודה מכבי",
+      "address": "יהודה מכבי 69",
+      "city": "5000",
+      "zip": "6230024",
+      "subchainId": ""
+    },
+    {
+      "storeId": "079",
+      "name": "חולון סיטי קוגל",
+      "address": "שדרות לוי אשכול 30",
+      "city": "6600",
+      "zip": "0000000",
+      "subchainId": ""
+    },
+    {
+      "storeId": "080",
+      "name": "יגאל אלון דלי",
+      "address": "יגאל אלון 94",
+      "city": "5000",
+      "zip": "6789139",
+      "subchainId": ""
+    },
+    {
+      "storeId": "082",
+      "name": "דלי כורזין גבעתיים",
+      "address": "תפוצות ישראל 6",
+      "city": "6300",
+      "zip": "5358323",
+      "subchainId": ""
+    },
+    {
+      "storeId": "083",
+      "name": "מרכז כיתן",
+      "address": "פנחס רוזן 67",
+      "city": "5000",
+      "zip": "6951289",
+      "subchainId": ""
+    },
+    {
+      "storeId": "084",
+      "name": "דלי איינשטיין",
+      "address": "איינשטיין 10",
+      "city": "5000",
+      "zip": "6910110",
+      "subchainId": ""
+    },
+    {
+      "storeId": "085",
+      "name": "בית הדובדבן - אונו",
+      "address": "הדובדבן 7",
+      "city": "2620",
+      "zip": "5551051",
+      "subchainId": ""
+    },
+    {
+      "storeId": "087",
+      "name": "מונטיפיורי פתח תקוה",
+      "address": "רוטישילד 57",
+      "city": "7900",
+      "zip": "4947306",
+      "subchainId": ""
+    },
+    {
+      "storeId": "088",
+      "name": "רמת אפעל",
+      "address": "דרך שיבא 16",
+      "city": "8600",
+      "zip": "0000000",
+      "subchainId": ""
+    },
+    {
+      "storeId": "089",
+      "name": "קינג גורג",
+      "address": "קינג גורג 8",
+      "city": "5000",
+      "zip": "6326606",
+      "subchainId": ""
+    },
+    {
+      "storeId": "091",
+      "name": "המסגר",
+      "address": "המסגר 37",
+      "city": "5000",
+      "zip": "6721426",
+      "subchainId": ""
+    },
+    {
+      "storeId": "092",
+      "name": "מחניים",
+      "address": "מחניים 4",
+      "city": "4000",
+      "zip": "3448106",
+      "subchainId": ""
+    },
+    {
+      "storeId": "093",
+      "name": "כפר סבא הירוקה",
+      "address": "נעמי שמר 15",
+      "city": "6900",
+      "zip": "0000000",
+      "subchainId": ""
+    },
+    {
+      "storeId": "094",
+      "name": "קרית מוצקין",
+      "address": "ש\"י עגנון 16",
+      "city": "8200",
+      "zip": "2603827",
+      "subchainId": ""
+    },
+    {
+      "storeId": "156",
+      "name": "עדן גן העיר",
+      "address": "אבן גבירול 71",
+      "city": "5000",
+      "zip": "6416202",
+      "subchainId": ""
+    },
+    {
+      "storeId": "502",
+      "name": "ליקוט נתניה",
+      "address": "",
+      "city": "7400",
+      "zip": "",
+      "subchainId": ""
+    },
+    {
+      "storeId": "503",
+      "name": "ליקוט טיב טעם אשדוד",
+      "address": "",
+      "city": "70",
+      "zip": "",
+      "subchainId": ""
+    },
+    {
+      "storeId": "512",
+      "name": "ליקוט טיב טעם קריות",
+      "address": "",
+      "city": "4000",
+      "zip": "",
+      "subchainId": ""
+    },
+    {
+      "storeId": "514",
+      "name": "ליקוט ראשון מזרח",
+      "address": "",
+      "city": "8300",
+      "zip": "",
+      "subchainId": ""
+    },
+    {
+      "storeId": "515",
+      "name": "ליקוט טיב באר שבע",
+      "address": "",
+      "city": "9000",
+      "zip": "",
+      "subchainId": ""
+    },
+    {
+      "storeId": "519",
+      "name": "ליקוט רמת החייל",
+      "address": "",
+      "city": "5000",
+      "zip": "",
+      "subchainId": ""
+    },
+    {
+      "storeId": "523",
+      "name": "ליקוט קיסריה",
+      "address": "",
+      "city": "1167",
+      "zip": "",
+      "subchainId": ""
+    }
+  ]
+}
