@@ -15,6 +15,8 @@ import json
 import os
 import re
 import sys
+import threading
+from concurrent.futures import ThreadPoolExecutor
 from datetime import datetime
 from io import BytesIO
 from pathlib import Path
@@ -38,6 +40,19 @@ STORES_CSV  = Path("stores.csv")
 DATA_DIR    = Path("data")
 OUTPUT_FILE = DATA_DIR / "prices.json"
 FRESH_RE    = re.compile(r"(?<!\S)טרי(?!\S)")   # word-boundary for Hebrew
+MAX_WORKERS = 4                                  # max parallel stores
+
+# ---------------------------------------------------------------------------
+# Thread-safety: per-chain lock for stores-cache download
+# ---------------------------------------------------------------------------
+_chain_locks: dict[str, threading.Lock] = {}
+_chain_locks_guard = threading.Lock()
+
+def _chain_lock(chain_id: str) -> threading.Lock:
+    with _chain_locks_guard:
+        if chain_id not in _chain_locks:
+            _chain_locks[chain_id] = threading.Lock()
+        return _chain_locks[chain_id]
 
 # ---------------------------------------------------------------------------
 # Shared helpers
@@ -69,19 +84,32 @@ def parse_dt(raw: Optional[str]) -> Optional[datetime]:
 # ---------------------------------------------------------------------------
 class PublishedPricesFetcher:
     def __init__(self, portal_url: str, username: str, password: str,
-                 price_prefix: str, promo_prefix: str):
+                 price_prefix: str, promo_prefix: str,
+                 prefetched_cookies: Optional[dict] = None):
         self.base         = portal_url.rstrip("/")
         self.username     = username
         self.password     = password
         self._verify      = False   # publishedprices.co.il — skip SSL verify
         self.s            = requests.Session()
         self.s.headers.update({"User-Agent": "pricetop/1.0"})
+        self._log: list[str] = []
+
         # derive store_tag from last 3-digit group: "PriceFull7290058140886-044" → "-044"
         m = re.search(r'(-\d{3})$', price_prefix)
         self.store_tag = m.group(1) if m else price_prefix
         # derive chain_id (13 digits after the type prefix): "PriceFull7290058140886-044" → "7290058140886"
         mc = re.match(r'\D+(\d{13})', price_prefix)
         self.chain_id = mc.group(1) if mc else ""
+
+        # Pre-seed cookies from chain-level login — skip login() later
+        self._logged_in = False
+        if prefetched_cookies:
+            self.s.cookies.update(prefetched_cookies)
+            self._logged_in = True
+
+    def _p(self, msg: str) -> None:
+        """Append message to this store's log buffer."""
+        self._log.append(msg)
 
     # --- auth ---
     def _get_csrf(self, url: str) -> str:
@@ -91,6 +119,8 @@ class PublishedPricesFetcher:
         return m.group(1) if m else ""
 
     def login(self):
+        if self._logged_in:
+            return
         csrf = self._get_csrf(f"{self.base}/login")
         self.s.post(
             f"{self.base}/login/user",
@@ -98,6 +128,7 @@ class PublishedPricesFetcher:
                   "csrftoken": csrf, "r": ""},
             timeout=30, verify=self._verify,
         )
+        self._logged_in = True
 
     # --- file listing ---
     def _find_latest(self, kind: str, csrf: str) -> Optional[dict]:
@@ -127,9 +158,9 @@ class PublishedPricesFetcher:
     def _get_or_download(self, fname: str) -> bytes:
         local = DATA_DIR / fname
         if local.exists():
-            print(f"    [cache]    {fname}")
+            self._p(f"    [cache]    {fname}")
             return local.read_bytes()
-        print(f"    [download] {fname}")
+        self._p(f"    [download] {fname}")
         data = self._download(fname)
         local.write_bytes(data)
         return data
@@ -178,8 +209,8 @@ class PublishedPricesFetcher:
             club    = (club_id not in ("0", "")) or bool(clubs)
 
             # --- promotion-level discount (Rami Levy puts it here, not per-item) ---
-            promo_dp = promo.findtext("DiscountedPrice", "")
-            promo_dr = promo.findtext("DiscountRate", "")
+            promo_dp  = promo.findtext("DiscountedPrice", "")
+            promo_dr  = promo.findtext("DiscountRate", "")
             promo_qty = promo.findtext("MinQty")
 
             # --- items: <PromotionItem> (Osher Ad) or <Item> (Rami Levy) ---
@@ -211,52 +242,67 @@ class PublishedPricesFetcher:
         """
         Downloads the Stores XML for this chain once and caches it to
         data/stores_<chainid>.json. On subsequent runs, reads from cache.
+        Thread-safe: per-chain lock prevents duplicate downloads when stores
+        of the same chain run in parallel.
         To force refresh: delete the cache file.
         """
         cache_path = DATA_DIR / f"stores_{self.chain_id}.json"
         if cache_path.exists():
             return json.loads(cache_path.read_text(encoding="utf-8")).get("stores", [])
 
-        print(f"  [stores] First run for chain {self.chain_id} — downloading store list...")
-        r = self.s.post(
-            f"{self.base}/file/json/dir",
-            data={"path": "/", "iDisplayLength": 50, "iDisplayStart": 0,
-                  "sSearch": f"Stores{self.chain_id}", "sEcho": 1, "csrftoken": csrf},
-            timeout=30, verify=self._verify,
-        )
-        r.raise_for_status()
-        candidates = [f for f in r.json().get("aaData", [])
-                      if f.get("fname", "").startswith(f"Stores{self.chain_id}")]
-        if not candidates:
-            print(f"  WARNING: no Stores file found for chain {self.chain_id}")
-            return []
+        with _chain_lock(self.chain_id):
+            # Double-check after acquiring lock (another thread may have downloaded it)
+            if cache_path.exists():
+                return json.loads(cache_path.read_text(encoding="utf-8")).get("stores", [])
 
-        latest = sorted(candidates, key=lambda x: x["time"])[-1]
-        print(f"  [stores] {latest['fname']}  ({latest['size']//1024} KB)")
-        raw = self._download(latest["fname"])
-        root = ET.fromstring(decode_xml_bytes(raw))
+            self._p(f"  [stores] First run for chain {self.chain_id} — downloading store list...")
+            r = self.s.post(
+                f"{self.base}/file/json/dir",
+                data={"path": "/", "iDisplayLength": 50, "iDisplayStart": 0,
+                      "sSearch": f"Stores{self.chain_id}", "sEcho": 1, "csrftoken": csrf},
+                timeout=30, verify=self._verify,
+            )
+            r.raise_for_status()
+            candidates = [f for f in r.json().get("aaData", [])
+                          if f.get("fname", "").startswith(f"Stores{self.chain_id}")]
+            if not candidates:
+                self._p(f"  WARNING: no Stores file found for chain {self.chain_id}")
+                return []
 
-        stores = []
-        for store in root.findall(".//Store"):
-            stores.append({
-                "storeId": (store.findtext("StoreId") or store.findtext("StoreID") or "").strip(),
-                "name":    store.findtext("StoreName", "").strip(),
-                "address": store.findtext("Address", "").strip(),
-                "city":    store.findtext("City", "").strip(),
-            })
+            latest = sorted(candidates, key=lambda x: x["time"])[-1]
+            self._p(f"  [stores] {latest['fname']}  ({latest['size']//1024} KB)")
+            raw = self._download(latest["fname"])
+            root = ET.fromstring(decode_xml_bytes(raw))
 
-        cache_path.write_text(
-            json.dumps({"chainId": self.chain_id,
-                        "fetchedAt": datetime.now().isoformat(timespec="seconds"),
-                        "stores": stores},
-                       ensure_ascii=False, indent=2),
-            encoding="utf-8",
-        )
-        print(f"  [stores] Cached {len(stores)} stores → {cache_path.name}")
-        return stores
+            stores = []
+            for store in root.findall(".//Store"):
+                stores.append({
+                    "storeId": (store.findtext("StoreId") or store.findtext("StoreID") or "").strip(),
+                    "name":    store.findtext("StoreName", "").strip(),
+                    "address": store.findtext("Address", "").strip(),
+                    "city":    store.findtext("City", "").strip(),
+                })
+
+            cache_path.write_text(
+                json.dumps({"chainId": self.chain_id,
+                            "fetchedAt": datetime.now().isoformat(timespec="seconds"),
+                            "stores": stores},
+                           ensure_ascii=False, indent=2),
+                encoding="utf-8",
+            )
+            self._p(f"  [stores] Cached {len(stores)} stores → {cache_path.name}")
+            return stores
 
     # --- main fetch ---
-    def fetch(self) -> Optional[dict]:
+    def fetch(self, log: Optional[list] = None) -> Optional[dict]:
+        """
+        Fetch prices and promos for this store.
+        If `log` is provided, all output lines are appended to it instead of
+        being printed immediately (enables clean parallel output in main).
+        """
+        if log is not None:
+            self._log = log
+
         self.login()
         csrf = self._get_csrf(f"{self.base}/file")
 
@@ -269,10 +315,10 @@ class PublishedPricesFetcher:
         latest_promo = self._find_latest("Promo", csrf)
 
         if not latest_price:
-            print(f"  WARNING: no Price file found for store tag {self.store_tag}")
+            self._p(f"  WARNING: no Price file found for store tag {self.store_tag}")
             return None
 
-        print(f"  Price file : {latest_price['fname']}  ({latest_price['size']//1024} KB)")
+        self._p(f"  Price file : {latest_price['fname']}  ({latest_price['size']//1024} KB)")
 
         # --- prices ---
         price_xml  = ET.fromstring(decode_xml_bytes(self._get_or_download(latest_price["fname"])))
@@ -280,14 +326,14 @@ class PublishedPricesFetcher:
         fresh_items = [i for i in all_items
                        if FRESH_RE.search(i.findtext("ItemName") or "")]
 
-        print(f"  Total items: {len(all_items)}  Fresh: {len(fresh_items)}")
+        self._p(f"  Total items: {len(all_items)}  Fresh: {len(fresh_items)}")
 
         # --- promos ---
         promo_map: dict = {}
         if not latest_promo:
-            print(f"  WARNING: no Promo file found for store tag {self.store_tag}")
+            self._p(f"  WARNING: no Promo file found for store tag {self.store_tag}")
         else:
-            print(f"  Promo file : {latest_promo['fname']}  ({latest_promo['size']//1024} KB)")
+            self._p(f"  Promo file : {latest_promo['fname']}  ({latest_promo['size']//1024} KB)")
             promo_xml = ET.fromstring(decode_xml_bytes(self._get_or_download(latest_promo["fname"])))
             promo_map = self._build_promo_map(promo_xml)
 
@@ -308,7 +354,7 @@ class PublishedPricesFetcher:
             })
 
         promo_count = sum(1 for p in products if p["promo"])
-        print(f"  Promos on fresh products: {promo_count}")
+        self._p(f"  Promos on fresh products: {promo_count}")
 
         return {
             "sourceFile": latest_price["fname"],
@@ -327,7 +373,7 @@ class ShufersalFetcher:
     def __init__(self, store_id: str, **_):
         self.store_id = store_id
 
-    def fetch(self) -> dict:
+    def fetch(self, log: Optional[list] = None) -> dict:
         raise NotImplementedError(
             "Shufersal fetcher not yet implemented. "
             "Add store_id to stores.csv and implement this class."
@@ -338,14 +384,15 @@ class ShufersalFetcher:
 # Registry
 # ---------------------------------------------------------------------------
 FETCHERS = {
-    "publishedprices": lambda row: PublishedPricesFetcher(
+    "publishedprices": lambda row, **kw: PublishedPricesFetcher(
         portal_url   = row["portal_url"],
         username     = row["משתמש"],
         password     = row["סיסמא"],
         price_prefix = row["price_prefix"],
         promo_prefix = row.get("promo_prefix", ""),
+        **kw,
     ),
-    "shufersal": lambda row: ShufersalFetcher(store_id=row.get("store_id", "")),
+    "shufersal": lambda row, **kw: ShufersalFetcher(store_id=row.get("store_id", "")),
 }
 
 
@@ -359,42 +406,87 @@ def main():
 
     OUTPUT_FILE.parent.mkdir(parents=True, exist_ok=True)
 
-    results  = []
-    errors   = []
-
     with open(STORES_CSV, encoding="utf-8-sig") as f:
-        for row in csv.DictReader(f):
-            chain     = row["רשת"]
-            store     = row["סניף"]
-            feed_type = row["סוג_פיד"]
+        rows = list(csv.DictReader(f))
 
-            print(f"\n=== {chain} / {store} ({feed_type}) ===")
+    # ── Phase 1: Login once per chain ──────────────────────────────────────
+    # For publishedprices chains, login once per (portal_url, username) pair
+    # and share the resulting cookies across all stores of that chain.
+    # This reduces N-store logins to M-chain logins.
+    chain_cookies: dict[tuple, dict] = {}
+    for row in rows:
+        if row["סוג_פיד"] != "publishedprices":
+            continue
+        key = (row["portal_url"].rstrip("/"), row["משתמש"])
+        if key not in chain_cookies:
+            print(f"[login] {row['רשת']} ({row['משתמש']})...", end=" ", flush=True)
+            tmp = PublishedPricesFetcher(
+                portal_url   = row["portal_url"],
+                username     = row["משתמש"],
+                password     = row["סיסמא"],
+                price_prefix = row["price_prefix"],
+                promo_prefix = row.get("promo_prefix", ""),
+            )
+            tmp.login()
+            chain_cookies[key] = dict(tmp.s.cookies)
+            print("OK")
 
-            builder = FETCHERS.get(feed_type)
-            if not builder:
-                msg = f"Unknown feed type: {feed_type}"
-                print(f"  WARNING: {msg}", file=sys.stderr)
-                errors.append({"chain": chain, "store": store, "error": msg})
-                continue
+    # ── Phase 2: Fetch all stores in parallel ──────────────────────────────
+    def _fetch_row(row: dict) -> tuple:
+        """Worker: fetch one store. Returns (result | None, log_lines, error | None)."""
+        chain     = row["רשת"]
+        store     = row["סניף"]
+        feed_type = row["סוג_פיד"]
+        log: list[str] = [f"\n=== {chain} / {store} ({feed_type}) ==="]
 
-            try:
-                data = builder(row).fetch()
-                if data is None:
-                    msg = "no price file found (warning only)"
-                    print(f"  WARNING: {msg}")
-                    errors.append({"chain": chain, "store": store, "error": msg})
-                    continue
-                results.append({
-                    "chain":     chain,
-                    "store":     store,
-                    "feedType":  feed_type,
-                    "fetchTime": datetime.now().strftime("%d/%m/%Y %H:%M"),
-                    **data,
-                })
-            except Exception as exc:
-                msg = str(exc)
-                print(f"  ERROR: {msg}", file=sys.stderr)
-                errors.append({"chain": chain, "store": store, "error": msg})
+        builder = FETCHERS.get(feed_type)
+        if not builder:
+            msg = f"Unknown feed type: {feed_type}"
+            log.append(f"  WARNING: {msg}")
+            return None, log, {"chain": chain, "store": store, "error": msg}
+
+        try:
+            key     = (row.get("portal_url", "").rstrip("/"), row.get("משתמש", ""))
+            cookies = chain_cookies.get(key, {})
+            fetcher = builder(row, prefetched_cookies=cookies)
+            data    = fetcher.fetch(log=log)
+            if data is None:
+                msg = "no price file found (warning only)"
+                log.append(f"  WARNING: {msg}")
+                return None, log, {"chain": chain, "store": store, "error": msg}
+            result = {
+                "chain":     chain,
+                "store":     store,
+                "feedType":  feed_type,
+                "fetchTime": datetime.now().strftime("%d/%m/%Y %H:%M"),
+                **data,
+            }
+            return result, log, None
+        except Exception as exc:
+            msg = str(exc)
+            log.append(f"  ERROR: {msg}")
+            return None, log, {"chain": chain, "store": store, "error": msg}
+
+    print(f"\nFetching {len(rows)} store(s) — up to {MAX_WORKERS} in parallel...")
+    t0 = datetime.now()
+
+    with ThreadPoolExecutor(max_workers=MAX_WORKERS) as executor:
+        futures = [executor.submit(_fetch_row, row) for row in rows]
+    # futures complete in background; we collect results in original CSV order below
+
+    results = []
+    errors  = []
+    for future in futures:
+        result, log, error = future.result()
+        for line in log:
+            print(line)
+        if result:
+            results.append(result)
+        if error:
+            errors.append(error)
+
+    elapsed = (datetime.now() - t0).total_seconds()
+    print(f"\nCompleted in {elapsed:.1f}s")
 
     output = {
         "generatedAt": datetime.now().isoformat(timespec="seconds"),
@@ -405,7 +497,7 @@ def main():
 
     output_json = json.dumps(output, ensure_ascii=False, indent=2)
     OUTPUT_FILE.write_text(output_json, encoding="utf-8")
-    print(f"\nSaved {len(results)} store(s) → {OUTPUT_FILE}")
+    print(f"Saved {len(results)} store(s) → {OUTPUT_FILE}")
     if errors:
         print(f"WARNING: {len(errors)} store(s) had issues — check errors[] in JSON", file=sys.stderr)
 
