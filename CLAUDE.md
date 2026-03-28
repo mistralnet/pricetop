@@ -1,25 +1,25 @@
 # pricetop — תיעוד פרויקט
 
 ## מה הפרויקט עושה
-מושך מחירי מוצרי בשר טרי מרשתות סופרמרקט ישראליות דרך פידי XML של **חוק שקיפות המחירים (2015)**.
-שומר תוצאות ל-`data/prices.json` ומריץ אוטומטית דרך GitHub Actions.
+מושך מחירי מוצרים **טריים** (בשר, עוף, דגים, ירקות, פירות) מסניפי סופרמרקט בחדרה,
+דרך פידי XML של **חוק שקיפות המחירים (2015)**.
+שומר תוצאות ל-`data/prices.json`, שולח ל-Make.com webhook, ומריץ ידנית דרך GitHub Actions.
 
 ---
 
-## פורטל אושר עד — publishedprices
-
-### פרטי התחברות
+## פורטל publishedprices — כללי
+כל הרשתות שמשתמשות בפורטל זה (Cerberus FTP Web Client):
 - **URL:** `https://url.publishedprices.co.il`
-- **משתמש:** `osherad`
-- **סיסמא:** (ריק — אין סיסמא)
-- **סוג פורטל:** Cerberus FTP Web Client
+- **תהליך לוגין זהה לכולן** — רק שם המשתמש שונה
 
 ### תהליך התחברות (Cerberus login flow)
 1. `GET /login` — מחלץ CSRF מ-`<meta name="csrftoken" content="...">`
 2. `POST /login/user` — שולח `{username, password, csrftoken, r}`
-3. Cookie `cftpSID` נשמר בסשן — חובה לעבוד עם `-SessionVariable` / `requests.Session()`
-4. `GET /file` — מחלץ CSRF נפרד לפעולות קבצים
+3. Cookie `cftpSID` נשמר בסשן — **חובה** לעבוד עם `requests.Session()` לאורך כל הסשן
+4. `GET /file` — מחלץ CSRF **נפרד** לפעולות קבצים (CSRF שני!)
 5. `POST /file/json/dir` — רשימת קבצים (DataTables v1.x params)
+
+> ⚠️ **קריטי:** ה-CSRF לפעולות קבצים שונה מה-CSRF ללוגין. חייבים לקרוא `/file` ולחלץ אותו בנפרד.
 
 ### רשימת קבצים — DataTables params
 ```
@@ -35,27 +35,50 @@ GET /file/d/<fname>
 
 ---
 
-## רשת אושר עד — מזהים
+## רשתות מוגדרות
+
+### אושר עד
+- **משתמש פורטל:** `osherad`
+- **סיסמא:** ריק — אין סיסמא
 - **Chain ID:** `7290103152017`
 - **SubChain ID:** `001`
 
-### סניפים בחדרה
+#### סניפים בחדרה
 | StoreID | שם | כתובת | קוד עיר |
 |---------|-----|--------|---------|
 | `014` | חדרה | המסגר 22, אזה"ת הצפוני | `6500` |
 
-> **הערה:** רק סניף אחד של אושר עד בחדרה. City code של חדרה הוא `6500` (לא שם עיר בטקסט).
+> **הערה:** City code של חדרה הוא `6500` (מספר, לא שם עיר). רק סניף אחד של אושר עד בחדרה.
+
+#### prefixes לסניף 014
+| prefix | תוכן |
+|--------|------|
+| `PriceFull7290103152017-001-014` | מחירי כל המוצרים |
+| `PromoFull7290103152017-001-014` | מבצעים פעילים |
+| `Stores7290103152017-000` | רשימת כל סניפי הרשת |
+
+---
+
+### רמי לוי *(בהכנה)*
+- **משתמש פורטל:** `RamiLevi`
+- **סיסמא:** ריק — אין סיסמא
+- **Chain ID:** עדיין לא ידוע — לבדוק בקובץ Stores לאחר לוגין
+- **סניפים בחדרה:** עדיין לא מופו
+- **סטטוס:** לא מומש. `ShufersalFetcher` קיים בקוד כ-`NotImplementedError`
+
+> ⚠️ הדומיין הישן `prices.rframi.co.il` כבר לא פעיל (DNS failure). הפורטל הנכון הוא `url.publishedprices.co.il` עם משתמש `RamiLevi`.
 
 ---
 
 ## פורמט קבצי ה-XML
 
-### סוגי קבצים
-| prefix | תוכן |
-|--------|------|
-| `PriceFull7290103152017-001-014` | מחירי כל המוצרים בסניף 014 |
-| `PromoFull7290103152017-001-014` | מבצעים פעילים בסניף 014 |
-| `Stores7290103152017-000` | רשימת כל הסניפים של הרשת |
+### מוסכמת שמות קבצים
+```
+<Type><ChainID>-<SubChainID>-<StoreID>-<YYYYMMDD>-<HHMMSS>.gz
+```
+דוגמה: `PriceFull7290103152017-001-014-20260325-140501.gz`
+
+> **חיפוש קובץ עדכני:** מסננים לפי prefix, ממיינים לפי `time` בתגובת ה-API, לוקחים האחרון.
 
 ### Encoding
 - **קבצי מחירים ומבצעים (.gz):** gzip → UTF-16 LE עם BOM (`0xFF 0xFE`)
@@ -128,17 +151,66 @@ GET /file/d/<fname>
 
 ---
 
-## סינון מוצרי בשר טרי
-- regex: `(?<!\S)טרי(?!\S)` — word boundary לעברית (מונע hitMatch כמו "אטריות")
-- מספר מוצרים טריים טיפוסי: **~116 מתוך ~6900**
+## סינון מוצרים טריים
+- **regex:** `(?<!\S)טרי(?!\S)` — word boundary לעברית
+- מונע false-positives כמו "אטריות", "פטריות"
+- מספר מוצרים טריים טיפוסי: **~116 מתוך ~6900** (אושר עד 014)
 - מוצרים עם מבצע פעיל: **~14**
+- מבצע פעיל = `PromotionStartDateTime <= now <= PromotionEndDateTime`
+- ClubID=0 = מבצע לכולם; ClubID!=0 = מועדון בלבד (לשקול סינון)
+
+---
+
+## פלט — data/prices.json
+```json
+{
+  "generatedAt": "2026-03-25T14:05:01",
+  "storeCount": 1,
+  "stores": [
+    {
+      "chain": "אושר עד",
+      "store": "חדרה - המסגר 22",
+      "feedType": "publishedprices",
+      "fetchTime": "25/03/2026 14:05",
+      "sourceFile": "PriceFull...gz",
+      "promoFile": "PromoFull...gz",
+      "products": [
+        {
+          "code": "...",
+          "name": "...",
+          "price": 12.90,
+          "unitPrice": 12.90,
+          "unit": "ק\"ג",
+          "updated": "2026-03-25",
+          "promo": {
+            "id": "...",
+            "description": "...",
+            "discountedPrice": 9.90,
+            "minQty": 1
+          }
+        }
+      ]
+    }
+  ]
+}
+```
+> `promo` יהיה `null` אם אין מבצע פעיל למוצר.
+
+---
+
+## Make.com Webhook
+- **URL:** `https://hook.eu1.make.com/oi6u7w14igpl7otyxvisryajg1x4dqt4`
+- **Method:** POST
+- **Content-Type:** `application/json`
+- נשלח בסוף כל ריצה מוצלחת עם תוכן `data/prices.json` המלא
+- כשלון webhook — warning בלבד, לא קורס את הסקריפט
 
 ---
 
 ## SSL
 - `publishedprices.co.il` — אישור SSL שאינו מוכר על ידי Python ב-Windows
 - **פתרון:** `verify=False` + `urllib3.disable_warnings()` — מוגדר קבוע ב-`PublishedPricesFetcher`
-- **GitHub Actions (Ubuntu):** אין בעיה, SSL עובד ישירות
+- **GitHub Actions (Ubuntu):** אין בעיה, SSL עובד ישירות — אין צורך בסביבת עבודה מיוחדת
 
 ---
 
@@ -146,10 +218,10 @@ GET /file/d/<fname>
 
 | קובץ | תפקיד |
 |------|--------|
-| `fetch_prices.py` | סקריפט ראשי — קורא CSV, מושך מחירים, שומר JSON |
-| `stores.csv` | רשימת סניפים + פרטי התחברות |
+| `fetch_prices.py` | סקריפט ראשי — קורא CSV, מושך מחירים, שומר JSON, שולח webhook |
+| `stores.csv` | רשימת סניפים + פרטי התחברות (UTF-8 עם BOM) |
 | `data/prices.json` | פלט — מחירים + מבצעים |
-| `.github/workflows/fetch-prices.yml` | GitHub Actions — טריגר ידני (`workflow_dispatch`) |
+| `.github/workflows/fetch-prices.yml` | GitHub Actions — טריגר ידני בלבד (`workflow_dispatch`) |
 | `requirements.txt` | `requests>=2.31.0` |
 | `osherad-fresh.ps1` | סקריפט PowerShell ישן (גיבוי — superseded על ידי Python) |
 | `_get_stores.py` | כלי עזר — הורדת רשימת סניפים מהפורטל |
@@ -159,14 +231,36 @@ GET /file/d/<fname>
 רשת, סניף, משתמש, סיסמא, סוג_פיד, portal_url, price_prefix, promo_prefix
 ```
 
+> **הוספת רשת חדשה:** מוסיפים שורה ב-stores.csv. `fetch_prices.py` יטפל בה אוטומטית.
+
 ---
 
-## GitHub
+## GitHub Actions
 - **Repo:** `https://github.com/mistralnet/pricetop`
 - **Branch:** `main`
-- **Actions:** workflow_dispatch בלבד (לא scheduled)
+- **Actions:** `workflow_dispatch` בלבד — מופעל ידנית מ-GitHub UI
 - **Artifact:** `prices-<run_id>` — מכיל `data/prices.json`
 - **Auto-commit:** אחרי כל ריצה מוצלחת, מעדכן `data/prices.json` ב-repo
+- **env בריצה:** `PYTHONIOENCODING=utf-8` (חובה לעברית ב-Ubuntu)
+
+---
+
+## הרצה מקומית (Windows)
+```powershell
+cd C:\Users\mistral\Downloads\pricetop
+python fetch_prices.py
+```
+
+פלט צפוי:
+```
+=== אושר עד / חדרה - המסגר 22 (publishedprices) ===
+  Price file : PriceFull7290103152017-001-014-YYYYMMDD-HHMMSS.gz  (5XX KB)
+  Total items: ~6900  Fresh: ~116
+  Promo file : PromoFull7290103152017-001-014-YYYYMMDD-HHMMSS.gz  (1XX KB)
+  Promos on fresh products: ~14
+Saved 1 store(s) → data\prices.json
+Webhook → 200 Accepted
+```
 
 ---
 
@@ -180,30 +274,12 @@ GET /file/d/<fname>
 - [x] שמירה ל-JSON מאוחד
 - [x] GitHub Actions (workflow_dispatch)
 - [x] הורדת קובץ Stores לזיהוי סניפים
+- [x] שליחה ל-Make.com webhook בסוף ריצה
 
 ## מה לא עובד / לא מומש
-- [ ] Shufersal fetcher — מחלקה `ShufersalFetcher` קיימת אבל `NotImplementedError`
-- [ ] רמי לוי — הדומיין `prices.rframi.co.il` לא זמין (DNS failure)
+- [ ] רמי לוי — לוגין מוגדר (`RamiLevi`) אבל טרם מופה Chain ID וסניפים בחדרה
+- [ ] שופרסל — מחלקה `ShufersalFetcher` קיימת אבל `NotImplementedError`
 - [ ] סניפים נוספים של אושר עד — רק סניף 014 מוגדר ב-stores.csv
-- [ ] ממשק HTML לתצוגת נתונים (index.html ישן עובד רק עם שופרסל)
+- [ ] ממשק HTML לתצוגת נתונים
 - [ ] cache check — הוסר; כל ריצה מורידה מחדש
-
----
-
-## הרצה מקומית
-```bash
-cd C:\Users\mistral\Downloads\pricetop
-python fetch_prices.py
-```
-פלט צפוי:
-```
-=== אושר עד / חדרה - המסגר 22 (publishedprices) ===
-  [DEBUG] N files visible in portal:
-    PriceFull7290103152017-001-014-YYYYMMDD-HHMMSS.gz  (5XX KB)
-    PromoFull7290103152017-001-014-YYYYMMDD-HHMMSS.gz  (1XX KB)
-  Price file : PriceFull...gz  (5XX KB)
-  Total items: ~6900  Fresh: ~116
-  Promo file : PromoFull...gz  (1XX KB)
-  Promos on fresh products: ~14
-Saved 1 store(s) → data\prices.json
-```
+- [ ] סינון מבצעי מועדון (ClubID != 0)
