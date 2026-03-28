@@ -76,9 +76,12 @@ class PublishedPricesFetcher:
         self._verify      = False   # publishedprices.co.il — skip SSL verify
         self.s            = requests.Session()
         self.s.headers.update({"User-Agent": "pricetop/1.0"})
-        # derive store tag from prefix: "PriceFull7290103152017-001-014" → "-014"
+        # derive store_tag from last 3-digit group: "PriceFull7290058140886-044" → "-044"
         m = re.search(r'(-\d{3})$', price_prefix)
         self.store_tag = m.group(1) if m else price_prefix
+        # derive chain_id (13 digits after the type prefix): "PriceFull7290058140886-044" → "7290058140886"
+        mc = re.match(r'\D+(\d{13})', price_prefix)
+        self.chain_id = mc.group(1) if mc else ""
 
     # --- auth ---
     def _get_csrf(self, url: str) -> str:
@@ -166,28 +169,63 @@ class PublishedPricesFetcher:
 
         return promo_map
 
-    # --- main fetch ---
-    def _list_all_files(self, csrf: str) -> list:
-        """Fetch full file listing from the portal (no prefix filter)."""
+    # --- stores cache: download Stores XML once per chain, reuse on next runs ---
+    def _ensure_stores_cache(self, csrf: str) -> list:
+        """
+        Downloads the Stores XML for this chain once and caches it to
+        data/stores_<chainid>.json. On subsequent runs, reads from cache.
+        To force refresh: delete the cache file.
+        """
+        cache_path = DATA_DIR / f"stores_{self.chain_id}.json"
+        if cache_path.exists():
+            return json.loads(cache_path.read_text(encoding="utf-8")).get("stores", [])
+
+        print(f"  [stores] First run for chain {self.chain_id} — downloading store list...")
         r = self.s.post(
             f"{self.base}/file/json/dir",
-            data={"path": "/", "iDisplayLength": 200, "iDisplayStart": 0,
-                  "sSearch": "", "sEcho": 1, "csrftoken": csrf},
+            data={"path": "/", "iDisplayLength": 50, "iDisplayStart": 0,
+                  "sSearch": f"Stores{self.chain_id}", "sEcho": 1, "csrftoken": csrf},
             timeout=30, verify=self._verify,
         )
         r.raise_for_status()
-        return r.json().get("aaData", [])
+        candidates = [f for f in r.json().get("aaData", [])
+                      if f.get("fname", "").startswith(f"Stores{self.chain_id}")]
+        if not candidates:
+            print(f"  WARNING: no Stores file found for chain {self.chain_id}")
+            return []
 
+        latest = sorted(candidates, key=lambda x: x["time"])[-1]
+        print(f"  [stores] {latest['fname']}  ({latest['size']//1024} KB)")
+        raw = self._download(latest["fname"])
+        root = ET.fromstring(decode_xml_bytes(raw))
+
+        stores = []
+        for store in root.findall(".//Store"):
+            stores.append({
+                "storeId": (store.findtext("StoreId") or store.findtext("StoreID") or "").strip(),
+                "name":    store.findtext("StoreName", "").strip(),
+                "address": store.findtext("Address", "").strip(),
+                "city":    store.findtext("City", "").strip(),
+            })
+
+        cache_path.write_text(
+            json.dumps({"chainId": self.chain_id,
+                        "fetchedAt": datetime.now().isoformat(timespec="seconds"),
+                        "stores": stores},
+                       ensure_ascii=False, indent=2),
+            encoding="utf-8",
+        )
+        print(f"  [stores] Cached {len(stores)} stores → {cache_path.name}")
+        return stores
+
+    # --- main fetch ---
     def fetch(self) -> Optional[dict]:
         self.login()
         csrf = self._get_csrf(f"{self.base}/file")
 
-        # --- DEBUG: print all files visible in the portal ---
-        all_files = self._list_all_files(csrf)
-        print(f"  [DEBUG] {len(all_files)} files visible in portal:")
-        for f in sorted(all_files, key=lambda x: x.get("fname", "")):
-            size_kb = f.get("size", 0) // 1024
-            print(f"    {f.get('fname', '?')}  ({size_kb} KB)")
+        # Ensure store list is cached (downloads Stores XML only on first run per chain)
+        if self.chain_id:
+            self._ensure_stores_cache(csrf)
 
         # --- find latest Price and Promo files for this store ---
         latest_price = self._find_latest("Price", csrf)
