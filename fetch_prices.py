@@ -101,7 +101,7 @@ class PublishedPricesFetcher:
 
     # --- file listing ---
     def _find_latest(self, kind: str, csrf: str) -> Optional[dict]:
-        """Find latest file of kind 'Price' or 'Promo' for this store tag (e.g. -014)."""
+        """Find latest file whose name starts with <kind> and contains -<storenum>- (e.g. -014-)."""
         r = self.s.post(
             f"{self.base}/file/json/dir",
             data={"path": "/", "iDisplayLength": 200, "iDisplayStart": 0,
@@ -110,7 +110,11 @@ class PublishedPricesFetcher:
         )
         r.raise_for_status()
         files = r.json().get("aaData", [])
-        matching = [f for f in files if f.get("fname", "").startswith(kind)]
+        # startswith(kind) covers both "PriceFull" and "Price", "PromoFull" and "Promo"
+        # store_tag+"-" ensures -044- appears as a segment (not a substring of another number)
+        matching = [f for f in files
+                    if f.get("fname", "").startswith(kind)
+                    and (self.store_tag + "-") in f.get("fname", "")]
         return sorted(matching, key=lambda x: x["time"])[-1] if matching else None
 
     # --- download (raw) ---
@@ -132,38 +136,71 @@ class PublishedPricesFetcher:
 
     # --- promo map: ItemCode -> promo dict (active only) ---
     def _build_promo_map(self, promo_xml: ET.Element) -> dict:
-        today    = datetime.now()
+        """
+        Builds ItemCode → promo dict for all active promotions.
+        Handles two XML formats:
+          Osher Ad:  PromotionStartDateTime/PromotionEndDateTime (combined)
+                     <PromotionItem> with per-item DiscountedPrice
+                     <ClubID>
+          Rami Levy: PromotionStartDate+PromotionStartHour / PromotionEndDate+PromotionEndHour
+                     <Item> children (no per-item discount) + promotion-level DiscountedPrice
+                     <Clubs>
+        """
+        today     = datetime.now()
         promo_map: dict = {}
 
         for promo in promo_xml.findall(".//Promotion"):
+            # --- date: try combined (Osher Ad) then separate fields (Rami Levy) ---
             start = parse_dt(promo.findtext("PromotionStartDateTime"))
-            end   = parse_dt(promo.findtext("PromotionEndDateTime"))
-            if not start or not end:
-                continue
-            if not (start <= today <= end):
+            if start is None:
+                d = promo.findtext("PromotionStartDate", "")
+                h = promo.findtext("PromotionStartHour", "00:00:00")
+                start = parse_dt(f"{d}T{h}") if d else None
+
+            end = parse_dt(promo.findtext("PromotionEndDateTime"))
+            if end is None:
+                d = promo.findtext("PromotionEndDate", "")
+                h = promo.findtext("PromotionEndHour", "23:59:00")
+                end = parse_dt(f"{d}T{h}") if d else None
+
+            if not start or not end or not (start <= today <= end):
                 continue
 
+            # --- metadata ---
+            pid      = promo.findtext("PromotionID") or promo.findtext("PromotionId", "")
             desc     = promo.findtext("PromotionDescription", "")
-            pid      = promo.findtext("PromotionID", "")
-            end_date = (promo.findtext("PromotionEndDateTime") or "")[:10]
-            club     = promo.findtext("ClubID", "0") not in ("0", "")
+            end_date = (promo.findtext("PromotionEndDateTime")
+                        or promo.findtext("PromotionEndDate") or "")[:10]
 
-            for pi in promo.findall(".//PromotionItem"):
+            # --- club check: ClubID (Osher Ad) or Clubs (Rami Levy) ---
+            club_id = promo.findtext("ClubID", "0")
+            clubs   = (promo.findtext("Clubs") or "").strip()
+            club    = (club_id not in ("0", "")) or bool(clubs)
+
+            # --- promotion-level discount (Rami Levy puts it here, not per-item) ---
+            promo_dp = promo.findtext("DiscountedPrice", "")
+            promo_dr = promo.findtext("DiscountRate", "")
+            promo_qty = promo.findtext("MinQty")
+
+            # --- items: <PromotionItem> (Osher Ad) or <Item> (Rami Levy) ---
+            items = promo.findall(".//PromotionItem") or promo.findall(".//Item")
+
+            for pi in items:
                 code = pi.findtext("ItemCode")
                 if not code:
                     continue
-                raw_dp = pi.findtext("DiscountedPrice", "")
-                raw_dr = pi.findtext("DiscountRate", "")
+                # item-level discount takes priority; fall back to promotion-level
+                raw_dp = pi.findtext("DiscountedPrice") or promo_dp
+                raw_dr = pi.findtext("DiscountRate")    or promo_dr
                 entry  = {
-                    "id":             pid,
-                    "description":    desc,
-                    "endDate":        end_date,
-                    "clubOnly":       club,
-                    "minQty":         pi.findtext("MinQty"),
+                    "id":              pid,
+                    "description":     desc,
+                    "endDate":         end_date,
+                    "clubOnly":        club,
+                    "minQty":          pi.findtext("MinQty") or promo_qty,
                     "discountedPrice": round(float(raw_dp), 2) if raw_dp else None,
                     "discountRate":    round(float(raw_dr), 2) if raw_dr else None,
                 }
-                # prefer entry with an explicit discounted price
                 if code not in promo_map or entry["discountedPrice"] is not None:
                     promo_map[code] = entry
 
