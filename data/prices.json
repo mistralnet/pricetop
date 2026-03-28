@@ -1,12 +1,12 @@
 {
-  "generatedAt": "2026-03-28T16:17:03",
-  "storeCount": 7,
+  "generatedAt": "2026-03-28T16:34:21",
+  "storeCount": 13,
   "stores": [
     {
       "chain": "אושר עד",
       "store": "חדרה - המסגר 22",
       "feedType": "publishedprices",
-      "fetchTime": "28/03/2026 16:16",
+      "fetchTime": "28/03/2026 16:34",
       "sourceFile": "PriceFull7290103152017-001-014-20260328-140502.gz",
       "promoFile": "PromoFull7290103152017-001-014-20260328-140525.gz",
       "totalItems": 6952,
@@ -1374,7 +1374,7 @@
       "chain": "רמי לוי",
       "store": "חדרה - השלום 1",
       "feedType": "publishedprices",
-      "fetchTime": "28/03/2026 16:16",
+      "fetchTime": "28/03/2026 16:34",
       "sourceFile": "PriceFull7290058140886-044-202603280010.gz",
       "promoFile": "PromoFull7290058140886-044-202603280010.gz",
       "totalItems": 9109,
@@ -2256,7 +2256,7 @@
       "chain": "רמי לוי",
       "store": "חדרה ויוה - תרנ\"א 20",
       "feedType": "publishedprices",
-      "fetchTime": "28/03/2026 16:16",
+      "fetchTime": "28/03/2026 16:34",
       "sourceFile": "PriceFull7290058140886-058-202603281200.gz",
       "promoFile": "Promo7290058140886-058-202603281900.gz",
       "totalItems": 4607,
@@ -2720,7 +2720,7 @@
       "chain": "רמי לוי",
       "store": "הרצל חדרה - סופר קופיקס",
       "feedType": "publishedprices",
-      "fetchTime": "28/03/2026 16:16",
+      "fetchTime": "28/03/2026 16:34",
       "sourceFile": "PriceFull7290058140886-716-202603281800.gz",
       "promoFile": "PromoFull7290058140886-716-202603281800.gz",
       "totalItems": 1987,
@@ -2766,7 +2766,7 @@
       "chain": "רמי לוי",
       "store": "הנשיא חדרה - סופר קופיקס",
       "feedType": "publishedprices",
-      "fetchTime": "28/03/2026 16:16",
+      "fetchTime": "28/03/2026 16:34",
       "sourceFile": "PriceFull7290058140886-717-202603281800.gz",
       "promoFile": "PromoFull7290058140886-717-202603281800.gz",
       "totalItems": 1679,
@@ -2812,7 +2812,7 @@
       "chain": "יוחננוף",
       "store": "חדרה",
       "feedType": "publishedprices",
-      "fetchTime": "28/03/2026 16:16",
+      "fetchTime": "28/03/2026 16:34",
       "sourceFile": "PriceFull7290803800003-022-202603280930.gz",
       "promoFile": "Promo7290803800003-022-202603281900.gz",
       "totalItems": 7876,
@@ -3793,7 +3793,7 @@
       "chain": "יוחננוף",
       "store": "חדרה צפוני",
       "feedType": "publishedprices",
-      "fetchTime": "28/03/2026 16:17",
+      "fetchTime": "28/03/2026 16:34",
       "sourceFile": "PriceFull7290803800003-036-202603280011.gz",
       "promoFile": "PromoFull7290803800003-036-202603280011.gz",
       "totalItems": 7241,
@@ -5109,6 +5109,290 @@
           }
         }
       ]
+    },
+    {
+      "chain": "דור אלון",
+      "store": "AMPM חדרה - הרברט סמואל 1",
+      "feedType": "publishedprices",
+      "fetchTime": "28/03/2026 16:34",
+      "sourceFile": "Price7290492000005-001-594-20260328-180613.gz",
+      "promoFile": "PromoFull7290492000005-001-594-20260328-002056.gz",
+      "totalItems": 163,
+      "freshCount": 2,
+      "promoCount": 2,
+      "products": [
+        {
+          "name": "מנגולד טרי עלים ארוז",
+          "price": 5.9,
+          "unitPrice": 1.97,
+          "unit": "100 גרם",
+          "quantity": "300.00",
+          "updateDate": "",
+          "itemCode": "7290006704801",
+          "manufacturer": "",
+          "promo": {
+            "id": "0013394477",
+            "description": "מבצע בקניה מעל 49שח קפה טורקי ב 14.90 שח",
+            "endDate": "2026-04-13",
+            "clubOnly": false,
+            "minQty": null,
+            "discountedPrice": 5.9,
+            "discountRate": null
+          }
+        },
+        {
+          "name": "מנגולד טרי עלים ארוז",
+          "price": 5.9,
+          "unitPrice": 1.97,
+          "unit": "100 גרם",
+          "quantity": "300.00",
+          "updateDate": "",
+          "itemCode": "7290006704801",
+          "manufacturer": "",
+          "promo": {
+            "id": "0013394477",
+            "description": "מבצע בקניה מעל 49שח קפה טורקי ב 14.90 שח",
+            "endDate": "2026-04-13",
+            "clubOnly": false,
+            "minQty": null,
+            "discountedPrice": 5.9,
+            "discountRate": null
+          }
+        }
+      ]
+    },
+    {
+      "chain": "דור אלון",
+      "store": "חדרה מזרח - צהל 77",
+      "feedType": "publishedprices",
+      "fetchTime": "28/03/2026 16:34",
+      "sourceFile": "Price7290492000005-968-202603281921.gz",
+      "promoFile": "Promo7290492000005-968-202603281921.gz",
+      "totalItems": 0,
+      "freshCount": 0,
+      "promoCount": 0,
+      "products": []
+    },
+    {
+      "chain": "דור אלון",
+      "store": "עוקף חדרה",
+      "feedType": "publishedprices",
+      "fetchTime": "28/03/2026 16:34",
+      "sourceFile": "Price7290492000005-992-202603281922.gz",
+      "promoFile": "Promo7290492000005-992-202603281922.gz",
+      "totalItems": 0,
+      "freshCount": 0,
+      "promoCount": 0,
+      "products": []
+    },
+    {
+      "chain": "יילו",
+      "store": "מתחם חדרה - צומת חדרה",
+      "feedType": "publishedprices",
+      "fetchTime": "28/03/2026 16:34",
+      "sourceFile": "Price7290644700005-001-308-20260328-190019.gz",
+      "promoFile": "PromoFull7290644700005-001-308-20260328-002113.gz",
+      "totalItems": 2598,
+      "freshCount": 8,
+      "promoCount": 8,
+      "products": [
+        {
+          "name": "חלב טרי 1.5 ליטר",
+          "price": 10.92,
+          "unitPrice": 7.28,
+          "unit": "1 ליטר",
+          "quantity": "1.50",
+          "updateDate": "",
+          "itemCode": "7290000057477",
+          "manufacturer": "",
+          "promo": {
+            "id": "0000235624",
+            "description": "קופון כסף 20 לקניות ביילו",
+            "endDate": "2026-12-31",
+            "clubOnly": true,
+            "minQty": "2000",
+            "discountedPrice": 20.0,
+            "discountRate": 100.0
+          }
+        },
+        {
+          "name": "פאקט טרי אמבר",
+          "price": 375.0,
+          "unitPrice": 0.0,
+          "unit": "",
+          "quantity": "",
+          "updateDate": "",
+          "itemCode": "7290115181173",
+          "manufacturer": "",
+          "promo": {
+            "id": "0000220992",
+            "description": "צבירה ביילו אשראי 10%",
+            "endDate": "2030-12-31",
+            "clubOnly": true,
+            "minQty": null,
+            "discountedPrice": null,
+            "discountRate": null
+          }
+        },
+        {
+          "name": "פאקט טרי ברונז",
+          "price": 375.0,
+          "unitPrice": 0.0,
+          "unit": "",
+          "quantity": "",
+          "updateDate": "",
+          "itemCode": "7290115181234",
+          "manufacturer": "",
+          "promo": {
+            "id": "0000220992",
+            "description": "צבירה ביילו אשראי 10%",
+            "endDate": "2030-12-31",
+            "clubOnly": true,
+            "minQty": null,
+            "discountedPrice": null,
+            "discountRate": null
+          }
+        },
+        {
+          "name": "פאקט טרי טורקיז",
+          "price": 375.0,
+          "unitPrice": 0.0,
+          "unit": "",
+          "quantity": "",
+          "updateDate": "",
+          "itemCode": "7290115181210",
+          "manufacturer": "",
+          "promo": {
+            "id": "0000220992",
+            "description": "צבירה ביילו אשראי 10%",
+            "endDate": "2030-12-31",
+            "clubOnly": true,
+            "minQty": null,
+            "discountedPrice": null,
+            "discountRate": null
+          }
+        },
+        {
+          "name": "פאקט טרי יילו",
+          "price": 375.0,
+          "unitPrice": 0.0,
+          "unit": "",
+          "quantity": "",
+          "updateDate": "",
+          "itemCode": "7290115181197",
+          "manufacturer": "",
+          "promo": {
+            "id": "0000220992",
+            "description": "צבירה ביילו אשראי 10%",
+            "endDate": "2030-12-31",
+            "clubOnly": true,
+            "minQty": null,
+            "discountedPrice": null,
+            "discountRate": null
+          }
+        },
+        {
+          "name": "פאקט טרי לגונה",
+          "price": 370.0,
+          "unitPrice": 0.0,
+          "unit": "",
+          "quantity": "",
+          "updateDate": "",
+          "itemCode": "7290115181517",
+          "manufacturer": "",
+          "promo": {
+            "id": "0000220992",
+            "description": "צבירה ביילו אשראי 10%",
+            "endDate": "2030-12-31",
+            "clubOnly": true,
+            "minQty": null,
+            "discountedPrice": null,
+            "discountRate": null
+          }
+        },
+        {
+          "name": "פאקט טרי סיאנה",
+          "price": 375.0,
+          "unitPrice": 0.0,
+          "unit": "",
+          "quantity": "",
+          "updateDate": "",
+          "itemCode": "7290115181258",
+          "manufacturer": "",
+          "promo": {
+            "id": "0000220992",
+            "description": "צבירה ביילו אשראי 10%",
+            "endDate": "2030-12-31",
+            "clubOnly": true,
+            "minQty": null,
+            "discountedPrice": null,
+            "discountRate": null
+          }
+        },
+        {
+          "name": "פאקט טרי פורפל",
+          "price": 375.0,
+          "unitPrice": 0.0,
+          "unit": "",
+          "quantity": "",
+          "updateDate": "",
+          "itemCode": "7290115181272",
+          "manufacturer": "",
+          "promo": {
+            "id": "0000220992",
+            "description": "צבירה ביילו אשראי 10%",
+            "endDate": "2030-12-31",
+            "clubOnly": true,
+            "minQty": null,
+            "discountedPrice": null,
+            "discountRate": null
+          }
+        }
+      ]
+    },
+    {
+      "chain": "יילו",
+      "store": "מתחם כביש חדרה-בית ליד",
+      "feedType": "publishedprices",
+      "fetchTime": "28/03/2026 16:34",
+      "sourceFile": "PriceFull7290644700005-001-324-20260328-002008.gz",
+      "promoFile": "PromoFull7290644700005-001-324-20260328-002118.gz",
+      "totalItems": 3080,
+      "freshCount": 1,
+      "promoCount": 1,
+      "products": [
+        {
+          "name": "פאקט טרי אמבר",
+          "price": 375.0,
+          "unitPrice": 0.0,
+          "unit": "Unknown",
+          "quantity": "",
+          "updateDate": "",
+          "itemCode": "7290115181173",
+          "manufacturer": "",
+          "promo": {
+            "id": "0000220992",
+            "description": "צבירה ביילו אשראי 10%",
+            "endDate": "2030-12-31",
+            "clubOnly": true,
+            "minQty": null,
+            "discountedPrice": null,
+            "discountRate": null
+          }
+        }
+      ]
+    },
+    {
+      "chain": "יילו",
+      "store": "מתחם מגידו-חדרה - נחל עירון",
+      "feedType": "publishedprices",
+      "fetchTime": "28/03/2026 16:34",
+      "sourceFile": "Price7290644700005-001-325-20260328-190020.gz",
+      "promoFile": "PromoFull7290644700005-001-325-20260328-002106.gz",
+      "totalItems": 1,
+      "freshCount": 0,
+      "promoCount": 0,
+      "products": []
     }
   ]
 }
