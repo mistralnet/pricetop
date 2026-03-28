@@ -59,14 +59,43 @@ GET /file/d/<fname>
 
 ---
 
-### רמי לוי *(בהכנה)*
+### רמי לוי
 - **משתמש פורטל:** `RamiLevi`
 - **סיסמא:** ריק — אין סיסמא
-- **Chain ID:** עדיין לא ידוע — לבדוק בקובץ Stores לאחר לוגין
-- **סניפים בחדרה:** עדיין לא מופו
-- **סטטוס:** לא מומש. `ShufersalFetcher` קיים בקוד כ-`NotImplementedError`
+- **Chain ID:** `7290058140886`
 
-> ⚠️ הדומיין הישן `prices.rframi.co.il` כבר לא פעיל (DNS failure). הפורטל הנכון הוא `url.publishedprices.co.il` עם משתמש `RamiLevi`.
+#### סניפים בחדרה
+| StoreID | שם | הערה |
+|---------|-----|------|
+| `044` | חדרה - השלום 1 | |
+| `058` | חדרה ויוה - תרנ"א 20 | |
+| `716` | הרצל חדרה | סופר קופיקס — מבחר מצומצם |
+| `717` | הנשיא חדרה | סופר קופיקס — מבחר מצומצם |
+
+#### prefixes
+`PriceFull7290058140886-<StoreID>` / `PromoFull7290058140886-<StoreID>`
+
+> ⚠️ פורמט שם קובץ **ללא SubChainID** (שונה מאושר עד): `PriceFull7290058140886-044-202603280010.gz`
+> ⚠️ Promo XML שונה: תאריכים נפרדים (`PromotionStartDate`+`PromotionStartHour`), פריטים ב-`<Item>` (לא `<PromotionItem>`), הנחה ברמת ה-Promotion.
+
+---
+
+### יוחננוף
+- **משתמש פורטל:** `yohananof`
+- **סיסמא:** ריק — אין סיסמא
+- **Chain ID:** `7290803800003`
+- **סה"כ סניפים ברשת:** 50
+
+#### סניפים בחדרה
+| StoreID | שם | הערה |
+|---------|-----|------|
+| `022` | חדרה | כתובת "unknown" ב-Stores XML |
+| `036` | חדרה צפוני | |
+
+#### prefixes
+`PriceFull7290803800003-<StoreID>` / `PromoFull7290803800003-<StoreID>`
+
+> ⚠️ סניף 022: קבצי Promo הם `Promo...` (לא `PromoFull`) ובגודל ~824B — קבצי delta, לא Full. מבצעים = 0 עד פרסום PromoFull.
 
 ---
 
@@ -265,21 +294,19 @@ Webhook → 200 Accepted
 ---
 
 ## מה עובד
-- [x] Login לפורטל Cerberus של אושר עד
-- [x] איתור קובץ מחירים עדכני לפי prefix
-- [x] איתור קובץ מבצעים עדכני לפי prefix
-- [x] הורדה + פתיחת gzip + decode UTF-16 LE
-- [x] סינון מוצרי בשר טרי
-- [x] מיזוג מבצעים פעילים לפי ItemCode
-- [x] שמירה ל-JSON מאוחד
-- [x] GitHub Actions (workflow_dispatch)
-- [x] הורדת קובץ Stores לזיהוי סניפים
-- [x] שליחה ל-Make.com webhook בסוף ריצה
+- [x] Login לפורטל Cerberus — אושר עד, רמי לוי, יוחננוף
+- [x] cache סניפים לכל רשת (`data/stores_<chainid>.json`) — הורדה חד-פעמית
+- [x] cache קבצי price/promo — לא מוריד שוב אם הקובץ כבר קיים
+- [x] איתור קובץ עדכני: `startswith(kind)` + `store_tag+"-"` ב-fname
+- [x] הורדה + פתיחת gzip + decode UTF-16 LE / UTF-8
+- [x] סינון מוצרים טריים (`(?<!\S)טרי(?!\S)`)
+- [x] מיזוג מבצעים פעילים — תומך בשני פורמטי XML (אושר עד + רמי לוי/יוחננוף)
+- [x] שמירה ל-JSON מאוחד (`data/prices.json`)
+- [x] GitHub Actions — workflow_dispatch, auto-commit
+- [x] Make.com webhook בסוף כל ריצה
 
 ## מה לא עובד / לא מומש
-- [ ] רמי לוי — לוגין מוגדר (`RamiLevi`) אבל טרם מופה Chain ID וסניפים בחדרה
-- [ ] שופרסל — מחלקה `ShufersalFetcher` קיימת אבל `NotImplementedError`
-- [ ] סניפים נוספים של אושר עד — רק סניף 014 מוגדר ב-stores.csv
+- [ ] שופרסל — `ShufersalFetcher` קיים בקוד כ-`NotImplementedError`
+- [ ] סניף 022 יוחננוף — Promo files הם delta קטנים, לא Full → 0 מבצעים
+- [ ] סינון מבצעי מועדון (ClubID/Clubs != 0)
 - [ ] ממשק HTML לתצוגת נתונים
-- [ ] cache check — הוסר; כל ריצה מורידה מחדש
-- [ ] סינון מבצעי מועדון (ClubID != 0)
