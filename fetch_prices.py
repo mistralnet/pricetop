@@ -93,6 +93,7 @@ class PublishedPricesFetcher:
         self.s            = requests.Session()
         self.s.headers.update({"User-Agent": "pricetop/1.0"})
         self._log: list[str] = []
+        self.price_prefix = price_prefix
         self.promo_prefix = promo_prefix
 
         # derive store_tag from last 3-digit group: "PriceFull7290058140886-044" → "-044"
@@ -141,7 +142,12 @@ class PublishedPricesFetcher:
     def _find_latest(self, kind: str, csrf: str) -> Optional[dict]:
         """Find latest file whose name starts with <kind> and whose store segment
         appears immediately before a timestamp (YYYYMMDD), avoiding false matches
-        when SubChainID == StoreID."""
+        when SubChainID == StoreID.
+
+        If <kind> ends with 'Full' (e.g. 'PriceFull', 'PromoFull') and no file
+        is found, falls back to the base kind ('Price', 'Promo') — for chains
+        that don't publish Full catalog files.
+        """
         r = self.s.post(
             f"{self.base}/file/json/dir",
             data={"path": "/", "iDisplayLength": 200, "iDisplayStart": 0,
@@ -151,9 +157,16 @@ class PublishedPricesFetcher:
         r.raise_for_status()
         files = r.json().get("aaData", [])
         tag_re = re.compile(re.escape(self.store_tag) + r'-\d{8}')
-        matching = [f for f in files
-                    if f.get("fname", "").startswith(kind)
+
+        def _filter(k: str) -> list:
+            return [f for f in files
+                    if f.get("fname", "").startswith(k)
                     and tag_re.search(f.get("fname", ""))]
+
+        matching = _filter(kind)
+        if not matching and kind.endswith("Full"):
+            # Chain doesn't publish Full files — fall back to base kind (delta)
+            matching = _filter(kind[:-4])
         return sorted(matching, key=lambda x: x["time"])[-1] if matching else None
 
     # --- download (raw) ---
@@ -319,11 +332,14 @@ class PublishedPricesFetcher:
             self._ensure_stores_cache(csrf)
 
         # --- find latest Price and Promo files for this store ---
-        latest_price = self._find_latest("Price", csrf)
-        # Use the exact promo kind from promo_prefix (PromoFull vs Promo).
-        # Searching for just "Promo" would also match delta files (e.g. Promo7290058140886-044-...)
-        # which are updated more frequently and thus always sort as newest — hiding the PromoFull.
+        # Use the exact file kind from the prefix (PriceFull / PromoFull).
+        # Searching for the base kind ("Price"/"Promo") also matches delta files which
+        # are published every few hours and thus always sort as newest, hiding the Full
+        # catalog file.  _find_latest falls back to the base kind automatically if the
+        # chain doesn't publish Full files.
+        price_kind = "PriceFull" if self.price_prefix.startswith("PriceFull") else "Price"
         promo_kind = "PromoFull" if self.promo_prefix.startswith("PromoFull") else "Promo"
+        latest_price = self._find_latest(price_kind, csrf)
         latest_promo = self._find_latest(promo_kind, csrf)
 
         if not latest_price:
