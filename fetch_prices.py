@@ -93,6 +93,7 @@ class PublishedPricesFetcher:
         self.s            = requests.Session()
         self.s.headers.update({"User-Agent": "pricetop/1.0"})
         self._log: list[str] = []
+        self.promo_prefix = promo_prefix
 
         # derive store_tag from last 3-digit group: "PriceFull7290058140886-044" → "-044"
         m = re.search(r'(-\d{3})$', price_prefix)
@@ -319,7 +320,11 @@ class PublishedPricesFetcher:
 
         # --- find latest Price and Promo files for this store ---
         latest_price = self._find_latest("Price", csrf)
-        latest_promo = self._find_latest("Promo", csrf)
+        # Use the exact promo kind from promo_prefix (PromoFull vs Promo).
+        # Searching for just "Promo" would also match delta files (e.g. Promo7290058140886-044-...)
+        # which are updated more frequently and thus always sort as newest — hiding the PromoFull.
+        promo_kind = "PromoFull" if self.promo_prefix.startswith("PromoFull") else "Promo"
+        latest_promo = self._find_latest(promo_kind, csrf)
 
         if not latest_price:
             self._p(f"  WARNING: no Price file found for store tag {self.store_tag}")
@@ -405,6 +410,174 @@ FETCHERS = {
 
 
 # ---------------------------------------------------------------------------
+# Phase 0: ensure all chain store-caches are current, update stores.csv
+# ---------------------------------------------------------------------------
+_HADERA_RE    = re.compile(r'חדר', re.UNICODE)
+_HADERA_CODES = {"6500", "6501", "6502"}
+_HADERA_ZIP   = re.compile(r'^38[0-3]\d{4}$')
+
+# Known price/promo prefixes for Hadera stores.
+# Key: (chain_id, store_id) → (price_prefix, promo_prefix)
+_KNOWN_PREFIXES: dict[tuple, tuple] = {
+    ("7290103152017", "014"): ("PriceFull7290103152017-001-014", "PromoFull7290103152017-001-014"),
+    ("7290058140886", "044"): ("PriceFull7290058140886-044",     "PromoFull7290058140886-044"),
+    ("7290058140886", "058"): ("PriceFull7290058140886-058",     "PromoFull7290058140886-058"),
+    ("7290058140886", "716"): ("PriceFull7290058140886-716",     "PromoFull7290058140886-716"),
+    ("7290058140886", "717"): ("PriceFull7290058140886-717",     "PromoFull7290058140886-717"),
+    ("7290803800003", "022"): ("PriceFull7290803800003-022",     "Promo7290803800003-022"),
+    ("7290803800003", "036"): ("PriceFull7290803800003-036",     "PromoFull7290803800003-036"),
+    ("7290492000005", "594"): ("PriceFull7290492000005-001-594", "PromoFull7290492000005-001-594"),
+    ("7290492000005", "968"): ("PriceFull7290492000005-968",     "PromoFull7290492000005-968"),
+    ("7290492000005", "992"): ("PriceFull7290492000005-992",     "PromoFull7290492000005-992"),
+    ("7290644700005", "308"): ("PriceFull7290644700005-001-308", "PromoFull7290644700005-001-308"),
+    ("7290644700005", "324"): ("PriceFull7290644700005-001-324", "PromoFull7290644700005-001-324"),
+    ("7290644700005", "325"): ("PriceFull7290644700005-001-325", "PromoFull7290644700005-001-325"),
+    ("7291059100008", "001"): ("PriceFull7291059100008-001-001", "PromoFull7291059100008-001-001"),
+    ("7291059100008", "004"): ("PriceFull7291059100008-001-004", "PromoFull7291059100008-001-004"),
+}
+
+_CSV_FIELDNAMES = [
+    "רשת", "chain_id", "סניף", "store_id", "subchain_id",
+    "עיר", "כתובת", "zip",
+    "משתמש", "סיסמא", "סוג_פיד", "portal_url",
+    "price_prefix", "promo_prefix",
+]
+
+
+def _is_hadera(st: dict) -> bool:
+    city = st.get("city", "").strip()
+    if city in _HADERA_CODES or _HADERA_RE.search(city):
+        return True
+    if _HADERA_RE.search(st.get("name", "")) or _HADERA_RE.search(st.get("address", "")):
+        return True
+    if _HADERA_ZIP.match(st.get("zip", "")):
+        return True
+    return False
+
+
+def _download_stores_for_chain(chain_id: str, rep_row: dict) -> list[dict]:
+    """Login to chain portal, download Stores XML, cache to data/stores_<chain_id>.json.
+    Returns list of store dicts (empty on failure)."""
+    base  = rep_row["portal_url"].rstrip("/")
+    name  = rep_row["רשת"]
+    s = requests.Session()
+    s.headers.update({"User-Agent": "pricetop/1.0"})
+    try:
+        r = s.get(f"{base}/login", timeout=30, verify=False)
+        m = re.search(r'csrftoken"\s+content="([^"]+)"', r.text)
+        csrf = m.group(1) if m else ""
+        s.post(f"{base}/login/user",
+               data={"username": rep_row["משתמש"], "password": rep_row["סיסמא"],
+                     "csrftoken": csrf, "r": ""},
+               timeout=30, verify=False)
+        r2 = s.get(f"{base}/file", timeout=30, verify=False)
+        m2 = re.search(r'csrftoken"\s+content="([^"]+)"', r2.text)
+        csrf2 = m2.group(1) if m2 else ""
+
+        r3 = s.post(f"{base}/file/json/dir",
+                    data={"path": "/", "iDisplayLength": 50, "iDisplayStart": 0,
+                          "sSearch": f"Stores{chain_id}", "sEcho": 1, "csrftoken": csrf2},
+                    timeout=30, verify=False)
+        candidates = [f for f in r3.json().get("aaData", [])
+                      if f.get("fname", "").startswith(f"Stores{chain_id}")]
+        if not candidates:
+            print(f"  [Phase 0] WARNING: no Stores file for chain {chain_id} ({name})", file=sys.stderr)
+            return []
+
+        latest = sorted(candidates, key=lambda x: x["time"])[-1]
+        raw = s.get(f"{base}/file/d/{latest['fname']}", timeout=60, verify=False).content
+        root = ET.fromstring(decode_xml_bytes(raw))
+
+        stores = []
+        for st in root.findall(".//Store"):
+            stores.append({
+                "storeId":  (st.findtext("StoreId") or st.findtext("StoreID") or "").strip(),
+                "name":     st.findtext("StoreName", "").strip(),
+                "address":  st.findtext("Address", "").strip(),
+                "city":     st.findtext("City", "").strip(),
+                "zip":      (st.findtext("ZipCode") or st.findtext("ZIPCode") or "").strip(),
+            })
+
+        cache_path = DATA_DIR / f"stores_{chain_id}.json"
+        cache_path.write_text(
+            json.dumps({"chainId": chain_id, "chainName": name,
+                        "fetchedAt": datetime.now().isoformat(timespec="seconds"),
+                        "stores": stores},
+                       ensure_ascii=False, indent=2),
+            encoding="utf-8",
+        )
+        print(f"  [Phase 0] {name}: downloaded {len(stores)} stores → {cache_path.name}")
+        return stores
+    except Exception as exc:
+        print(f"  [Phase 0] WARNING: {name} — {exc}", file=sys.stderr)
+        return []
+
+
+def _phase0_ensure_stores(all_rows: list[dict]) -> None:
+    """Phase 0: for every chain in stores.csv, ensure data/stores_<chain_id>.json exists.
+    Downloads any missing caches in parallel, then appends genuinely new stores to stores.csv
+    (with empty price_prefix for non-Hadera, known prefix for Hadera)."""
+    # Group by chain_id; keep first row as representative for credentials
+    chains: dict[str, dict] = {}
+    for row in all_rows:
+        cid = row.get("chain_id", "").strip()
+        if cid and cid not in chains:
+            chains[cid] = row
+
+    missing = {cid: rep for cid, rep in chains.items()
+               if not (DATA_DIR / f"stores_{cid}.json").exists()}
+    if not missing:
+        return   # All caches present — nothing to do
+
+    print(f"\n[Phase 0] {len(missing)} chain cache(s) missing — downloading...")
+    with ThreadPoolExecutor(max_workers=MAX_WORKERS) as ex:
+        futures = {ex.submit(_download_stores_for_chain, cid, rep): cid
+                   for cid, rep in missing.items()}
+        downloaded: dict[str, list] = {}
+        for fut in futures:
+            cid = futures[fut]
+            downloaded[cid] = fut.result()
+
+    # Reconcile: find stores not yet in stores.csv
+    existing_ids = {(r["chain_id"], r["store_id"]) for r in all_rows}
+    new_rows: list[dict] = []
+    for cid, stores in downloaded.items():
+        rep = missing[cid]
+        for st in stores:
+            sid = st["storeId"]
+            if not sid or (cid, sid) in existing_ids:
+                continue
+            hadera = _is_hadera(st)
+            pp, pp2 = "", ""
+            if hadera:
+                pp, pp2 = _KNOWN_PREFIXES.get((cid, sid), ("", ""))
+            new_rows.append({
+                "רשת":         rep["רשת"],
+                "chain_id":    cid,
+                "סניף":        st["name"],
+                "store_id":    sid,
+                "subchain_id": rep.get("subchain_id", ""),
+                "עיר":         st.get("city", ""),
+                "כתובת":       st.get("address", ""),
+                "zip":         st.get("zip", ""),
+                "משתמש":       rep["משתמש"],
+                "סיסמא":       rep["סיסמא"],
+                "סוג_פיד":     rep["סוג_פיד"],
+                "portal_url":  rep["portal_url"],
+                "price_prefix": pp,
+                "promo_prefix": pp2,
+            })
+
+    if new_rows:
+        with open(STORES_CSV, "a", encoding="utf-8-sig", newline="") as f:
+            writer = csv.DictWriter(f, fieldnames=_CSV_FIELDNAMES)
+            writer.writerows(new_rows)
+        print(f"[Phase 0] Appended {len(new_rows)} new store(s) to stores.csv")
+    else:
+        print("[Phase 0] Done — no new stores found")
+
+
+# ---------------------------------------------------------------------------
 # Main
 # ---------------------------------------------------------------------------
 def main():
@@ -415,11 +588,18 @@ def main():
     OUTPUT_FILE.parent.mkdir(parents=True, exist_ok=True)
 
     with open(STORES_CSV, encoding="utf-8-sig") as f:
-        rows = list(csv.DictReader(f))
+        all_rows = list(csv.DictReader(f))
+
+    # ── Phase 0: Ensure all chain store-caches exist; update stores.csv ────
+    _phase0_ensure_stores(all_rows)
+
+    # Re-read stores.csv in case Phase 0 appended new rows
+    with open(STORES_CSV, encoding="utf-8-sig") as f:
+        all_rows = list(csv.DictReader(f))
 
     # Filter: only rows with a price_prefix (stores to actually fetch).
     # Rows without price_prefix are recorded in stores.csv for reference but not fetched.
-    rows = [r for r in rows if r.get("price_prefix", "").strip()]
+    rows = [r for r in all_rows if r.get("price_prefix", "").strip()]
 
     # ── Phase 1: Login once per chain ──────────────────────────────────────
     # For publishedprices chains, login once per (portal_url, username) pair
