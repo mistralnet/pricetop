@@ -1,16 +1,17 @@
 {
-  "generatedAt": "2026-03-29T04:11:35",
+  "generatedAt": "2026-03-29T04:31:04",
   "storeCount": 14,
   "stores": [
     {
       "chain": "אושר עד",
       "store": "חדרה",
       "feedType": "publishedprices",
-      "fetchTime": "29/03/2026 04:11",
+      "fetchTime": "29/03/2026 04:30",
       "sourceFile": "Price7290103152017-001-014-20260328-230012.gz",
       "promoFile": null,
       "totalItems": 383,
       "freshCount": 7,
+      "promoRawCount": 0,
       "promoCount": 0,
       "products": [
         {
@@ -96,11 +97,12 @@
       "chain": "רמי לוי",
       "store": "חדרה",
       "feedType": "publishedprices",
-      "fetchTime": "29/03/2026 04:11",
+      "fetchTime": "29/03/2026 04:30",
       "sourceFile": "PriceFull7290058140886-044-202603290010.gz",
       "promoFile": "Promo7290058140886-044-202603290700.gz",
       "totalItems": 8683,
       "freshCount": 53,
+      "promoRawCount": 19,
       "promoCount": 0,
       "products": [
         {
@@ -692,11 +694,12 @@
       "chain": "רמי לוי",
       "store": "חדרה ויוה",
       "feedType": "publishedprices",
-      "fetchTime": "29/03/2026 04:11",
+      "fetchTime": "29/03/2026 04:30",
       "sourceFile": "PriceFull7290058140886-058-202603290010.gz",
       "promoFile": "Promo7290058140886-058-202603290600.gz",
       "totalItems": 4607,
       "freshCount": 41,
+      "promoRawCount": 16,
       "promoCount": 0,
       "products": [
         {
@@ -1156,11 +1159,12 @@
       "chain": "רמי לוי",
       "store": "הנשיא חדרה",
       "feedType": "publishedprices",
-      "fetchTime": "29/03/2026 04:11",
+      "fetchTime": "29/03/2026 04:30",
       "sourceFile": "PriceFull7290058140886-717-202603290600.gz",
       "promoFile": "PromoFull7290058140886-717-202603290600.gz",
       "totalItems": 1679,
       "freshCount": 3,
+      "promoRawCount": 2649,
       "promoCount": 0,
       "products": [
         {
@@ -1202,11 +1206,12 @@
       "chain": "יוחננוף",
       "store": "חדרה",
       "feedType": "publishedprices",
-      "fetchTime": "29/03/2026 04:11",
+      "fetchTime": "29/03/2026 04:30",
       "sourceFile": "PriceFull7290803800003-022-202603290559.gz",
       "promoFile": "Promo7290803800003-022-202603290700.gz",
       "totalItems": 7876,
       "freshCount": 88,
+      "promoRawCount": 5,
       "promoCount": 0,
       "products": [
         {
@@ -2183,1441 +2188,25 @@
       "chain": "יוחננוף",
       "store": "חדרה צפוני",
       "feedType": "publishedprices",
-      "fetchTime": "29/03/2026 04:11",
-      "sourceFile": "PriceFull7290803800003-036-202603290010.gz",
+      "fetchTime": "29/03/2026 04:30",
+      "sourceFile": "Price7290803800003-036-202603290710.gz",
       "promoFile": "PromoFull7290803800003-036-202603290010.gz",
-      "totalItems": 7236,
-      "freshCount": 99,
-      "promoCount": 41,
-      "products": [
-        {
-          "name": "אדמונית טרי         ",
-          "price": 39.9,
-          "unitPrice": 39.9,
-          "unit": "ק\"ג",
-          "quantity": "0.00",
-          "updateDate": "2025-10-30 11:02",
-          "itemCode": "501277",
-          "manufacturer": "משתנה",
-          "promo": {
-            "id": "348140",
-            "description": "אדמונית טרי 3קג ב110- רשתי",
-            "endDate": "2026-05-09",
-            "clubOnly": false,
-            "minQty": "2.800",
-            "discountedPrice": 36.66,
-            "discountRate": null
-          }
-        },
-        {
-          "name": "אונטריב טרי         ",
-          "price": 84.9,
-          "unitPrice": 84.9,
-          "unit": "ק\"ג",
-          "quantity": "0.00",
-          "updateDate": "2025-07-16 13:37",
-          "itemCode": "405728",
-          "manufacturer": "משתנה",
-          "promo": {
-            "id": "321114",
-            "description": "אונטריב טרי 2קג ב150- רשתי",
-            "endDate": "2026-05-09",
-            "clubOnly": false,
-            "minQty": "1.900",
-            "discountedPrice": 75.0,
-            "discountRate": null
-          }
-        },
-        {
-          "name": "אמנון טרי במשקל     ",
-          "price": 38.9,
-          "unitPrice": 38.9,
-          "unit": "ק\"ג",
-          "quantity": "0.00",
-          "updateDate": "2025-07-20 10:54",
-          "itemCode": "501581",
-          "manufacturer": "משתנה",
-          "promo": {
-            "id": "358552",
-            "description": "אמנון טרי שלם 3קג ב100- רשתי",
-            "endDate": "2026-05-09",
-            "clubOnly": false,
-            "minQty": "2.800",
-            "discountedPrice": 33.33,
-            "discountRate": null
-          }
-        },
-        {
-          "name": "אמנון טרי יחידה     ",
-          "price": 27.9,
-          "unitPrice": 6.98,
-          "unit": "100 גרם",
-          "quantity": "400.00",
-          "updateDate": "2025-07-17 19:35",
-          "itemCode": "501970",
-          "manufacturer": "לא ידוע",
-          "promo": {
-            "id": "358553",
-            "description": "אמנון טרי שלם יחידה 4יח ב95- רשתי",
-            "endDate": "2026-05-09",
-            "clubOnly": false,
-            "minQty": "4.000",
-            "discountedPrice": 95.0,
-            "discountRate": null
-          }
-        },
-        {
-          "name": "אנטריקוט טרי דק פרימ",
-          "price": 199.9,
-          "unitPrice": 199.9,
-          "unit": "ק\"ג",
-          "quantity": "0.00",
-          "updateDate": "2026-03-15 07:17",
-          "itemCode": "409351",
-          "manufacturer": "לא ידוע",
-          "promo": null
-        },
-        {
-          "name": "אנטריקוט טרי לתנור  ",
-          "price": 99.9,
-          "unitPrice": 99.9,
-          "unit": "ק\"ג",
-          "quantity": "0.00",
-          "updateDate": "2025-07-16 13:37",
-          "itemCode": "400570",
-          "manufacturer": "לא ידוע",
-          "promo": null
-        },
-        {
-          "name": "אנטריקוט טרי פרימיום",
-          "price": 199.9,
-          "unitPrice": 199.9,
-          "unit": "ק\"ג",
-          "quantity": "0.00",
-          "updateDate": "2026-03-15 07:17",
-          "itemCode": "409344",
-          "manufacturer": "לא ידוע",
-          "promo": null
-        },
-        {
-          "name": "אסאדו טרי ללא עצם   ",
-          "price": 69.9,
-          "unitPrice": 69.9,
-          "unit": "ק\"ג",
-          "quantity": "0.00",
-          "updateDate": "2025-07-16 13:37",
-          "itemCode": "405780",
-          "manufacturer": "משתנה",
-          "promo": {
-            "id": "335344",
-            "description": "אסאדו טרי ללא עצם 2קג ב120- רשתי",
-            "endDate": "2026-05-09",
-            "clubOnly": false,
-            "minQty": "1.900",
-            "discountedPrice": 60.0,
-            "discountRate": null
-          }
-        },
-        {
-          "name": "אסאדו טרי עם  עצם   ",
-          "price": 69.9,
-          "unitPrice": 69.9,
-          "unit": "ק\"ג",
-          "quantity": "0.00",
-          "updateDate": "2025-07-16 13:37",
-          "itemCode": "403199",
-          "manufacturer": "משתנה",
-          "promo": {
-            "id": "356978",
-            "description": "אסאדו טרי עם עצם 2קג ב120- רשתי",
-            "endDate": "2026-04-01",
-            "clubOnly": false,
-            "minQty": "1.900",
-            "discountedPrice": 60.0,
-            "discountRate": null
-          }
-        },
-        {
-          "name": "בורי טרי            ",
-          "price": 54.9,
-          "unitPrice": 54.9,
-          "unit": "ק\"ג",
-          "quantity": "0.00",
-          "updateDate": "2025-07-20 10:54",
-          "itemCode": "501314",
-          "manufacturer": "משתנה",
-          "promo": null
-        },
-        {
-          "name": "בס טרי              ",
-          "price": 54.9,
-          "unitPrice": 54.9,
-          "unit": "ק\"ג",
-          "quantity": "0.00",
-          "updateDate": "2025-07-16 12:20",
-          "itemCode": "501253",
-          "manufacturer": "משתנה",
-          "promo": null
-        },
-        {
-          "name": "גרון הודו טרי  פרימי",
-          "price": 36.9,
-          "unitPrice": 36.9,
-          "unit": "ק\"ג",
-          "quantity": "0.00",
-          "updateDate": "2026-02-13 07:36",
-          "itemCode": "401041",
-          "manufacturer": "משתנה",
-          "promo": null
-        },
-        {
-          "name": "גרון עוף טרי        ",
-          "price": 12.9,
-          "unitPrice": 12.9,
-          "unit": "ק\"ג",
-          "quantity": "0.00",
-          "updateDate": "2025-07-16 13:37",
-          "itemCode": "400785",
-          "manufacturer": "משתנה",
-          "promo": null
-        },
-        {
-          "name": "דג ברמונדי טרי      ",
-          "price": 64.9,
-          "unitPrice": 64.9,
-          "unit": "ק\"ג",
-          "quantity": "0.00",
-          "updateDate": "2025-07-16 13:37",
-          "itemCode": "501697",
-          "manufacturer": "משתנה",
-          "promo": null
-        },
-        {
-          "name": "דג ציפורה ענק טרי   ",
-          "price": 99.9,
-          "unitPrice": 99.9,
-          "unit": "ק\"ג",
-          "quantity": "0.00",
-          "updateDate": "2026-03-25 11:32",
-          "itemCode": "502199",
-          "manufacturer": "משתנה",
-          "promo": null
-        },
-        {
-          "name": "דורות גינגר טרי כת  ",
-          "price": 9.9,
-          "unitPrice": 11.0,
-          "unit": "100 גרם",
-          "quantity": "90.00",
-          "updateDate": "2026-02-03 14:06",
-          "itemCode": "7290002253198",
-          "manufacturer": "דורות",
-          "promo": {
-            "id": "356488",
-            "description": "עשבי תיבול/ירק דורות",
-            "endDate": "2026-04-11",
-            "clubOnly": false,
-            "minQty": "2.000",
-            "discountedPrice": 15.0,
-            "discountRate": null
-          }
-        },
-        {
-          "name": "דניס טרי  יחידה     ",
-          "price": 46.9,
-          "unitPrice": 11.73,
-          "unit": "100 גרם",
-          "quantity": "400.00",
-          "updateDate": "2026-03-23 08:01",
-          "itemCode": "501987",
-          "manufacturer": "לא ידוע",
-          "promo": {
-            "id": "358156",
-            "description": "דניס טרי שלם יחידה 3יח ב130 רשתי",
-            "endDate": "2026-05-09",
-            "clubOnly": false,
-            "minQty": "3.000",
-            "discountedPrice": 130.0,
-            "discountRate": null
-          }
-        },
-        {
-          "name": "דניס טרי במשקל      ",
-          "price": 94.9,
-          "unitPrice": 94.9,
-          "unit": "ק\"ג",
-          "quantity": "0.00",
-          "updateDate": "2026-03-22 14:50",
-          "itemCode": "501598",
-          "manufacturer": "משתנה",
-          "promo": null
-        },
-        {
-          "name": "דניס טרי יחידה מוזל ",
-          "price": 25.0,
-          "unitPrice": 6.25,
-          "unit": "100 גרם",
-          "quantity": "400.00",
-          "updateDate": "2025-10-06 09:16",
-          "itemCode": "502090",
-          "manufacturer": "לא ידוע",
-          "promo": null
-        },
-        {
-          "name": "הודו אדום  טרי נקבה ",
-          "price": 59.9,
-          "unitPrice": 59.9,
-          "unit": "ק\"ג",
-          "quantity": "0.00",
-          "updateDate": "2025-07-16 15:57",
-          "itemCode": "401058",
-          "manufacturer": "משתנה",
-          "promo": null
-        },
-        {
-          "name": "הודו שלם  טרי       ",
-          "price": 29.9,
-          "unitPrice": 29.9,
-          "unit": "ק\"ג",
-          "quantity": "0.00",
-          "updateDate": "2025-07-16 15:57",
-          "itemCode": "401010",
-          "manufacturer": "משתנה",
-          "promo": null
-        },
-        {
-          "name": "חזה בקר טרי ללא עצם ",
-          "price": 59.9,
-          "unitPrice": 59.9,
-          "unit": "ק\"ג",
-          "quantity": "0.00",
-          "updateDate": "2025-07-16 12:20",
-          "itemCode": "405865",
-          "manufacturer": "משתנה",
-          "promo": null
-        },
-        {
-          "name": "חזה הודו טרי        ",
-          "price": 42.9,
-          "unitPrice": 42.9,
-          "unit": "ק\"ג",
-          "quantity": "0.00",
-          "updateDate": "2025-10-20 09:48",
-          "itemCode": "401027",
-          "manufacturer": "משתנה",
-          "promo": null
-        },
-        {
-          "name": "חזה עוף ארוז טרי    ",
-          "price": 36.9,
-          "unitPrice": 36.9,
-          "unit": "ק\"ג",
-          "quantity": "0.00",
-          "updateDate": "2025-11-17 12:36",
-          "itemCode": "407708",
-          "manufacturer": "משתנה",
-          "promo": {
-            "id": "358451",
-            "description": "חזה עוף טרי ארוז 29.90עד3ק מעל99",
-            "endDate": "2026-05-09",
-            "clubOnly": false,
-            "minQty": "0.010",
-            "discountedPrice": 29.9,
-            "discountRate": null
-          }
-        },
-        {
-          "name": "חזה עוף חצוי טרי  נק",
-          "price": 46.9,
-          "unitPrice": 46.9,
-          "unit": "ק\"ג",
-          "quantity": "0.00",
-          "updateDate": "2026-01-14 12:03",
-          "itemCode": "400075",
-          "manufacturer": "משתנה",
-          "promo": null
-        },
-        {
-          "name": "חזה עוף טרי ארוז מחפ",
-          "price": 42.9,
-          "unitPrice": 42.9,
-          "unit": "ק\"ג",
-          "quantity": "0.00",
-          "updateDate": "2025-11-25 15:34",
-          "itemCode": "7290004194536",
-          "manufacturer": "עוף ירושלים מהדרין בע'מ",
-          "promo": null
-        },
-        {
-          "name": "חלב טרי דל לקטוז 1 ל",
-          "price": 7.8,
-          "unitPrice": 7.8,
-          "unit": "ליטר",
-          "quantity": "0.00",
-          "updateDate": "2025-07-17 19:35",
-          "itemCode": "7290000040974",
-          "manufacturer": "תנובה",
-          "promo": null
-        },
-        {
-          "name": "חלב טרי מהגולן 1%   ",
-          "price": 6.85,
-          "unitPrice": 6.85,
-          "unit": "ליטר",
-          "quantity": "0.00",
-          "updateDate": "2025-07-17 14:25",
-          "itemCode": "7290000522326",
-          "manufacturer": "מחלבות רמת הגולן",
-          "promo": null
-        },
-        {
-          "name": "חלב טרי מהגולן 3%   ",
-          "price": 7.28,
-          "unitPrice": 7.28,
-          "unit": "ליטר",
-          "quantity": "0.00",
-          "updateDate": "2025-07-17 14:25",
-          "itemCode": "7290000522319",
-          "manufacturer": "מחלבות רמת הגולן",
-          "promo": null
-        },
-        {
-          "name": "חלב תנובה טרי קרט+ פ",
-          "price": 6.85,
-          "unitPrice": 6.85,
-          "unit": "ליטר",
-          "quantity": "0.00",
-          "updateDate": "2025-07-17 14:25",
-          "itemCode": "7290000042435",
-          "manufacturer": "תנובה",
-          "promo": null
-        },
-        {
-          "name": "טחון בקר טרי גס  פרי",
-          "price": 64.9,
-          "unitPrice": 64.9,
-          "unit": "ק\"ג",
-          "quantity": "0.00",
-          "updateDate": "2025-07-16 13:37",
-          "itemCode": "409252",
-          "manufacturer": "מעדני גורמה",
-          "promo": {
-            "id": "336726",
-            "description": "טחון בקר טרי פרימיום 2קג ב-120",
-            "endDate": "2026-05-09",
-            "clubOnly": false,
-            "minQty": "1.900",
-            "discountedPrice": 60.0,
-            "discountRate": null
-          }
-        },
-        {
-          "name": "טחון בקר טרי מוזל   ",
-          "price": 45.0,
-          "unitPrice": 45.0,
-          "unit": "ק\"ג",
-          "quantity": "0.00",
-          "updateDate": "2025-07-16 15:57",
-          "itemCode": "409337",
-          "manufacturer": "לא ידוע",
-          "promo": null
-        },
-        {
-          "name": "טחון בקר פרימיום טרי",
-          "price": 64.9,
-          "unitPrice": 64.9,
-          "unit": "ק\"ג",
-          "quantity": "0.00",
-          "updateDate": "2025-07-16 13:37",
-          "itemCode": "407326",
-          "manufacturer": "מעדני גורמה",
-          "promo": {
-            "id": "336726",
-            "description": "טחון בקר טרי פרימיום 2קג ב-120",
-            "endDate": "2026-05-09",
-            "clubOnly": false,
-            "minQty": "1.900",
-            "discountedPrice": 60.0,
-            "discountRate": null
-          }
-        },
-        {
-          "name": "טחון הודו אדום  טרי ",
-          "price": 62.9,
-          "unitPrice": 62.9,
-          "unit": "ק\"ג",
-          "quantity": "0.00",
-          "updateDate": "2026-02-13 07:36",
-          "itemCode": "401171",
-          "manufacturer": "משתנה",
-          "promo": null
-        },
-        {
-          "name": "טחון עוף טרי        ",
-          "price": 47.9,
-          "unitPrice": 47.9,
-          "unit": "ק\"ג",
-          "quantity": "0.00",
-          "updateDate": "2026-01-13 15:37",
-          "itemCode": "400228",
-          "manufacturer": "משתנה",
-          "promo": {
-            "id": "305995",
-            "description": "טחון עוף טרי 2קג ב80- רשתי",
-            "endDate": "2026-05-09",
-            "clubOnly": false,
-            "minQty": "1.900",
-            "discountedPrice": 40.0,
-            "discountRate": null
-          }
-        },
-        {
-          "name": "ירכיים עוף טרי  פרימ",
-          "price": 29.9,
-          "unitPrice": 29.9,
-          "unit": "ק\"ג",
-          "quantity": "0.00",
-          "updateDate": "2025-07-17 14:25",
-          "itemCode": "400051",
-          "manufacturer": "משתנה",
-          "promo": {
-            "id": "354958",
-            "description": "יריכיים טרי 2קג ב55 רשתי",
-            "endDate": "2026-05-09",
-            "clubOnly": false,
-            "minQty": "1.900",
-            "discountedPrice": 27.5,
-            "discountRate": null
-          }
-        },
-        {
-          "name": "כבד בקר טרי         ",
-          "price": 29.9,
-          "unitPrice": 29.9,
-          "unit": "ק\"ג",
-          "quantity": "0.00",
-          "updateDate": "2025-07-16 13:37",
-          "itemCode": "400655",
-          "manufacturer": "משתנה",
-          "promo": null
-        },
-        {
-          "name": "כבד הודו  טרי       ",
-          "price": 19.9,
-          "unitPrice": 19.9,
-          "unit": "ק\"ג",
-          "quantity": "0.00",
-          "updateDate": "2025-07-17 14:25",
-          "itemCode": "405759",
-          "manufacturer": "משתנה",
-          "promo": null
-        },
-        {
-          "name": "כבד מחפוד טרי ארוז  ",
-          "price": 34.9,
-          "unitPrice": 34.9,
-          "unit": "ק\"ג",
-          "quantity": "0.00",
-          "updateDate": "2025-11-25 15:34",
-          "itemCode": "7290004194598",
-          "manufacturer": "עוף ירושלים מהדרין בע'מ",
-          "promo": null
-        },
-        {
-          "name": "כבד עוף  טרי        ",
-          "price": 24.9,
-          "unitPrice": 24.9,
-          "unit": "ק\"ג",
-          "quantity": "0.00",
-          "updateDate": "2025-07-20 09:18",
-          "itemCode": "400761",
-          "manufacturer": "משתנה",
-          "promo": {
-            "id": "357934",
-            "description": "כבד עוף טרי 11.90עד3קג מעל99",
-            "endDate": "2026-05-09",
-            "clubOnly": false,
-            "minQty": "0.010",
-            "discountedPrice": 11.9,
-            "discountRate": null
-          }
-        },
-        {
-          "name": "כנפיים הודו  טרי    ",
-          "price": 15.9,
-          "unitPrice": 15.9,
-          "unit": "ק\"ג",
-          "quantity": "0.00",
-          "updateDate": "2025-07-20 09:18",
-          "itemCode": "401034",
-          "manufacturer": "משתנה",
-          "promo": {
-            "id": "120997",
-            "description": "כנפיים הודו טרי 14.90 רשתי",
-            "endDate": "2026-05-09",
-            "clubOnly": false,
-            "minQty": "0.010",
-            "discountedPrice": 14.9,
-            "discountRate": null
-          }
-        },
-        {
-          "name": "כנפיים מחפוד טרי ארו",
-          "price": 14.9,
-          "unitPrice": 14.9,
-          "unit": "ק\"ג",
-          "quantity": "0.00",
-          "updateDate": "2025-11-25 15:34",
-          "itemCode": "7290004194550",
-          "manufacturer": "עוף ירושלים מהדרין בע'מ",
-          "promo": null
-        },
-        {
-          "name": "כנפיים עוף טרי  פרימ",
-          "price": 16.9,
-          "unitPrice": 16.9,
-          "unit": "ק\"ג",
-          "quantity": "0.00",
-          "updateDate": "2025-07-16 12:23",
-          "itemCode": "400068",
-          "manufacturer": "משתנה",
-          "promo": {
-            "id": "340844",
-            "description": "כנפיים עוף טרי 2קג ב22 רשתי",
-            "endDate": "2026-05-09",
-            "clubOnly": false,
-            "minQty": "1.900",
-            "discountedPrice": 11.0,
-            "discountRate": null
-          }
-        },
-        {
-          "name": "כנפית עוף טרי       ",
-          "price": 19.9,
-          "unitPrice": 19.9,
-          "unit": "ק\"ג",
-          "quantity": "0.00",
-          "updateDate": "2025-07-16 15:57",
-          "itemCode": "407517",
-          "manufacturer": "משתנה",
-          "promo": {
-            "id": "127742",
-            "description": "כנפית טרי 2קג ב35- רשתי",
-            "endDate": "2026-05-09",
-            "clubOnly": false,
-            "minQty": "1.900",
-            "discountedPrice": 17.5,
-            "discountRate": null
-          }
-        },
-        {
-          "name": "כרעיים טרי ארוז     ",
-          "price": 24.9,
-          "unitPrice": 24.9,
-          "unit": "ק\"ג",
-          "quantity": "0.00",
-          "updateDate": "2025-07-16 15:57",
-          "itemCode": "407692",
-          "manufacturer": "משתנה",
-          "promo": {
-            "id": "347387",
-            "description": "כרעיים טרי ארוז 19.90 עד3ק מעל99",
-            "endDate": "2026-05-09",
-            "clubOnly": false,
-            "minQty": "0.010",
-            "discountedPrice": 19.9,
-            "discountRate": null
-          }
-        },
-        {
-          "name": "כרעיים טרי מקוצב    ",
-          "price": 34.9,
-          "unitPrice": 34.9,
-          "unit": "ק\"ג",
-          "quantity": "0.00",
-          "updateDate": "2025-12-15 12:46",
-          "itemCode": "401317",
-          "manufacturer": "מעדני גורמה",
-          "promo": {
-            "id": "358351",
-            "description": "כרעיים טרי מקוצב 2קג ב68- רשתי",
-            "endDate": "2026-05-09",
-            "clubOnly": false,
-            "minQty": "1.900",
-            "discountedPrice": 34.0,
-            "discountRate": null
-          }
-        },
-        {
-          "name": "כרעיים מחפוד  טרי אר",
-          "price": 37.9,
-          "unitPrice": 37.9,
-          "unit": "ק\"ג",
-          "quantity": "0.00",
-          "updateDate": "2025-11-25 15:34",
-          "itemCode": "7290004194543",
-          "manufacturer": "עוף ירושלים מהדרין בע'מ",
-          "promo": null
-        },
-        {
-          "name": "כרעיים עוף טרי  פרימ",
-          "price": 29.9,
-          "unitPrice": 29.9,
-          "unit": "ק\"ג",
-          "quantity": "0.00",
-          "updateDate": "2025-07-20 09:20",
-          "itemCode": "400037",
-          "manufacturer": "משתנה",
-          "promo": {
-            "id": "354956",
-            "description": "כרעיים טרי 2קג ב55 רשתי",
-            "endDate": "2026-05-09",
-            "clubOnly": false,
-            "minQty": "1.900",
-            "discountedPrice": 27.5,
-            "discountRate": null
-          }
-        },
-        {
-          "name": "כתף בקר טרי         ",
-          "price": 69.9,
-          "unitPrice": 69.9,
-          "unit": "ק\"ג",
-          "quantity": "0.00",
-          "updateDate": "2025-07-16 13:37",
-          "itemCode": "403045",
-          "manufacturer": "משתנה",
-          "promo": {
-            "id": "347141",
-            "description": "כתף בקר טרי 2קג ב130- רשתי",
-            "endDate": "2026-05-09",
-            "clubOnly": false,
-            "minQty": "1.900",
-            "discountedPrice": 65.0,
-            "discountRate": null
-          }
-        },
-        {
-          "name": "כתף כבש טרי         ",
-          "price": 139.9,
-          "unitPrice": 139.9,
-          "unit": "ק\"ג",
-          "quantity": "0.00",
-          "updateDate": "2025-07-16 15:57",
-          "itemCode": "405896",
-          "manufacturer": "משתנה",
-          "promo": null
-        },
-        {
-          "name": "לב הודו  טרי        ",
-          "price": 19.9,
-          "unitPrice": 19.9,
-          "unit": "ק\"ג",
-          "quantity": "0.00",
-          "updateDate": "2025-07-16 15:57",
-          "itemCode": "405766",
-          "manufacturer": "משתנה",
-          "promo": null
-        },
-        {
-          "name": "לברק טרי יחידה כ-400",
-          "price": 46.9,
-          "unitPrice": 11.73,
-          "unit": "100 גרם",
-          "quantity": "400.00",
-          "updateDate": "2026-03-23 08:01",
-          "itemCode": "501994",
-          "manufacturer": "לא ידוע",
-          "promo": {
-            "id": "358157",
-            "description": "לברק טרי שלם יחידה 3יח ב135- רשתי",
-            "endDate": "2026-05-09",
-            "clubOnly": false,
-            "minQty": "3.000",
-            "discountedPrice": 135.0,
-            "discountRate": null
-          }
-        },
-        {
-          "name": "משקה שקדים טרי 1 ליט",
-          "price": 12.9,
-          "unitPrice": 12.9,
-          "unit": "ליטר",
-          "quantity": "0.00",
-          "updateDate": "2026-02-12 15:27",
-          "itemCode": "7290014760141",
-          "manufacturer": "תנובה",
-          "promo": {
-            "id": "357011",
-            "description": "משקאות אלטרנטיב תנובה",
-            "endDate": "2026-05-02",
-            "clubOnly": false,
-            "minQty": "2.000",
-            "discountedPrice": 18.0,
-            "discountRate": null
-          }
-        },
-        {
-          "name": "נתחי פילה סלמון טרי ",
-          "price": 129.9,
-          "unitPrice": 129.9,
-          "unit": "ק\"ג",
-          "quantity": "0.00",
-          "updateDate": "2025-07-16 15:57",
-          "itemCode": "501796",
-          "manufacturer": "לא ידוע",
-          "promo": null
-        },
-        {
-          "name": "סטייק פרגית טרי  פרי",
-          "price": 74.9,
-          "unitPrice": 74.9,
-          "unit": "ק\"ג",
-          "quantity": "0.00",
-          "updateDate": "2026-03-24 13:48",
-          "itemCode": "400129",
-          "manufacturer": "משתנה",
-          "promo": null
-        },
-        {
-          "name": "סינטה דק דק טרי     ",
-          "price": 159.9,
-          "unitPrice": 159.9,
-          "unit": "ק\"ג",
-          "quantity": "0.00",
-          "updateDate": "2025-11-09 11:44",
-          "itemCode": "407227",
-          "manufacturer": "משתנה",
-          "promo": null
-        },
-        {
-          "name": "סרדין ים טרי        ",
-          "price": 74.9,
-          "unitPrice": 74.9,
-          "unit": "ק\"ג",
-          "quantity": "0.00",
-          "updateDate": "2025-10-30 11:02",
-          "itemCode": "501680",
-          "manufacturer": "משתנה",
-          "promo": null
-        },
-        {
-          "name": "עוף טרי  מפורק      ",
-          "price": 22.9,
-          "unitPrice": 22.9,
-          "unit": "ק\"ג",
-          "quantity": "0.00",
-          "updateDate": "2025-07-17 19:35",
-          "itemCode": "400020",
-          "manufacturer": "משתנה",
-          "promo": null
-        },
-        {
-          "name": "עוף טרי ללא עצמות.  ",
-          "price": 41.9,
-          "unitPrice": 41.9,
-          "unit": "ק\"ג",
-          "quantity": "0.00",
-          "updateDate": "2025-07-17 14:25",
-          "itemCode": "400280",
-          "manufacturer": "משתנה",
-          "promo": null
-        },
-        {
-          "name": "עוף טרי שלם         ",
-          "price": 19.9,
-          "unitPrice": 19.9,
-          "unit": "ק\"ג",
-          "quantity": "0.00",
-          "updateDate": "2025-07-16 15:57",
-          "itemCode": "400013",
-          "manufacturer": "משתנה",
-          "promo": null
-        },
-        {
-          "name": "עוף צעיר לגריל טרי  ",
-          "price": 24.9,
-          "unitPrice": 24.9,
-          "unit": "ק\"ג",
-          "quantity": "0.00",
-          "updateDate": "2026-01-05 14:49",
-          "itemCode": "401232",
-          "manufacturer": "לא ידוע",
-          "promo": null
-        },
-        {
-          "name": "עוף שלם טרי ארוז מחפ",
-          "price": 25.9,
-          "unitPrice": 25.9,
-          "unit": "ק\"ג",
-          "quantity": "0.00",
-          "updateDate": "2025-11-25 15:34",
-          "itemCode": "7290004194529",
-          "manufacturer": "עוף ירושלים מהדרין בע'מ",
-          "promo": null
-        },
-        {
-          "name": "עצמות מח טרי        ",
-          "price": 49.9,
-          "unitPrice": 49.9,
-          "unit": "ק\"ג",
-          "quantity": "0.00",
-          "updateDate": "2026-01-02 10:35",
-          "itemCode": "403236",
-          "manufacturer": "משתנה",
-          "promo": null
-        },
-        {
-          "name": "פול ירוק טרי        ",
-          "price": 9.9,
-          "unitPrice": 9.9,
-          "unit": "ק\"ג",
-          "quantity": "0.00",
-          "updateDate": "2025-07-16 15:57",
-          "itemCode": "726",
-          "manufacturer": "לא ידוע",
-          "promo": null
-        },
-        {
-          "name": "פילה אמנון טרי במשקל",
-          "price": 89.9,
-          "unitPrice": 89.9,
-          "unit": "ק\"ג",
-          "quantity": "0.00",
-          "updateDate": "2025-07-20 10:54",
-          "itemCode": "501383",
-          "manufacturer": "משתנה",
-          "promo": null
-        },
-        {
-          "name": "פילה אמנון טרי יחידה",
-          "price": 14.9,
-          "unitPrice": 14.9,
-          "unit": "Unknown",
-          "quantity": "0.00",
-          "updateDate": "2025-07-16 13:37",
-          "itemCode": "501925",
-          "manufacturer": "לא ידוע",
-          "promo": {
-            "id": "355985",
-            "description": "פילה אמנון טרי יחידה 8יח ב100- רשתי",
-            "endDate": "2026-05-09",
-            "clubOnly": false,
-            "minQty": "8.000",
-            "discountedPrice": 100.0,
-            "discountRate": null
-          }
-        },
-        {
-          "name": "פילה בורי טרי יחידה ",
-          "price": 19.9,
-          "unitPrice": 19.9,
-          "unit": "Unknown",
-          "quantity": "0.00",
-          "updateDate": "2025-07-16 15:57",
-          "itemCode": "401164",
-          "manufacturer": "לא ידוע",
-          "promo": {
-            "id": "314925",
-            "description": "פילה בורי טרי יחידה 5יח ב85- רשתי",
-            "endDate": "2026-05-09",
-            "clubOnly": false,
-            "minQty": "5.000",
-            "discountedPrice": 85.0,
-            "discountRate": null
-          }
-        },
-        {
-          "name": "פילה בס טרי יחידה   ",
-          "price": 19.9,
-          "unitPrice": 19.9,
-          "unit": "Unknown",
-          "quantity": "0.00",
-          "updateDate": "2025-07-17 19:35",
-          "itemCode": "501109",
-          "manufacturer": "לא ידוע",
-          "promo": {
-            "id": "347384",
-            "description": "פילה בס טרי יחידה 6יח ב100- רשתי",
-            "endDate": "2026-05-09",
-            "clubOnly": false,
-            "minQty": "6.000",
-            "discountedPrice": 100.0,
-            "discountRate": null
-          }
-        },
-        {
-          "name": "פילה בקר טרי        ",
-          "price": 199.9,
-          "unitPrice": 199.9,
-          "unit": "ק\"ג",
-          "quantity": "0.00",
-          "updateDate": "2025-07-20 09:18",
-          "itemCode": "403106",
-          "manufacturer": "משתנה",
-          "promo": null
-        },
-        {
-          "name": "פילה דניס טרי יחידה ",
-          "price": 23.9,
-          "unitPrice": 23.9,
-          "unit": "Unknown",
-          "quantity": "0.00",
-          "updateDate": "2026-03-23 08:01",
-          "itemCode": "501901",
-          "manufacturer": "לא ידוע",
-          "promo": {
-            "id": "358159",
-            "description": "פילה דניס טרי יחידה 5יח ב110 רשתי",
-            "endDate": "2026-05-09",
-            "clubOnly": false,
-            "minQty": "5.000",
-            "discountedPrice": 110.0,
-            "discountRate": null
-          }
-        },
-        {
-          "name": "פילה דניס טרי יחידה ",
-          "price": 13.9,
-          "unitPrice": 13.9,
-          "unit": "Unknown",
-          "quantity": "0.00",
-          "updateDate": "2025-10-06 09:16",
-          "itemCode": "501956",
-          "manufacturer": "לא ידוע",
-          "promo": null
-        },
-        {
-          "name": "פילה לברק טרי  יחידה",
-          "price": 23.9,
-          "unitPrice": 23.9,
-          "unit": "Unknown",
-          "quantity": "0.00",
-          "updateDate": "2026-03-23 08:01",
-          "itemCode": "501963",
-          "manufacturer": "לא ידוע",
-          "promo": {
-            "id": "358160",
-            "description": "פילה לברק טרי יחידה 5יח ב115- רשתי",
-            "endDate": "2026-05-09",
-            "clubOnly": false,
-            "minQty": "5.000",
-            "discountedPrice": 115.0,
-            "discountRate": null
-          }
-        },
-        {
-          "name": "פילה מדומה טרי      ",
-          "price": 69.9,
-          "unitPrice": 69.9,
-          "unit": "ק\"ג",
-          "quantity": "0.00",
-          "updateDate": "2025-07-16 13:37",
-          "itemCode": "403069",
-          "manufacturer": "משתנה",
-          "promo": {
-            "id": "347142",
-            "description": "פילה מדומה טרי 2קג ב130- רשתי",
-            "endDate": "2026-05-09",
-            "clubOnly": false,
-            "minQty": "1.900",
-            "discountedPrice": 65.0,
-            "discountRate": null
-          }
-        },
-        {
-          "name": "פילה סלמון טרי  פרימ",
-          "price": 119.9,
-          "unitPrice": 119.9,
-          "unit": "ק\"ג",
-          "quantity": "0.00",
-          "updateDate": "2025-07-16 15:57",
-          "itemCode": "502311",
-          "manufacturer": "לא ידוע",
-          "promo": {
-            "id": "353032",
-            "description": "פילה סלמון טרי פרימיום109.90עד3ק מעל99",
-            "endDate": "2026-05-09",
-            "clubOnly": false,
-            "minQty": "0.010",
-            "discountedPrice": 109.9,
-            "discountRate": null
-          }
-        },
-        {
-          "name": "פילה סלמון שלם טרי  ",
-          "price": 109.9,
-          "unitPrice": 109.9,
-          "unit": "ק\"ג",
-          "quantity": "0.00",
-          "updateDate": "2025-07-21 13:30",
-          "itemCode": "501130",
-          "manufacturer": "לא ידוע",
-          "promo": {
-            "id": "353030",
-            "description": "פילה סלמון טרי שלם 99.90עד3ק מעל99",
-            "endDate": "2026-05-09",
-            "clubOnly": false,
-            "minQty": "0.010",
-            "discountedPrice": 99.9,
-            "discountRate": null
-          }
-        },
-        {
-          "name": "פילה עוף טרי  פרימיו",
-          "price": 59.9,
-          "unitPrice": 59.9,
-          "unit": "ק\"ג",
-          "quantity": "0.00",
-          "updateDate": "2026-03-02 14:59",
-          "itemCode": "400082",
-          "manufacturer": "משתנה",
-          "promo": {
-            "id": "356119",
-            "description": "פילה עוף טרי 54.90 רשתי",
-            "endDate": "2026-05-09",
-            "clubOnly": false,
-            "minQty": "0.010",
-            "discountedPrice": 54.9,
-            "discountRate": null
-          }
-        },
-        {
-          "name": "פילה עוף טרי ארוז.  ",
-          "price": 34.9,
-          "unitPrice": 34.9,
-          "unit": "ק\"ג",
-          "quantity": "0.00",
-          "updateDate": "2025-07-20 09:18",
-          "itemCode": "400440",
-          "manufacturer": "לא ידוע",
-          "promo": null
-        },
-        {
-          "name": "פרגיות טרי  פרימיום ",
-          "price": 74.9,
-          "unitPrice": 74.9,
-          "unit": "ק\"ג",
-          "quantity": "0.00",
-          "updateDate": "2026-03-24 13:48",
-          "itemCode": "400693",
-          "manufacturer": "משתנה",
-          "promo": null
-        },
-        {
-          "name": "צוואר כבש טרי       ",
-          "price": 89.9,
-          "unitPrice": 89.9,
-          "unit": "ק\"ג",
-          "quantity": "0.00",
-          "updateDate": "2025-07-16 15:57",
-          "itemCode": "400709",
-          "manufacturer": "משתנה",
-          "promo": null
-        },
-        {
-          "name": "צלי חזה בקר ברשת טרי",
-          "price": 69.9,
-          "unitPrice": 69.9,
-          "unit": "ק\"ג",
-          "quantity": "0.00",
-          "updateDate": "2025-07-16 15:57",
-          "itemCode": "409184",
-          "manufacturer": "לא ידוע",
-          "promo": {
-            "id": "127374",
-            "description": "צלי חזה בקר טרי ברשת 59.90 רשתי",
-            "endDate": "2026-05-09",
-            "clubOnly": false,
-            "minQty": "0.010",
-            "discountedPrice": 59.9,
-            "discountRate": null
-          }
-        },
-        {
-          "name": "צלי כתף טרי חלק פרימ",
-          "price": 109.9,
-          "unitPrice": 109.9,
-          "unit": "ק\"ג",
-          "quantity": "0.00",
-          "updateDate": "2026-02-09 10:52",
-          "itemCode": "403052",
-          "manufacturer": "משתנה",
-          "promo": null
-        },
-        {
-          "name": "צלעות כבש טרי       ",
-          "price": 189.9,
-          "unitPrice": 189.9,
-          "unit": "ק\"ג",
-          "quantity": "0.00",
-          "updateDate": "2025-07-16 15:57",
-          "itemCode": "400716",
-          "manufacturer": "משתנה",
-          "promo": null
-        },
-        {
-          "name": "קוביות שום טרי 80 גר",
-          "price": 10.9,
-          "unitPrice": 13.63,
-          "unit": "100 גרם",
-          "quantity": "80.00",
-          "updateDate": "2026-02-03 14:07",
-          "itemCode": "7290002253105",
-          "manufacturer": "דורות",
-          "promo": {
-            "id": "356475",
-            "description": "קוביות שום דורות",
-            "endDate": "2026-04-11",
-            "clubOnly": false,
-            "minQty": "2.000",
-            "discountedPrice": 18.0,
-            "discountRate": null
-          }
-        },
-        {
-          "name": "קורקבן הודו  טרי    ",
-          "price": 11.9,
-          "unitPrice": 11.9,
-          "unit": "ק\"ג",
-          "quantity": "0.00",
-          "updateDate": "2026-02-13 07:36",
-          "itemCode": "405742",
-          "manufacturer": "משתנה",
-          "promo": null
-        },
-        {
-          "name": "קורקבן עוף  טרי     ",
-          "price": 9.9,
-          "unitPrice": 9.9,
-          "unit": "ק\"ג",
-          "quantity": "0.00",
-          "updateDate": "2025-07-20 09:18",
-          "itemCode": "400174",
-          "manufacturer": "משתנה",
-          "promo": null
-        },
-        {
-          "name": "קרפיון טרי          ",
-          "price": 29.9,
-          "unitPrice": 29.9,
-          "unit": "ק\"ג",
-          "quantity": "0.00",
-          "updateDate": "2025-07-16 13:37",
-          "itemCode": "501291",
-          "manufacturer": "משתנה",
-          "promo": null
-        },
-        {
-          "name": "רבע כבש טרי         ",
-          "price": 119.9,
-          "unitPrice": 119.9,
-          "unit": "ק\"ג",
-          "quantity": "0.00",
-          "updateDate": "2025-09-08 10:25",
-          "itemCode": "408170",
-          "manufacturer": "משתנה",
-          "promo": null
-        },
-        {
-          "name": "שום כתוש טרי 200 גרם",
-          "price": 16.9,
-          "unitPrice": 8.45,
-          "unit": "100 גרם",
-          "quantity": "200.00",
-          "updateDate": "2025-12-01 15:46",
-          "itemCode": "7290002253006",
-          "manufacturer": "דורות",
-          "promo": {
-            "id": "356471",
-            "description": "שום כתוש טרי 200 גרם",
-            "endDate": "2026-04-11",
-            "clubOnly": false,
-            "minQty": "2.000",
-            "discountedPrice": 26.0,
-            "discountRate": null
-          }
-        },
-        {
-          "name": "שוקיים מחפוד טרי ארו",
-          "price": 37.9,
-          "unitPrice": 37.9,
-          "unit": "ק\"ג",
-          "quantity": "0.00",
-          "updateDate": "2025-07-16 15:57",
-          "itemCode": "7290004194574",
-          "manufacturer": "עוף ירושלים מהדרין בע'מ",
-          "promo": null
-        },
-        {
-          "name": "שוקיים עוף טרי  פרימ",
-          "price": 39.9,
-          "unitPrice": 39.9,
-          "unit": "ק\"ג",
-          "quantity": "0.00",
-          "updateDate": "2025-07-16 12:23",
-          "itemCode": "400044",
-          "manufacturer": "משתנה",
-          "promo": {
-            "id": "358272",
-            "description": "שוקיים עוף טרי 2קג ב70  רשתי",
-            "endDate": "2026-05-09",
-            "clubOnly": false,
-            "minQty": "1.900",
-            "discountedPrice": 35.0,
-            "discountRate": null
-          }
-        },
-        {
-          "name": "שוקית כנף עוף טרי   ",
-          "price": 19.9,
-          "unitPrice": 19.9,
-          "unit": "ק\"ג",
-          "quantity": "0.00",
-          "updateDate": "2025-07-19 06:30",
-          "itemCode": "407524",
-          "manufacturer": "משתנה",
-          "promo": {
-            "id": "325337",
-            "description": "שוקית עוף טרי 2קג ב32- רשתי",
-            "endDate": "2026-05-09",
-            "clubOnly": false,
-            "minQty": "1.900",
-            "discountedPrice": 16.0,
-            "discountRate": null
-          }
-        },
-        {
-          "name": "שייטל טרי           ",
-          "price": 99.9,
-          "unitPrice": 99.9,
-          "unit": "ק\"ג",
-          "quantity": "0.00",
-          "updateDate": "2025-07-20 09:18",
-          "itemCode": "405674",
-          "manufacturer": "משתנה",
-          "promo": null
-        },
-        {
-          "name": "שייטל להקפצה טרי    ",
-          "price": 99.9,
-          "unitPrice": 99.9,
-          "unit": "ק\"ג",
-          "quantity": "0.00",
-          "updateDate": "2025-07-20 09:20",
-          "itemCode": "400389",
-          "manufacturer": "משתנה",
-          "promo": null
-        },
-        {
-          "name": "שיפודי פרגיות  טרי  ",
-          "price": 74.9,
-          "unitPrice": 74.9,
-          "unit": "ק\"ג",
-          "quantity": "0.00",
-          "updateDate": "2026-03-24 13:48",
-          "itemCode": "400112",
-          "manufacturer": "משתנה",
-          "promo": null
-        },
-        {
-          "name": "שניצל הודו  טרי     ",
-          "price": 42.9,
-          "unitPrice": 42.9,
-          "unit": "ק\"ג",
-          "quantity": "0.00",
-          "updateDate": "2025-07-16 13:37",
-          "itemCode": "407340",
-          "manufacturer": "משתנה",
-          "promo": {
-            "id": "133887",
-            "description": "שניצל הודו טרי 2קג ב75- רשתי",
-            "endDate": "2026-05-09",
-            "clubOnly": false,
-            "minQty": "1.900",
-            "discountedPrice": 37.5,
-            "discountRate": null
-          }
-        },
-        {
-          "name": "שניצל טרי ארוז      ",
-          "price": 39.9,
-          "unitPrice": 39.9,
-          "unit": "ק\"ג",
-          "quantity": "0.00",
-          "updateDate": "2025-07-23 09:44",
-          "itemCode": "400303",
-          "manufacturer": "לא ידוע",
-          "promo": {
-            "id": "353224",
-            "description": "שניצל טרי ארוז 34.90",
-            "endDate": "2026-05-09",
-            "clubOnly": false,
-            "minQty": "0.010",
-            "discountedPrice": 34.9,
-            "discountRate": null
-          }
-        },
-        {
-          "name": "שניצל מחפוד טרי ארוז",
-          "price": 44.9,
-          "unitPrice": 44.9,
-          "unit": "ק\"ג",
-          "quantity": "0.00",
-          "updateDate": "2025-11-25 15:34",
-          "itemCode": "7290004194635",
-          "manufacturer": "עוף ירושלים מהדרין בע'מ",
-          "promo": null
-        },
-        {
-          "name": "שניצל עוף טרי פרימיו",
-          "price": 56.9,
-          "unitPrice": 56.9,
-          "unit": "ק\"ג",
-          "quantity": "0.00",
-          "updateDate": "2026-03-24 13:48",
-          "itemCode": "400099",
-          "manufacturer": "משתנה",
-          "promo": {
-            "id": "356656",
-            "description": "שניצל עוף טרי 2קג ב100 רשתי",
-            "endDate": "2026-05-09",
-            "clubOnly": false,
-            "minQty": "1.900",
-            "discountedPrice": 50.0,
-            "discountRate": null
-          }
-        },
-        {
-          "name": "שריר הזרוע טרי      ",
-          "price": 69.9,
-          "unitPrice": 69.9,
-          "unit": "ק\"ג",
-          "quantity": "0.00",
-          "updateDate": "2025-07-16 13:37",
-          "itemCode": "403076",
-          "manufacturer": "משתנה",
-          "promo": {
-            "id": "340471",
-            "description": "שריר הזרוע טרי 2קג ב120- רשתי",
-            "endDate": "2026-05-09",
-            "clubOnly": false,
-            "minQty": "1.900",
-            "discountedPrice": 60.0,
-            "discountRate": null
-          }
-        }
-      ]
+      "totalItems": 1,
+      "freshCount": 0,
+      "promoRawCount": 8424,
+      "promoCount": 0,
+      "products": []
     },
     {
       "chain": "דור אלון",
       "store": "AMPM חדרה",
       "feedType": "publishedprices",
-      "fetchTime": "29/03/2026 04:11",
+      "fetchTime": "29/03/2026 04:30",
       "sourceFile": "PriceFull7290492000005-001-594-20260329-002008.gz",
       "promoFile": "PromoFull7290492000005-001-594-20260329-002058.gz",
       "totalItems": 4216,
       "freshCount": 6,
+      "promoRawCount": 12523,
       "promoCount": 6,
       "products": [
         {
@@ -3740,11 +2329,12 @@
       "chain": "דור אלון",
       "store": "חדרה מזרח",
       "feedType": "publishedprices",
-      "fetchTime": "29/03/2026 04:11",
-      "sourceFile": "Price7290492000005-968-202603290621.gz",
-      "promoFile": "Promo7290492000005-968-202603290621.gz",
+      "fetchTime": "29/03/2026 04:30",
+      "sourceFile": "Price7290492000005-968-202603290721.gz",
+      "promoFile": "Promo7290492000005-968-202603290721.gz",
       "totalItems": 0,
       "freshCount": 0,
+      "promoRawCount": 0,
       "promoCount": 0,
       "products": []
     },
@@ -3752,11 +2342,12 @@
       "chain": "דור אלון",
       "store": "עוקף חדרה",
       "feedType": "publishedprices",
-      "fetchTime": "29/03/2026 04:11",
-      "sourceFile": "Price7290492000005-992-202603290622.gz",
-      "promoFile": "Promo7290492000005-992-202603290622.gz",
+      "fetchTime": "29/03/2026 04:30",
+      "sourceFile": "Price7290492000005-992-202603290722.gz",
+      "promoFile": "Promo7290492000005-992-202603290722.gz",
       "totalItems": 0,
       "freshCount": 0,
+      "promoRawCount": 0,
       "promoCount": 0,
       "products": []
     },
@@ -3764,11 +2355,12 @@
       "chain": "פוליצר",
       "store": "רמב\"ם",
       "feedType": "publishedprices",
-      "fetchTime": "29/03/2026 04:11",
+      "fetchTime": "29/03/2026 04:30",
       "sourceFile": "PriceFull7291059100008-001-001-20260329-001004.gz",
       "promoFile": "PromoFull7291059100008-001-001-20260329-001059.gz",
       "totalItems": 10975,
       "freshCount": 66,
+      "promoRawCount": 4584,
       "promoCount": 4,
       "products": [
         {
@@ -4535,11 +3127,12 @@
       "chain": "פוליצר",
       "store": "ניסן",
       "feedType": "publishedprices",
-      "fetchTime": "29/03/2026 04:11",
+      "fetchTime": "29/03/2026 04:31",
       "sourceFile": "PriceFull7291059100008-001-004-20260329-001004.gz",
       "promoFile": "PromoFull7291059100008-001-004-20260329-001114.gz",
       "totalItems": 15197,
       "freshCount": 100,
+      "promoRawCount": 4598,
       "promoCount": 4,
       "products": [
         {
@@ -5680,11 +4273,12 @@
       "chain": "יילו",
       "store": "מתחם חדרה- עבד אל קר",
       "feedType": "publishedprices",
-      "fetchTime": "29/03/2026 04:11",
+      "fetchTime": "29/03/2026 04:31",
       "sourceFile": "Price7290644700005-001-308-20260329-070004.gz",
       "promoFile": "PromoFull7290644700005-001-308-20260329-002112.gz",
       "totalItems": 2597,
       "freshCount": 8,
+      "promoRawCount": 6550,
       "promoCount": 8,
       "products": [
         {
@@ -5845,11 +4439,12 @@
       "chain": "יילו",
       "store": "מתחם זך - ליאת חגג",
       "feedType": "publishedprices",
-      "fetchTime": "29/03/2026 04:11",
+      "fetchTime": "29/03/2026 04:31",
       "sourceFile": "PriceFull7290644700005-001-324-20260329-002008.gz",
       "promoFile": "PromoFull7290644700005-001-324-20260329-002118.gz",
       "totalItems": 3084,
       "freshCount": 1,
+      "promoRawCount": 6668,
       "promoCount": 1,
       "products": [
         {
@@ -5877,11 +4472,12 @@
       "chain": "יילו",
       "store": "מתחם גיא-עירון -עבד",
       "feedType": "publishedprices",
-      "fetchTime": "29/03/2026 04:11",
+      "fetchTime": "29/03/2026 04:31",
       "sourceFile": "PriceFull7290644700005-001-325-20260329-002011.gz",
       "promoFile": "PromoFull7290644700005-001-325-20260329-002110.gz",
       "totalItems": 1486,
       "freshCount": 0,
+      "promoRawCount": 5192,
       "promoCount": 0,
       "products": []
     }
