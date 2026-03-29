@@ -416,6 +416,10 @@ def main():
     with open(STORES_CSV, encoding="utf-8-sig") as f:
         rows = list(csv.DictReader(f))
 
+    # Filter: only rows with a price_prefix (stores to actually fetch).
+    # Rows without price_prefix are recorded in stores.csv for reference but not fetched.
+    rows = [r for r in rows if r.get("price_prefix", "").strip()]
+
     # ── Phase 1: Login once per chain ──────────────────────────────────────
     # For publishedprices chains, login once per (portal_url, username) pair
     # and share the resulting cookies across all stores of that chain.
