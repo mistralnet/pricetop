@@ -364,12 +364,13 @@ class PublishedPricesFetcher:
         self._p(f"  Promos on fresh products: {promo_count}")
 
         return {
-            "sourceFile": latest_price["fname"],
-            "promoFile":  latest_promo["fname"] if latest_promo else None,
-            "totalItems": len(all_items),
-            "freshCount": len(fresh_items),
-            "promoCount": promo_count,
-            "products":   products,
+            "sourceFile":    latest_price["fname"],
+            "promoFile":     latest_promo["fname"] if latest_promo else None,
+            "totalItems":    len(all_items),
+            "freshCount":    len(fresh_items),
+            "promoRawCount": len(promo_map),
+            "promoCount":    promo_count,
+            "products":      products,
         }
 
 
